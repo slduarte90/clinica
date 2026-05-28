@@ -67,9 +67,31 @@
         heading.style.marginBottom = '34px';
       }
 
+      function ensureFaqAnswers() {
+        const answers = {
+          'Como faço para agendar?': 'Para agendar sua consulta no Centro de Especialidades em Saúde e Bem-estar, você pode entrar em contato diretamente com nossa secretária pelo telefone ou WhatsApp pelo número (35) 3522-8035.',
+          'Posso tirar dúvidas antes de marcar?': 'Sim. Iniciar um tratamento nutricional é uma decisão importante e é normal ter dúvidas. Se quiser entender melhor como funciona o tratamento ou como eu posso te ajudar, podemos agendar uma Sessão Clareza antes de iniciarmos os atendimentos. Esse é um espaço rápido e sem compromisso para alinharmos as expectativas.',
+          'O atendimento é com horário marcado?': 'Sim. O horário deve ser agendado com nossa secretária. Aqui, a pontualidade é um dos nossos valores, por isso programe-se para chegar uns 5 minutinhos antes. Você não vai ficar esperando horas na recepção.',
+          'Vocês atendem por WhatsApp?': 'Sim, por WhatsApp e ligação.',
+          'Quais formas de pagamento são aceitas?': 'Aceitamos as seguintes formas de pagamento: Pix, cartões de crédito e débito e dinheiro.'
+        };
+
+        document.querySelectorAll('#duvidas .faq-list details').forEach(function (item) {
+          const summary = item.querySelector('summary');
+          const paragraph = item.querySelector('p');
+          if (!summary || !paragraph) return;
+
+          const question = summary.textContent.trim();
+          if (answers[question]) {
+            paragraph.textContent = answers[question];
+          }
+        });
+      }
+
       function ensureInteractiveEnhancements() {
         ensureFooterContactLinks();
         ensureSpecialtiesTitle();
+        ensureFaqAnswers();
       }
 
       document.addEventListener('DOMContentLoaded', ensureInteractiveEnhancements);
