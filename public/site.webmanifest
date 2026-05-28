@@ -1,0 +1,25 @@
+{
+  "name": "Especialidades em Saúde e Bem-Estar",
+  "short_name": "Clínica",
+  "description": "Especialidades em Saúde e Bem-Estar em Passos-MG. Atendimento humanizado e agendamento pelo WhatsApp.",
+  "start_url": "/clinica/",
+  "scope": "/clinica/",
+  "display": "standalone",
+  "background_color": "#F6FAF8",
+  "theme_color": "#0B4F49",
+  "lang": "pt-BR",
+  "icons": [
+    {
+      "src": "/clinica/favicon.png?v=5",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+    },
+    {
+      "src": "/clinica/logo.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
