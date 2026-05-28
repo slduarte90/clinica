@@ -9,8 +9,17 @@ const WHATSAPP_NUMBER = '553535228035';
 const WHATSAPP_DISPLAY = '(35) 3522-8035';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 const ADDRESS = 'Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG - 37.900-042';
-const HOURS = 'Segunda a quinta-feira das 08:00 às 18:00. Sextas-feiras das 08:00 às 17:00.';
 const LOGO_SRC = '/logo.png';
+
+const HOURS = [
+  { day: 'Segunda-feira', time: '08:00 às 18:00' },
+  { day: 'Terça-feira', time: '08:00 às 18:00' },
+  { day: 'Quarta-feira', time: '08:00 às 18:00' },
+  { day: 'Quinta-feira', time: '08:00 às 18:00' },
+  { day: 'Sexta-feira', time: '08:00 às 17:00' },
+  { day: 'Sábado', time: 'Fechado' },
+  { day: 'Domingo', time: 'Fechado' },
+];
 
 const services = [
   'Avaliação inicial',
@@ -82,24 +91,168 @@ function BrandLogo({ compact = false }) {
   );
 }
 
-function App() {
+function Header() {
+  return (
+    <header className="site-header">
+      <div className="container header-inner">
+        <a href="/"><BrandLogo compact /></a>
+
+        <nav className="nav">
+          <a href="/#inicio">Início</a>
+          <a href="/#servicos">Serviços</a>
+          <a href="/#sobre">Sobre</a>
+          <a href="/#duvidas">Dúvidas</a>
+          <a href="/#contato">Contato</a>
+        </nav>
+
+        <Button>Agendar pelo WhatsApp</Button>
+      </div>
+    </header>
+  );
+}
+
+function HoursList() {
+  return (
+    <div className="hours-list">
+      {HOURS.map((item) => (
+        <span key={item.day}>{item.day}: {item.time}</span>
+      ))}
+    </div>
+  );
+}
+
+function Footer() {
+  return (
+    <footer className="site-footer">
+      <div className="container footer-grid">
+        <div>
+          <BrandLogo compact />
+          <p>Cuidado, acolhimento e especialidades em saúde para você e sua família.</p>
+        </div>
+        <div>
+          <strong>Links</strong>
+          <a href="/#servicos">Serviços</a>
+          <a href="/#sobre">Sobre</a>
+          <a href="/#contato">Contato</a>
+          <a href="/politica-de-privacidade">Política de Privacidade</a>
+        </div>
+        <div>
+          <strong>Contato</strong>
+          <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a>
+          <span>{ADDRESS}</span>
+          <HoursList />
+        </div>
+      </div>
+    </footer>
+  );
+}
+
+function PrivacyPolicy() {
   return (
     <div className="site-shell">
-      <header className="site-header">
-        <div className="container header-inner">
-          <BrandLogo compact />
+      <Header />
+      <main className="privacy-page">
+        <section className="privacy-hero">
+          <div className="container narrow">
+            <p className="section-kicker">LGPD</p>
+            <h1>Política de Privacidade</h1>
+            <p>
+              Esta Política de Privacidade explica como {BRAND_NAME} coleta, utiliza, armazena e protege dados pessoais fornecidos por visitantes, pacientes e interessados em atendimento, em conformidade com a Lei Geral de Proteção de Dados Pessoais (LGPD — Lei nº 13.709/2018).
+            </p>
+            <p className="privacy-updated">Última atualização: 28 de maio de 2026.</p>
+          </div>
+        </section>
 
-          <nav className="nav">
-            <a href="#inicio">Início</a>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#duvidas">Dúvidas</a>
-            <a href="#contato">Contato</a>
-          </nav>
+        <section className="privacy-content">
+          <div className="container narrow privacy-card">
+            <h2>1. Quem somos</h2>
+            <p>
+              {BRAND_NAME} é um centro de especialidades em saúde e bem-estar localizado em {ADDRESS}. Para assuntos relacionados a privacidade e proteção de dados, o contato pode ser feito pelo WhatsApp {WHATSAPP_DISPLAY}.
+            </p>
 
-          <Button>Agendar pelo WhatsApp</Button>
-        </div>
-      </header>
+            <h2>2. Quais dados podemos coletar</h2>
+            <p>Podemos coletar dados fornecidos voluntariamente pelo usuário ao entrar em contato, solicitar informações ou agendar atendimento, tais como:</p>
+            <ul>
+              <li>nome;</li>
+              <li>telefone e/ou WhatsApp;</li>
+              <li>mensagem enviada pelo formulário, botão de contato ou WhatsApp;</li>
+              <li>informações relacionadas ao atendimento solicitado;</li>
+              <li>dados técnicos de navegação, como endereço IP, dispositivo, navegador, páginas acessadas e cookies, quando aplicável.</li>
+            </ul>
+            <p>
+              Em determinados contatos, informações relacionadas à saúde podem ser mencionadas pelo próprio usuário. Esses dados são considerados sensíveis pela LGPD e devem ser tratados com maior cuidado e finalidade específica.
+            </p>
+
+            <h2>3. Para quais finalidades usamos os dados</h2>
+            <p>Os dados pessoais podem ser utilizados para:</p>
+            <ul>
+              <li>responder dúvidas e solicitações de contato;</li>
+              <li>realizar pré-atendimento e agendamento;</li>
+              <li>confirmar horários, endereço e informações sobre serviços;</li>
+              <li>melhorar a experiência de navegação no site;</li>
+              <li>mensurar resultados de campanhas, quando houver ferramentas de análise ou mídia;</li>
+              <li>cumprir obrigações legais, regulatórias ou administrativas aplicáveis.</li>
+            </ul>
+
+            <h2>4. Base legal para tratamento</h2>
+            <p>
+              O tratamento de dados poderá ocorrer com base no consentimento do titular, na execução de procedimentos preliminares relacionados a atendimento solicitado, no cumprimento de obrigação legal ou regulatória, na proteção da saúde e no legítimo interesse, sempre observando os princípios da finalidade, necessidade, transparência e segurança previstos na LGPD.
+            </p>
+
+            <h2>5. Compartilhamento de dados</h2>
+            <p>
+              Os dados poderão ser compartilhados apenas quando necessário para viabilizar contato, atendimento, ferramentas tecnológicas, hospedagem do site, análise de métricas, cumprimento de obrigações legais ou proteção de direitos. Não vendemos dados pessoais.
+            </p>
+
+            <h2>6. Cookies e tecnologias de navegação</h2>
+            <p>
+              O site poderá utilizar cookies e tecnologias semelhantes para funcionamento, análise de navegação, melhoria de experiência e mensuração de campanhas. O usuário pode ajustar as permissões de cookies diretamente nas configurações do navegador.
+            </p>
+
+            <h2>7. Armazenamento e segurança</h2>
+            <p>
+              Mantemos os dados pessoais pelo tempo necessário para cumprir as finalidades desta Política, obrigações legais e defesa de direitos. Adotamos medidas razoáveis de segurança para reduzir riscos de acesso não autorizado, perda, alteração, divulgação indevida ou uso inadequado dos dados.
+            </p>
+
+            <h2>8. Direitos do titular dos dados</h2>
+            <p>Nos termos da LGPD, o titular pode solicitar, quando aplicável:</p>
+            <ul>
+              <li>confirmação da existência de tratamento;</li>
+              <li>acesso aos dados pessoais;</li>
+              <li>correção de dados incompletos, inexatos ou desatualizados;</li>
+              <li>anonimização, bloqueio ou eliminação de dados desnecessários, excessivos ou tratados em desconformidade;</li>
+              <li>informações sobre compartilhamento;</li>
+              <li>revogação do consentimento;</li>
+              <li>eliminação dos dados tratados com consentimento, quando cabível.</li>
+            </ul>
+            <p>Para exercer seus direitos, entre em contato pelo WhatsApp {WHATSAPP_DISPLAY}.</p>
+
+            <h2>9. Links para terceiros</h2>
+            <p>
+              O site pode conter links para WhatsApp, mapas, redes sociais ou outras plataformas externas. Essas plataformas possuem políticas próprias de privacidade e segurança, pelas quais são responsáveis.
+            </p>
+
+            <h2>10. Alterações nesta Política</h2>
+            <p>
+              Esta Política de Privacidade poderá ser atualizada a qualquer momento para refletir mudanças legais, operacionais ou tecnológicas. A versão mais recente estará sempre disponível nesta página.
+            </p>
+
+            <h2>11. Contato</h2>
+            <p>
+              Para dúvidas sobre privacidade, proteção de dados ou solicitações relacionadas à LGPD, fale conosco pelo WhatsApp {WHATSAPP_DISPLAY} ou pelo endereço {ADDRESS}.
+            </p>
+          </div>
+        </section>
+      </main>
+      <Footer />
+    </div>
+  );
+}
+
+function HomePage() {
+  return (
+    <div className="site-shell">
+      <Header />
 
       <main>
         <section id="inicio" className="hero section-blush">
@@ -256,29 +409,19 @@ function App() {
         </section>
       </main>
 
-      <footer className="site-footer">
-        <div className="container footer-grid">
-          <div>
-            <BrandLogo compact />
-            <p>Cuidado, acolhimento e especialidades em saúde para você e sua família.</p>
-          </div>
-          <div>
-            <strong>Links</strong>
-            <a href="#servicos">Serviços</a>
-            <a href="#sobre">Sobre</a>
-            <a href="#contato">Contato</a>
-            <span>Política de Privacidade</span>
-          </div>
-          <div>
-            <strong>Contato</strong>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a>
-            <span>{ADDRESS}</span>
-            <span>{HOURS}</span>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
+}
+
+function App() {
+  const pathname = window.location.pathname;
+
+  if (pathname === '/politica-de-privacidade') {
+    return <PrivacyPolicy />;
+  }
+
+  return <HomePage />;
 }
 
 createRoot(document.getElementById('root')).render(<App />);
