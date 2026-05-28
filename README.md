@@ -43,7 +43,10 @@ clinica/
 │   ├── footer-specialty-layout.css
 │   ├── green-theme.css
 │   ├── logo.png
-│   └── logo02.png
+│   ├── logo02.png
+│   ├── robots.txt
+│   ├── sitemap.xml
+│   └── site.webmanifest
 ├── src/
 │   ├── main.jsx
 │   └── styles.css
@@ -94,13 +97,29 @@ Ajustes complementares do rodapé e das páginas de especialidade.
 
 Arquivo usado para redirecionamento de rotas internas no GitHub Pages, preservando o caminho acessado e retornando para `/clinica/`.
 
+### `public/robots.txt`
+
+Arquivo de orientação para mecanismos de busca. Atualmente permite indexação geral e aponta para o sitemap provisório do GitHub Pages.
+
+### `public/sitemap.xml`
+
+Sitemap provisório com as rotas atuais do projeto. Deve ser atualizado quando houver domínio oficial.
+
+### `public/site.webmanifest`
+
+Manifesto web com nome, descrição, cores e ícones do site para melhor suporte em navegadores e dispositivos móveis.
+
+### `index.html`
+
+Arquivo HTML base do Vite. Inclui metadados SEO iniciais, Open Graph, Twitter Cards, ícones, manifesto e folhas de estilo públicas.
+
 ### `vite.config.js`
 
 Define o `base: '/clinica/'`, necessário para o GitHub Pages deste repositório.
 
 ### `.github/workflows/deploy.yml`
 
-Workflow de deploy automático para GitHub Pages quando houver push na branch `main`.
+Workflow de deploy automático para GitHub Pages quando houver push na branch `main`. O fluxo instala dependências, executa `npm run check` e publica a pasta `dist`.
 
 ### `.env.example`
 
@@ -121,6 +140,12 @@ Para gerar build de produção:
 npm run build
 ```
 
+Para rodar a verificação padrão do projeto:
+
+```bash
+npm run check
+```
+
 Para visualizar o build:
 
 ```bash
@@ -138,7 +163,7 @@ Fluxo atual:
 1. checkout do repositório;
 2. instalação do Node 20;
 3. instalação das dependências com `npm install`;
-4. build com `npm run build`;
+4. verificação com `npm run check`;
 5. publicação da pasta `dist` no GitHub Pages.
 
 ---
@@ -169,6 +194,29 @@ Fluxo atual:
 
 ---
 
+## SEO técnico atual
+
+O projeto já possui uma base inicial de SEO técnico:
+
+- meta description no `index.html`;
+- Open Graph para compartilhamento em redes sociais;
+- Twitter Cards;
+- `theme-color`;
+- `robots.txt`;
+- `sitemap.xml` provisório;
+- `site.webmanifest`;
+- canonical dinâmico definido no React por rota.
+
+Quando o domínio oficial for definido, será necessário atualizar:
+
+- `og:url`;
+- `og:image`;
+- URLs do `sitemap.xml`;
+- URL do sitemap no `robots.txt`;
+- possivelmente `start_url` e `scope` no `site.webmanifest`, caso o site deixe de usar `/clinica/`.
+
+---
+
 ## Pontos técnicos pendentes
 
 A base funciona, mas há pontos planejados para limpeza gradual:
@@ -179,7 +227,7 @@ A base funciona, mas há pontos planejados para limpeza gradual:
 4. Mover conteúdos criados via pseudo-elementos CSS para HTML/JSX real.
 5. Corrigir o listener global de clique no `main.jsx` para remover o evento no cleanup.
 6. Substituir textos provisórios por conteúdo definitivo.
-7. Fixar versões de dependências e adicionar lockfile.
+7. Adicionar lockfile para permitir uso futuro de `npm ci`.
 8. Implementar eventos de rastreamento para WhatsApp e campanhas.
 
 ---
@@ -221,5 +269,5 @@ No momento, o `main.jsx` ainda usa constantes internas. A migração para variá
 2. Consolidar o CSS de tema.
 3. Transformar ajustes do rodapé em estrutura React real.
 4. Revisar textos provisórios.
-5. Travar versões das dependências.
+5. Adicionar lockfile e migrar workflow para `npm ci`.
 6. Adicionar rastreamento de conversão.
