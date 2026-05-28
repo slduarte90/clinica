@@ -26,7 +26,7 @@
     <link rel="stylesheet" href="%BASE_URL%green-theme.css?v=10" />
     <link rel="stylesheet" href="%BASE_URL%footer-logo.css?v=10" />
     <link rel="stylesheet" href="%BASE_URL%footer-specialty-layout.css?v=12" />
-    <link rel="stylesheet" href="%BASE_URL%home-hero-image.css?v=1" />
+    <link rel="stylesheet" href="%BASE_URL%home-hero-image.css?v=2" />
     <title>Especialidades em Saúde e Bem-Estar | Atendimento Humanizado</title>
   </head>
   <body>
@@ -42,23 +42,62 @@
           '<span>Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -</span>',
           '<span>37.900-042</span>',
           '<a href="https://wa.me/553535228035?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20agendar%20uma%20consulta!" target="_blank" rel="noreferrer">WhatsApp: (35) 3522-8035</a>',
-          '<a href="mailto:saudeebemestarpassos@gmail.com">E-mail: saudeebemestarpassos@gmail.com</a>'
+          '<a href="mailto:saudeebemestarpassos@gmail.com" data-footer-email="true">E-mail: saudeebemestarpassos@gmail.com</a>'
         ].join('');
 
         brandColumn.appendChild(contact);
       }
 
-      document.addEventListener('DOMContentLoaded', ensureFooterContactLinks);
-      window.addEventListener('load', ensureFooterContactLinks);
-      setTimeout(ensureFooterContactLinks, 500);
+      function ensureSpecialtiesTitle() {
+        const heading = document.querySelector('#especialidades .section-heading');
+        if (!heading) return;
+
+        const kicker = heading.querySelector('.section-kicker');
+        const title = heading.querySelector('h2');
+        const description = heading.querySelector('p:not(.section-kicker)');
+
+        if (kicker) kicker.style.display = 'none';
+        if (description) description.style.display = 'none';
+        if (title) {
+          title.textContent = 'Especialidades';
+          title.style.marginBottom = '0';
+        }
+
+        heading.style.maxWidth = '760px';
+        heading.style.marginBottom = '34px';
+      }
+
+      function ensureInteractiveEnhancements() {
+        ensureFooterContactLinks();
+        ensureSpecialtiesTitle();
+      }
+
+      document.addEventListener('DOMContentLoaded', ensureInteractiveEnhancements);
+      window.addEventListener('load', ensureInteractiveEnhancements);
+      setTimeout(ensureInteractiveEnhancements, 300);
+      setTimeout(ensureInteractiveEnhancements, 900);
 
       document.addEventListener('click', function (event) {
-        const contactLink = event.target.closest('a[href$="#contato"]');
+        const emailLink = event.target.closest('a[data-footer-email="true"]');
+        if (emailLink) {
+          event.preventDefault();
+          event.stopImmediatePropagation();
+          window.location.href = emailLink.href;
+          return;
+        }
 
+        const contactLink = event.target.closest('a[href$="#contato"]');
         if (contactLink && contactLink.origin === window.location.origin) {
           event.preventDefault();
+          event.stopImmediatePropagation();
           window.history.replaceState(null, '', contactLink.href);
-          window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+          setTimeout(function () {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+          }, 30);
+          setTimeout(function () {
+            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+          }, 250);
+          return;
         }
 
         document.querySelectorAll('.nav-dropdown[open]').forEach(function (dropdown) {
@@ -69,7 +108,7 @@
             dropdown.removeAttribute('open');
           }
         });
-      });
+      }, true);
     </script>
     <script type="module" src="/src/main.jsx"></script>
   </body>
