@@ -1,242 +1,110 @@
 # Clínica — Site institucional e landing pages
 
-Projeto de site institucional e comercial para uma clínica/centro de especialidades, com foco em **impulsionamentos**, **captação de leads**, **agendamento via WhatsApp** e boas práticas de **SEO técnico e conteúdo**.
+Projeto de site institucional e comercial para uma clínica/centro de especialidades, com foco em campanhas, captação de leads, agendamento via WhatsApp, SEO local e publicação via GitHub Pages.
 
-O objetivo é criar uma base visual moderna, leve e orientada à conversão, para depois evoluir aos poucos com a identidade final, logo oficial, serviços reais, textos definitivos, rastreamento e integrações.
-
----
-
-## Contexto do projeto
-
-O site será usado principalmente para campanhas de tráfego pago, como Google Ads, Meta Ads e impulsionamentos em redes sociais. Por isso, a prioridade não é apenas ter uma página bonita, mas sim uma estrutura rápida, clara e preparada para converter visitantes em contatos.
-
-A referência inicial usada foi o site:
-
-```txt
-https://diagnosticoclinica.com.br/home
-```
-
-A referência foi considerada apenas para entender uma estrutura comum de site de clínica: menu simples, chamada de agendamento, serviços em destaque, informações institucionais, contato e páginas auxiliares.
-
-Todo o projeto deve ter identidade própria. Não será copiado conteúdo, imagens, marca, textos, médicos, endereços, exames, convênios ou qualquer elemento institucional da clínica de referência.
-
----
-
-## Direção visual
-
-A primeira direção visual definida foi uma estética mais acolhedora, moderna e feminina, com uso de tons de rosa, nude e vinho/ameixa.
-
-### Paleta inicial
-
-| Uso | Cor |
-|---|---|
-| Rosa principal | `#E94F8A` |
-| Rosa escuro | `#B92D62` |
-| Rosa claro de fundo | `#FFF1F6` |
-| Rosa nude | `#F7C6D9` |
-| Ameixa para títulos | `#4A1F33` |
-| Branco | `#FFFFFF` |
-| Cinza texto | `#5F5F68` |
-| Cinza fundo alternativo | `#F8F6F7` |
-
-### Estilo desejado
-
-- Visual moderno, limpo e acolhedor.
-- Botões arredondados e bem visíveis.
-- Cards com bordas arredondadas e sombra suave.
-- Seções com bastante respiro visual.
-- Layout responsivo com prioridade para celular.
-- Imagens humanizadas e profissionais.
-- Ícones simples e leves.
-- Tom comercial, direto e orientado à ação.
-
----
-
-## Identidade e logo
-
-Neste momento, o projeto voltou para uma versão inicial com placeholder de marca:
-
-```txt
-Nome da Marca
-```
-
-A logo definitiva ainda será enviada em arquivo sem fundo. Quando o arquivo correto for recebido, ele deve ser salvo em:
-
-```txt
-public/logo.png
-```
-
-Depois disso, o layout deve ser ajustado para carregar a logo real no header, hero e rodapé.
-
----
-
-## Estrutura inicial do site
-
-A página inicial foi planejada com a seguinte estrutura:
-
-1. **Header**
-   - Logo ou placeholder de marca.
-   - Menu principal.
-   - Botão de agendamento pelo WhatsApp.
-
-2. **Hero principal**
-   - Chamada forte para atendimento rápido e humanizado.
-   - Texto curto de apoio.
-   - Botões de ação.
-   - Selos de confiança, como resposta rápida e atendimento com horário.
-
-3. **Benefícios**
-   - Agendamento facilitado.
-   - Atendimento acolhedor.
-   - Serviços organizados.
-   - Foco em praticidade.
-
-4. **Serviços**
-   - Cards provisórios para os serviços.
-   - Cada card terá depois o nome real do serviço e uma chamada para ação.
-
-5. **Chamada de campanha**
-   - Bloco forte para conversão.
-   - Texto voltado para quem chegou por anúncio.
-   - CTA para WhatsApp.
-
-6. **Sobre a marca**
-   - Texto institucional curto.
-   - Foco em cuidado, clareza e praticidade.
-
-7. **FAQ**
-   - Perguntas frequentes para reduzir dúvidas antes do contato.
-
-8. **CTA final**
-   - Chamada direta para agendamento.
-
-9. **Rodapé**
-   - Marca.
-   - Links principais.
-   - Dados de contato provisórios.
-
----
-
-## Páginas recomendadas para evolução
-
-Além da home, o projeto deve evoluir para as seguintes páginas:
-
-### Home
-
-Página principal com foco em autoridade, clareza e conversão.
-
-### Serviços
-
-Página dedicada para listar e explicar os serviços reais da clínica. Ideal para SEO e para campanhas segmentadas.
-
-### Landing pages por serviço
-
-Páginas específicas para anúncios. Cada serviço importante pode ter uma landing page própria, com promessa clara, benefício, prova de confiança, FAQ e CTA.
-
-### Sobre
-
-Página institucional para reforçar credibilidade, propósito e diferenciais.
-
-### Contato
-
-Página com WhatsApp, formulário, endereço, horário de atendimento e mapa, se houver localização física.
-
-### Política de Privacidade
-
-Página obrigatória para campanhas e captação de dados.
-
-### Página de Obrigado
-
-Página usada após envio de formulário para rastrear conversões.
-
----
-
-## SEO e boas práticas
-
-Mesmo sendo um site voltado a impulsionamentos, a base deve respeitar boas práticas de SEO para melhorar qualidade da página, experiência do usuário e consistência das campanhas.
-
-### Requisitos de SEO
-
-- Apenas um `H1` por página.
-- Uso correto de `H2` e `H3` nas seções.
-- URLs curtas e descritivas.
-- Meta title e meta description únicos por página.
-- Conteúdo original, sem cópia da referência.
-- Imagens comprimidas e preferencialmente em WebP.
-- Texto alternativo em imagens relevantes.
-- Links internos entre páginas.
-- Layout responsivo.
-- Boa velocidade no mobile.
-- Página de Política de Privacidade.
-- Conteúdo claro, comercial e útil.
-
-### Meta title provisório da home
-
-```txt
-Atendimento Humanizado com Agendamento Rápido | Nome da Marca
-```
-
-### Meta description provisória da home
-
-```txt
-Agende seu atendimento com praticidade, tire dúvidas pelo WhatsApp e conte com uma equipe preparada para orientar você com clareza e cuidado.
-```
-
----
-
-## Tráfego pago e rastreamento
-
-O projeto deve ser preparado para campanhas de tráfego pago e mensuração de conversões.
-
-### Configurações futuras recomendadas
-
-- Google Tag Manager.
-- Google Analytics 4.
-- Meta Pixel.
-- Google Ads Conversion Tag.
-- Evento de clique no WhatsApp.
-- Evento de envio de formulário.
-- Página de obrigado.
-- Conversões separadas por campanha ou serviço.
+O projeto usa uma base visual leve e responsiva, com identidade em verde petróleo, páginas por especialidade e estrutura preparada para evoluir com textos definitivos, rastreamento e integrações.
 
 ---
 
 ## Stack atual
-
-A primeira versão foi criada como projeto frontend simples para facilitar edição e versionamento.
 
 - React
 - Vite
 - CSS puro
 - Lucide React para ícones
 - Framer Motion para animações leves
+- GitHub Pages para deploy
 
 ---
 
-## Estrutura de arquivos
+## Objetivo do site
+
+O site foi pensado para:
+
+- apresentar a clínica de forma clara e profissional;
+- direcionar usuários para agendamento pelo WhatsApp;
+- apoiar campanhas de tráfego pago;
+- criar páginas específicas por especialidade para SEO local;
+- manter uma base simples de evoluir sem backend nesta fase.
+
+---
+
+## Estrutura atual
 
 ```txt
 clinica/
-├── README.md
-├── index.html
-├── package.json
-└── src/
-    ├── main.jsx
-    └── styles.css
-```
-
-Estrutura futura esperada:
-
-```txt
-clinica/
+├── .github/
+│   └── workflows/
+│       └── deploy.yml
 ├── public/
-│   └── logo.png
+│   ├── 404.html
+│   ├── favicon.png
+│   ├── footer-logo.css
+│   ├── footer-specialty-layout.css
+│   ├── green-theme.css
+│   ├── logo.png
+│   └── logo02.png
 ├── src/
 │   ├── main.jsx
-│   ├── styles.css
-│   └── assets/
-└── README.md
+│   └── styles.css
+├── .env.example
+├── .gitignore
+├── index.html
+├── package.json
+├── README.md
+└── vite.config.js
 ```
+
+---
+
+## Arquivos principais
+
+### `src/main.jsx`
+
+Concentra a aplicação React, incluindo:
+
+- dados principais da marca;
+- número de WhatsApp;
+- endereço;
+- horários de atendimento;
+- header;
+- footer;
+- home;
+- página de Política de Privacidade;
+- páginas de especialidades;
+- roteamento simples baseado em `window.location.pathname`.
+
+### `src/styles.css`
+
+CSS base da aplicação. Ainda contém variáveis e estilos originais da primeira versão visual.
+
+### `public/green-theme.css`
+
+Camada atual de tema verde petróleo aplicada sobre o CSS base.
+
+### `public/footer-logo.css`
+
+Ajuste temporário que troca a logo do rodapé para `logo02.png` via CSS.
+
+### `public/footer-specialty-layout.css`
+
+Ajustes complementares do rodapé e das páginas de especialidade.
+
+### `public/404.html`
+
+Arquivo usado para redirecionamento de rotas internas no GitHub Pages, preservando o caminho acessado e retornando para `/clinica/`.
+
+### `vite.config.js`
+
+Define o `base: '/clinica/'`, necessário para o GitHub Pages deste repositório.
+
+### `.github/workflows/deploy.yml`
+
+Workflow de deploy automático para GitHub Pages quando houver push na branch `main`.
+
+### `.env.example`
+
+Modelo de variáveis públicas futuras para marca, WhatsApp, endereço e rastreamento.
 
 ---
 
@@ -261,56 +129,97 @@ npm run preview
 
 ---
 
-## Conteúdo provisório atual
+## Deploy
 
-Os textos e serviços atuais são placeholders. Eles devem ser substituídos quando forem definidos os dados reais da marca.
+O deploy é feito automaticamente pelo GitHub Actions em pushes para a branch `main`.
 
-### Serviços provisórios
+Fluxo atual:
 
-- Avaliação inicial
-- Consulta especializada
-- Atendimento preventivo
-- Procedimentos personalizados
-- Acompanhamento contínuo
-- Orientação pelo WhatsApp
-
-### Dados pendentes
-
-- Nome definitivo da marca.
-- Logo oficial sem fundo.
-- Segmento exato da clínica.
-- Serviços reais.
-- WhatsApp.
-- Endereço.
-- Horário de atendimento.
-- Cidades ou regiões atendidas.
-- Fotos próprias, se houver.
-- Oferta principal para anúncios.
-- Público-alvo principal.
+1. checkout do repositório;
+2. instalação do Node 20;
+3. instalação das dependências com `npm install`;
+4. build com `npm run build`;
+5. publicação da pasta `dist` no GitHub Pages.
 
 ---
 
-## Decisões já tomadas
+## Rotas atuais
 
-- Usar o site de referência apenas como inspiração funcional.
-- Não copiar conteúdo, imagens, layout exato ou identidade visual da referência.
-- Criar uma identidade própria baseada em rosa, nude e ameixa.
-- Priorizar velocidade, clareza e conversão.
-- Manter a primeira versão sem logo definitiva até receber o arquivo correto.
-- Preparar o projeto para receber a logo em `public/logo.png`.
-- Trabalhar com evolução gradual pelo GitHub.
+- `/clinica/` — Home
+- `/clinica/politica-de-privacidade` — Política de Privacidade
+- `/clinica/especialidades/ginecologia`
+- `/clinica/especialidades/uroginecologia`
+- `/clinica/especialidades/obstetricia`
+- `/clinica/especialidades/fertilidade`
+- `/clinica/especialidades/oncologia`
+- `/clinica/especialidades/odontologia`
+- `/clinica/especialidades/nutricao`
 
 ---
 
-## Próximos passos
+## Especialidades cadastradas
 
-1. Enviar a logo oficial sem fundo.
-2. Criar a pasta `public/` e subir `public/logo.png`.
-3. Atualizar o header, hero e rodapé para usar a logo real.
-4. Substituir `Nome da Marca` pelo nome definitivo.
-5. Substituir serviços provisórios pelos serviços reais.
-6. Inserir WhatsApp e links de CTA.
-7. Criar página de Política de Privacidade.
-8. Criar página de Obrigado para conversões.
-9. Ajustar textos para SEO e campanhas.
-10. Configurar rastreamento de eventos.
+- Ginecologia
+- Uroginecologia
+- Obstetrícia
+- Fertilidade
+- Oncologia
+- Odontologia
+- Nutrição
+
+---
+
+## Pontos técnicos pendentes
+
+A base funciona, mas há pontos planejados para limpeza gradual:
+
+1. Consolidar o tema verde dentro do CSS principal.
+2. Reduzir o uso de `!important` nos arquivos auxiliares.
+3. Mover a troca da logo do rodapé do CSS para o componente React.
+4. Mover conteúdos criados via pseudo-elementos CSS para HTML/JSX real.
+5. Corrigir o listener global de clique no `main.jsx` para remover o evento no cleanup.
+6. Substituir textos provisórios por conteúdo definitivo.
+7. Fixar versões de dependências e adicionar lockfile.
+8. Implementar eventos de rastreamento para WhatsApp e campanhas.
+
+---
+
+## Conteúdo ainda provisório
+
+Alguns textos ainda são placeholders e devem ser revisados antes de divulgação definitiva, principalmente:
+
+- descrições dos serviços;
+- respostas do FAQ;
+- textos explicativos nas páginas de especialidade;
+- chamadas comerciais finais;
+- dados institucionais completos, caso sejam ampliados.
+
+---
+
+## Variáveis futuras
+
+O arquivo `.env.example` documenta valores que podem ser movidos futuramente do código para variáveis públicas do Vite:
+
+```txt
+VITE_BRAND_NAME
+VITE_WHATSAPP_NUMBER
+VITE_WHATSAPP_DISPLAY
+VITE_WHATSAPP_MESSAGE
+VITE_ADDRESS
+VITE_GA_MEASUREMENT_ID
+VITE_GTM_ID
+VITE_META_PIXEL_ID
+```
+
+No momento, o `main.jsx` ainda usa constantes internas. A migração para variáveis deve ser feita em uma etapa específica para evitar regressões.
+
+---
+
+## Próximos passos recomendados
+
+1. Corrigir vazamento do listener no `main.jsx`.
+2. Consolidar o CSS de tema.
+3. Transformar ajustes do rodapé em estrutura React real.
+4. Revisar textos provisórios.
+5. Travar versões das dependências.
+6. Adicionar rastreamento de conversão.
