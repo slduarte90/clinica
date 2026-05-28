@@ -10,7 +10,7 @@ const WHATSAPP_DISPLAY = '(35) 3522-8035';
 const WHATSAPP_MESSAGE = encodeURIComponent('Olá, vim pelo site, gostaria de agendar uma consulta!');
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
 const ADDRESS = 'Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG - 37.900-042';
-const LOGO_SRC = '/logo.png';
+const LOGO_SRC = `${import.meta.env.BASE_URL}logo.png`;
 
 const HOURS = [
   { day: 'Segunda-feira', time: '08:00 às 18:00' },
