@@ -3,16 +3,37 @@
 .visual-card-content {
   position: relative !important;
   overflow: hidden !important;
-  justify-content: flex-end !important;
+  display: flex !important;
+  flex-direction: column !important;
+  justify-content: flex-start !important;
+  gap: 18px !important;
   min-height: 410px !important;
+  background: #E7F1ED !important;
+}
+
+.visual-card-content::before {
+  content: "" !important;
+  display: block !important;
+  order: 2 !important;
+  flex: 1 1 auto !important;
+  min-height: 230px !important;
+  width: 100% !important;
+  border-radius: 22px !important;
   background-image:
-    linear-gradient(180deg, rgba(11, 47, 43, 0.04) 0%, rgba(11, 47, 43, 0.12) 45%, rgba(11, 47, 43, 0.52) 100%),
+    linear-gradient(180deg, rgba(11, 47, 43, 0.02) 0%, rgba(11, 47, 43, 0.12) 52%, rgba(11, 47, 43, 0.36) 100%),
     url("https://images.unsplash.com/photo-1576091160550-2173dba999ef?auto=format&fit=crop&w=1200&q=85") !important;
   background-size: cover !important;
   background-position: center !important;
+  box-shadow: 0 14px 30px rgba(11, 47, 43, 0.12) !important;
 }
 
-.visual-card-content > .brand,
+.visual-card-content > .brand {
+  display: flex !important;
+  order: 1 !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
 .visual-card-content > .section-kicker,
 .visual-card-content > h2,
 .visual-card-content > p {
@@ -20,6 +41,7 @@
 }
 
 .visual-card-content .mini-card-grid {
+  order: 3 !important;
   position: relative !important;
   z-index: 1 !important;
 }
