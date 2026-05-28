@@ -79,7 +79,7 @@
 .site-footer .brand {
   justify-content: center !important;
   text-align: center !important;
-  gap: 10px !important;
+  gap: 8px !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -90,7 +90,7 @@
   width: 74px !important;
   height: auto !important;
   object-fit: contain !important;
-  margin: 0 auto 12px !important;
+  margin: 0 auto 10px !important;
 }
 
 .site-footer .brand-name,
@@ -107,7 +107,7 @@
 
 .site-footer .brand-subtitle,
 .site-footer .brand-subtitle-compact {
-  margin-top: 7px !important;
+  margin-top: 5px !important;
   font-size: 11px !important;
   line-height: 1.2 !important;
   letter-spacing: 0.38em !important;
@@ -123,12 +123,12 @@
 }
 
 .site-footer .footer-grid > div:first-child::after {
-  content: "Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -\A 37.900-042\A WhatsApp: (35) 3522-8035";
+  content: "Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -\A 37.900-042\A WhatsApp: (35) 3522-8035\A E-mail: saudeebemestarpassos@gmail.com";
   white-space: pre-line !important;
   max-width: 440px !important;
-  margin-top: 18px !important;
+  margin-top: 10px !important;
   font-size: 14px !important;
-  line-height: 1.5 !important;
+  line-height: 1.45 !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
   color: rgba(255, 255, 255, 0.88) !important;
