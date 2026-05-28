@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+
+# Sitemap ainda nao configurado.
+# Quando o dominio final estiver definido, adicionar a linha:
+# Sitemap: https://seudominio.com.br/sitemap.xml
