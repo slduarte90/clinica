@@ -1,10 +1,15 @@
 import React from 'react';
 import { createRoot } from 'react-dom/client';
-import { ArrowRight, CalendarCheck, HeartHandshake, MessageCircle, ShieldCheck, Sparkles, MapPin, Clock, CheckCircle2 } from 'lucide-react';
+import { ArrowRight, CalendarCheck, HeartHandshake, MessageCircle, ShieldCheck, MapPin, Clock, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './styles.css';
 
-const BRAND_NAME = 'Nome da Marca';
+const BRAND_NAME = 'Especialidades em Saúde e Bem-Estar';
+const WHATSAPP_NUMBER = '553535228035';
+const WHATSAPP_DISPLAY = '(35) 3522-8035';
+const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
+const ADDRESS = 'Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG - 37.900-042';
+const HOURS = 'Segunda a quinta-feira das 08:00 às 18:00. Sextas-feiras das 08:00 às 17:00.';
 
 const services = [
   'Avaliação inicial',
@@ -47,16 +52,25 @@ const faqs = [
   'Quais formas de pagamento são aceitas?',
 ];
 
-function Button({ children, variant = 'primary', className = '' }) {
-  return <button className={`btn btn-${variant} ${className}`}>{children}</button>;
+function Button({ children, variant = 'primary', href = WHATSAPP_URL, className = '' }) {
+  const isExternal = href.startsWith('http');
+
+  return (
+    <a
+      className={`btn btn-${variant} ${className}`}
+      href={href}
+      target={isExternal ? '_blank' : undefined}
+      rel={isExternal ? 'noreferrer' : undefined}
+    >
+      {children}
+    </a>
+  );
 }
 
-function BrandLogo({ compact = false, light = false }) {
+function BrandLogo({ compact = false }) {
   return (
     <div className={compact ? 'brand brand-compact' : 'brand'}>
-      <div className={compact ? 'brand-icon brand-icon-compact' : 'brand-icon'}>
-        <Sparkles size={compact ? 22 : 34} />
-      </div>
+      <img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src="/logo.svg" alt={`Logomarca ${BRAND_NAME}`} />
       <div>
         <p className={compact ? 'brand-name brand-name-compact' : 'brand-name'}>{BRAND_NAME}</p>
         <p className={compact ? 'brand-subtitle brand-subtitle-compact' : 'brand-subtitle'}>
@@ -93,7 +107,7 @@ function App() {
 
           <div className="container hero-grid">
             <motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}>
-              <div className="eyebrow"><MessageCircle size={16} /> Atendimento pelo WhatsApp</div>
+              <a className="eyebrow" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Atendimento pelo WhatsApp</a>
 
               <h1>Atendimento rápido, humanizado e pensado para facilitar sua escolha</h1>
 
@@ -103,7 +117,7 @@ function App() {
 
               <div className="hero-actions">
                 <Button>Quero agendar agora <ArrowRight size={18} /></Button>
-                <Button variant="outline">Conhecer serviços</Button>
+                <Button variant="outline" href="#servicos">Conhecer serviços</Button>
               </div>
 
               <div className="trust-list">
@@ -120,11 +134,11 @@ function App() {
                     <p className="section-kicker">Prévia visual</p>
                     <h2>Imagem principal do atendimento</h2>
                     <p>
-                      Espaço reservado para a logo final sem fundo ou uma foto profissional humanizada.
+                      Espaço reservado para uma foto profissional humanizada ou composição visual da clínica.
                     </p>
                     <div className="mini-card-grid">
                       <div className="mini-card"><Clock /> <strong>Agendamento rápido</strong></div>
-                      <div className="mini-card"><MapPin /> <strong>Localização acessível</strong></div>
+                      <div className="mini-card"><MapPin /> <strong>Passos-MG</strong></div>
                     </div>
                   </div>
                 </div>
@@ -167,7 +181,7 @@ function App() {
               </div>
               <div className="note-card">
                 <strong>Observação</strong>
-                <p>Os nomes abaixo são provisórios e devem ser substituídos pelos serviços reais do negócio antes da publicação.</p>
+                <p>Os nomes abaixo são provisórios e devem ser substituídos pelos serviços reais da clínica antes da publicação.</p>
               </div>
             </div>
 
@@ -177,7 +191,7 @@ function App() {
                   <div className="service-number">{String(index + 1).padStart(2, '0')}</div>
                   <h3>{service}</h3>
                   <p>Descrição curta do serviço, com foco em clareza, benefício e chamada para agendamento.</p>
-                  <button>Quero saber mais <ArrowRight size={16} /></button>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quero saber mais <ArrowRight size={16} /></a>
                 </article>
               ))}
             </div>
@@ -244,21 +258,21 @@ function App() {
       <footer className="site-footer">
         <div className="container footer-grid">
           <div>
-            <BrandLogo compact light />
+            <BrandLogo compact />
             <p>Site focado em agendamento, campanhas e captação de contatos qualificados.</p>
           </div>
           <div>
             <strong>Links</strong>
-            <span>Serviços</span>
-            <span>Sobre</span>
-            <span>Contato</span>
+            <a href="#servicos">Serviços</a>
+            <a href="#sobre">Sobre</a>
+            <a href="#contato">Contato</a>
             <span>Política de Privacidade</span>
           </div>
           <div>
             <strong>Contato</strong>
-            <span>WhatsApp: inserir número</span>
-            <span>Endereço: inserir localização</span>
-            <span>Horário: inserir horário</span>
+            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a>
+            <span>{ADDRESS}</span>
+            <span>{HOURS}</span>
           </div>
         </div>
       </footer>
