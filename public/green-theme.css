@@ -1,0 +1,144 @@
+:root {
+  --pink: #789C78 !important;
+  --pink-dark: #4F7559 !important;
+  --pink-light: #EFF6F1 !important;
+  --pink-nude: #D7E8DA !important;
+  --plum: #243C32 !important;
+  --text: #52655A !important;
+  --soft-gray: #F3F7F4 !important;
+  --green: #789C78 !important;
+}
+
+body {
+  background: #F7FAF7 !important;
+  color: #243C32 !important;
+}
+
+.site-header {
+  border-bottom-color: rgba(120, 156, 120, 0.22) !important;
+  background: rgba(255, 255, 255, 0.92) !important;
+}
+
+.nav a:hover,
+.eyebrow:hover,
+.service-card a,
+.service-card a:hover,
+.check-list svg,
+.mini-card svg,
+.trust-list svg,
+.card-icon {
+  color: #789C78 !important;
+}
+
+.btn-primary,
+.service-number {
+  background: #789C78 !important;
+  color: #ffffff !important;
+  box-shadow: 0 14px 28px rgba(120, 156, 120, 0.24) !important;
+}
+
+.btn-primary:hover {
+  background: #4F7559 !important;
+}
+
+.btn-outline {
+  border-color: #D7E8DA !important;
+  color: #243C32 !important;
+}
+
+.btn-outline:hover,
+.blush,
+.section-blush,
+.visual-card-content,
+.faq-list details,
+.card-icon {
+  background: #EFF6F1 !important;
+}
+
+.eyebrow,
+.faq-list details {
+  border-color: #D7E8DA !important;
+}
+
+.eyebrow,
+.section-kicker,
+.brand-subtitle,
+.campaign-kicker,
+.note-card strong {
+  color: #5F8766 !important;
+}
+
+h1,
+h2,
+h3,
+.brand-name,
+.check-list span {
+  color: #243C32 !important;
+}
+
+.hero-text,
+.card p,
+.service-card p,
+.note-card p,
+.split-heading p,
+.about-card p,
+#contato p,
+.visual-card-content p,
+.faq-list p,
+.brand-subtitle-compact,
+.trust-list {
+  color: #52655A !important;
+}
+
+.blob-one {
+  background: rgba(215, 232, 218, 0.75) !important;
+}
+
+.blob-two {
+  background: rgba(120, 156, 120, 0.18) !important;
+}
+
+.visual-card-outer,
+.about-card {
+  background: linear-gradient(135deg, #D7E8DA, #ffffff, #EFF6F1) !important;
+  box-shadow: 0 26px 60px rgba(120, 156, 120, 0.14) !important;
+}
+
+.soft-gray {
+  background: #F3F7F4 !important;
+}
+
+.campaign-card,
+.site-footer {
+  background: #243C32 !important;
+}
+
+.campaign-kicker {
+  color: #D7E8DA !important;
+}
+
+.card,
+.service-card,
+.note-card,
+.check-list div,
+.mini-card {
+  box-shadow: 0 8px 24px rgba(36, 60, 50, 0.06) !important;
+}
+
+.card:hover,
+.service-card:hover {
+  box-shadow: 0 18px 36px rgba(36, 60, 50, 0.1) !important;
+}
+
+.footer-tagline,
+.site-footer p,
+.site-footer span,
+.site-footer a {
+  color: rgba(255, 255, 255, 0.78) !important;
+}
+
+.site-footer .brand-name,
+.site-footer .brand-subtitle,
+.site-footer a:hover {
+  color: #ffffff !important;
+}
