@@ -2,14 +2,14 @@
 .site-footer {
   font-family: Inter, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif !important;
   background: #06483f !important;
-  padding-top: 42px !important;
-  padding-bottom: 42px !important;
+  padding-top: 38px !important;
+  padding-bottom: 38px !important;
 }
 
 .site-footer .footer-grid {
-  grid-template-columns: 1fr 1.35fr 1fr !important;
+  grid-template-columns: 1fr 1.2fr 1fr !important;
   align-items: start !important;
-  gap: 72px !important;
+  gap: 48px !important;
 }
 
 .site-footer .footer-grid > div:nth-child(1) {
@@ -27,25 +27,26 @@
   padding-left: 0 !important;
   text-align: left !important;
   justify-self: start !important;
+  align-items: flex-start !important;
 }
 
 .site-footer .footer-grid > div:nth-child(3) {
   order: 3 !important;
   max-width: none !important;
-  text-align: center !important;
+  text-align: right !important;
   justify-self: end !important;
   display: flex !important;
   flex-direction: column !important;
-  align-items: center !important;
+  align-items: flex-end !important;
 }
 
 .site-footer .footer-grid > div:nth-child(2) > strong,
 .site-footer .footer-grid > div:nth-child(3) > strong {
   display: block !important;
-  margin-bottom: 22px !important;
-  font-size: 12px !important;
+  margin-bottom: 20px !important;
+  font-size: 13px !important;
   line-height: 1 !important;
-  letter-spacing: 0.18em !important;
+  letter-spacing: 0.16em !important;
   text-transform: uppercase !important;
   font-weight: 900 !important;
   color: #ffffff !important;
@@ -54,12 +55,12 @@
 .site-footer .footer-grid > div:nth-child(2) a {
   display: block !important;
   width: max-content !important;
-  margin-top: 14px !important;
-  font-size: 14px !important;
+  margin-top: 13px !important;
+  font-size: 15px !important;
   line-height: 1.35 !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
-  color: rgba(255, 255, 255, 0.86) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   text-align: left !important;
 }
 
@@ -71,7 +72,7 @@
 .site-footer .brand {
   justify-content: center !important;
   text-align: center !important;
-  gap: 12px !important;
+  gap: 10px !important;
   display: flex !important;
   flex-direction: column !important;
   align-items: center !important;
@@ -79,18 +80,18 @@
 
 .site-footer .brand-logo,
 .site-footer .brand-logo-compact {
-  width: 66px !important;
+  width: 74px !important;
   height: auto !important;
   object-fit: contain !important;
-  margin: 0 auto 14px !important;
+  margin: 0 auto 12px !important;
 }
 
 .site-footer .brand-name,
 .site-footer .brand-name-compact {
   max-width: 430px !important;
   margin: 0 auto !important;
-  font-size: 15px !important;
-  line-height: 1.25 !important;
+  font-size: 16px !important;
+  line-height: 1.22 !important;
   letter-spacing: -0.015em !important;
   font-weight: 900 !important;
   color: #ffffff !important;
@@ -99,10 +100,10 @@
 
 .site-footer .brand-subtitle,
 .site-footer .brand-subtitle-compact {
-  margin-top: 8px !important;
-  font-size: 10px !important;
+  margin-top: 7px !important;
+  font-size: 11px !important;
   line-height: 1.2 !important;
-  letter-spacing: 0.44em !important;
+  letter-spacing: 0.38em !important;
   text-transform: uppercase !important;
   font-weight: 900 !important;
   color: #ffffff !important;
@@ -118,27 +119,30 @@
   content: "Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -\A 37.900-042\A WhatsApp: (35) 3522-8035";
   white-space: pre-line !important;
   max-width: 440px !important;
-  margin-top: 20px !important;
-  font-size: 13px !important;
-  line-height: 1.55 !important;
+  margin-top: 18px !important;
+  font-size: 14px !important;
+  line-height: 1.5 !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
-  color: rgba(255, 255, 255, 0.84) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   text-align: center !important;
 }
 
 .site-footer .footer-grid > div:nth-child(3) > strong {
   color: transparent !important;
   position: relative !important;
-  align-self: center !important;
+  align-self: flex-end !important;
+  text-align: right !important;
 }
 
 .site-footer .footer-grid > div:nth-child(3) > strong::after {
   content: "Horários";
   position: absolute !important;
-  left: 50% !important;
-  transform: translateX(-50%) !important;
+  right: 0 !important;
+  left: auto !important;
+  transform: none !important;
   color: #ffffff !important;
+  text-align: right !important;
 }
 
 .site-footer .footer-grid > div:nth-child(3) > a,
@@ -149,17 +153,17 @@
 .site-footer .hours-list {
   margin-top: 0 !important;
   gap: 7px !important;
-  justify-items: center !important;
+  justify-items: end !important;
 }
 
 .site-footer .hours-list span {
-  font-size: 13px !important;
+  font-size: 14px !important;
   line-height: 1.35 !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
-  color: rgba(255, 255, 255, 0.86) !important;
+  color: rgba(255, 255, 255, 0.88) !important;
   white-space: nowrap !important;
-  text-align: center !important;
+  text-align: right !important;
 }
 
 /* Remove o card central das páginas de especialidades e cria aviso ao lado do título */
@@ -216,10 +220,16 @@
     text-align: center !important;
   }
 
+  .site-footer .footer-grid > div:nth-child(3) > strong {
+    align-self: center !important;
+    text-align: center !important;
+  }
+
   .site-footer .footer-grid > div:nth-child(3) > strong::after {
     left: 50% !important;
     right: auto !important;
     transform: translateX(-50%) !important;
+    text-align: center !important;
   }
 
   .site-footer .hours-list {
