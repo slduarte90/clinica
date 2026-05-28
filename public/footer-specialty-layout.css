@@ -123,8 +123,14 @@
 }
 
 .site-footer .footer-grid > div:first-child::after {
-  content: "Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -\A 37.900-042\A WhatsApp: (35) 3522-8035\A E-mail: saudeebemestarpassos@gmail.com";
-  white-space: pre-line !important;
+  display: none !important;
+  content: none !important;
+}
+
+.site-footer .footer-contact-links {
+  display: grid !important;
+  justify-items: center !important;
+  gap: 0 !important;
   max-width: 440px !important;
   margin-top: 10px !important;
   font-size: 14px !important;
@@ -133,6 +139,18 @@
   letter-spacing: 0 !important;
   color: rgba(255, 255, 255, 0.88) !important;
   text-align: center !important;
+}
+
+.site-footer .footer-contact-links span,
+.site-footer .footer-contact-links a {
+  display: block !important;
+  color: rgba(255, 255, 255, 0.88) !important;
+  text-align: center !important;
+}
+
+.site-footer .footer-contact-links a:hover {
+  color: #ffffff !important;
+  text-decoration: underline !important;
 }
 
 .site-footer .footer-grid > div:nth-child(3) > strong {
