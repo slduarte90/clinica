@@ -22,6 +22,25 @@ const HOURS = [
   { day: 'Domingo', time: 'Fechado' },
 ];
 
+const specialties = [
+  'Ginecologia',
+  'Uroginecologia',
+  'Obstetrícia',
+  'Fertilidade',
+  'Oncologia',
+  'Odontologia',
+  'Nutrição',
+];
+
+function slugify(text) {
+  return text
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase()
+    .replace(/[^a-z0-9]+/g, '-')
+    .replace(/(^-|-$)/g, '');
+}
+
 const services = [
   'Avaliação inicial',
   'Consulta especializada',
@@ -100,6 +119,14 @@ function Header() {
 
         <nav className="nav">
           <a href="#inicio">Início</a>
+          <div className="nav-dropdown">
+            <a href="#especialidades" className="nav-dropdown-trigger">Especialidades</a>
+            <div className="nav-dropdown-menu">
+              {specialties.map((specialty) => (
+                <a key={specialty} href={`#${slugify(specialty)}`}>{specialty}</a>
+              ))}
+            </div>
+          </div>
           <a href="#servicos">Serviços</a>
           <a href="#sobre">Sobre</a>
           <a href="#duvidas">Dúvidas</a>
@@ -132,6 +159,7 @@ function Footer() {
         </div>
         <div>
           <strong>Links</strong>
+          <a href="#especialidades">Especialidades</a>
           <a href="#servicos">Serviços</a>
           <a href="#sobre">Sobre</a>
           <a href="#contato">Contato</a>
@@ -254,7 +282,7 @@ function HomePage() {
 
               <div className="hero-actions">
                 <Button>Quero agendar agora <ArrowRight size={18} /></Button>
-                <Button variant="outline" href="#servicos">Conhecer serviços</Button>
+                <Button variant="outline" href="#especialidades">Conhecer especialidades</Button>
               </div>
 
               <div className="trust-list">
@@ -300,6 +328,26 @@ function HomePage() {
                   </article>
                 );
               })}
+            </div>
+          </div>
+        </section>
+
+        <section id="especialidades" className="section soft-gray">
+          <div className="container">
+            <div className="section-heading center">
+              <p className="section-kicker">Especialidades</p>
+              <h2>Atendimento integrado em diferentes áreas da saúde</h2>
+              <p>Conheça as especialidades disponíveis e fale com a equipe para receber orientação sobre o melhor atendimento para o seu caso.</p>
+            </div>
+
+            <div className="specialty-grid">
+              {specialties.map((specialty) => (
+                <article id={slugify(specialty)} key={specialty} className="service-card specialty-card">
+                  <h3>{specialty}</h3>
+                  <p>Atendimento especializado com orientação clara, acolhimento e agendamento facilitado pelo WhatsApp.</p>
+                  <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Agendar {specialty} <ArrowRight size={16} /></a>
+                </article>
+              ))}
             </div>
           </div>
         </section>
@@ -399,12 +447,27 @@ function App() {
   useEffect(() => {
     const handleHashChange = () => {
       setHash(window.location.hash || '#inicio');
-      window.scrollTo(0, 0);
     };
 
     window.addEventListener('hashchange', handleHashChange);
     return () => window.removeEventListener('hashchange', handleHashChange);
   }, []);
+
+  useEffect(() => {
+    if (hash === '#politica-de-privacidade') {
+      window.scrollTo({ top: 0, behavior: 'smooth' });
+      return;
+    }
+
+    const timer = window.setTimeout(() => {
+      const target = document.querySelector(hash);
+      if (target) {
+        target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      }
+    }, 0);
+
+    return () => window.clearTimeout(timer);
+  }, [hash]);
 
   if (hash === '#politica-de-privacidade') {
     return <PrivacyPolicy />;
