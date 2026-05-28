@@ -119,14 +119,14 @@ function Header() {
 
         <nav className="nav">
           <a href="#inicio">Início</a>
-          <div className="nav-dropdown">
-            <a href="#especialidades" className="nav-dropdown-trigger">Especialidades</a>
+          <details className="nav-dropdown">
+            <summary className="nav-dropdown-trigger">Especialidades</summary>
             <div className="nav-dropdown-menu">
               {specialties.map((specialty) => (
                 <a key={specialty} href={`#${slugify(specialty)}`}>{specialty}</a>
               ))}
             </div>
-          </div>
+          </details>
           <a href="#servicos">Serviços</a>
           <a href="#sobre">Sobre</a>
           <a href="#duvidas">Dúvidas</a>
