@@ -38,6 +38,10 @@
       .specialty-professional-info span { display: block !important; margin-top: 6px !important; color: #4D625D !important; font-weight: 800 !important; }
       .specialty-professional-note { padding: 16px !important; border-radius: 18px !important; background: #E7F1ED !important; color: #34524c !important; font-size: 13px !important; line-height: 1.45 !important; text-align: center !important; font-weight: 700 !important; }
       .specialty-page .content-block { border: 1px solid rgba(207,226,218,.9) !important; box-shadow: 0 18px 42px rgba(11,47,43,.06) !important; }
+      .nutrition-highlight-list { display: grid !important; gap: 10px !important; margin: 18px 0 0 !important; padding: 0 !important; list-style: none !important; }
+      .nutrition-highlight-list li { display: flex !important; gap: 10px !important; align-items: flex-start !important; color: #34524c !important; font-weight: 700 !important; line-height: 1.45 !important; }
+      .nutrition-highlight-list li::before { content: "✓"; color: #0B8A7A; font-weight: 900; }
+      .nutrition-note { margin-top: 18px !important; padding: 18px !important; border-radius: 20px !important; background: #E7F1ED !important; color: #34524c !important; font-weight: 700 !important; line-height: 1.55 !important; }
       @media (max-width: 980px) { .specialty-page .specialty-hero-grid { grid-template-columns: 1fr !important; } .specialty-professional-card { max-width: 420px !important; margin: 0 auto !important; } }
     </style>
     <title>Especialidades em Saúde e Bem-Estar | Atendimento Humanizado</title>
@@ -52,6 +56,10 @@
         contact.className = 'footer-contact-links';
         contact.innerHTML = ['<span>Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -</span>','<span>37.900-042</span>','<a href="https://wa.me/553535228035?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20agendar%20uma%20consulta!" target="_blank" rel="noreferrer">WhatsApp: (35) 3522-8035</a>','<a href="mailto:saudeebemestarpassos@gmail.com" data-footer-email="true">E-mail: saudeebemestarpassos@gmail.com</a>'].join('');
         brandColumn.appendChild(contact);
+      }
+
+      function isNutritionPage() {
+        return window.location.pathname.replace(/\/+$/, '').endsWith('/especialidades/nutricao');
       }
 
       function ensureSpecialtiesTitle() {
@@ -90,8 +98,50 @@
         if (!main || !grid || grid.querySelector('.specialty-professional-card')) return;
         const card = document.createElement('aside');
         card.className = 'specialty-professional-card';
-        card.innerHTML = '<div class="specialty-professional-photo">Foto do profissional</div><div class="specialty-professional-info"><strong>Nome do profissional</strong><span>CRM / registro profissional a definir</span></div><div class="specialty-professional-note">Espaço reservado para foto, nome e registro do profissional responsável por esta especialidade.</div>';
+        const isNutrition = isNutritionPage();
+        card.innerHTML = isNutrition
+          ? '<div class="specialty-professional-photo">Foto da nutricionista</div><div class="specialty-professional-info"><strong>Fernanda Godinho Rosa</strong><span>CRN 9-7322</span></div><div class="specialty-professional-note">Nutricionista responsável pelo atendimento em nutrição, com foco em avaliação individualizada, estratégia alimentar e acompanhamento contínuo.</div>'
+          : '<div class="specialty-professional-photo">Foto do profissional</div><div class="specialty-professional-info"><strong>Nome do profissional</strong><span>CRM / registro profissional a definir</span></div><div class="specialty-professional-note">Espaço reservado para foto, nome e registro do profissional responsável por esta especialidade.</div>';
         grid.appendChild(card);
+      }
+
+      function ensureNutritionSpecialtyContent() {
+        if (!isNutritionPage()) return;
+        const page = document.querySelector('.specialty-page');
+        if (!page || page.dataset.nutritionReady === 'true') return;
+        page.dataset.nutritionReady = 'true';
+
+        document.title = 'Nutrição em Passos-MG | Consulta nutricional especializada';
+        const metaDescription = document.querySelector('meta[name="description"]');
+        if (metaDescription) metaDescription.setAttribute('content', 'Consulta de nutrição em Passos-MG com atendimento individualizado, avaliação corporal, tecnologia e acompanhamento nutricional para saúde e bem-estar.');
+
+        const kicker = page.querySelector('.specialty-hero .section-kicker');
+        const h1 = page.querySelector('.specialty-hero h1');
+        const intro = page.querySelector('.specialty-hero .hero-text');
+        if (kicker) kicker.textContent = 'Nutrição em Passos-MG';
+        if (h1) h1.textContent = 'Consulta nutricional especializada para saúde, bem-estar e qualidade de vida';
+        if (intro) intro.textContent = 'A consulta nutricional é focada nas suas dificuldades, na sua rotina e nos seus objetivos. O atendimento busca encaixar mais saúde e bem-estar no seu dia a dia, com estratégia, acompanhamento e orientação individualizada.';
+
+        const firstBlocks = page.querySelectorAll('.section.white .content-block');
+        if (firstBlocks[0]) {
+          firstBlocks[0].innerHTML = '<p class="section-kicker">Consulta especializada</p><h2>Como funciona a consulta nutricional</h2><p>O diferencial da consulta é estar junto com você durante todo o caminho em busca do seu melhor peso, longevidade, melhora da saúde, bem-estar e qualidade de vida.</p><p>Na primeira consulta, é feita uma escuta cuidadosa da sua história alimentar, preferências, dificuldades e objetivos. A partir disso, é construído um plano alimentar pensado para a sua rotina, com orientações práticas para que você consiga fazer escolhas melhores sem abrir mão do prazer em se alimentar.</p><p>Depois da consulta, entre uma consulta e outra, você pode contar com suporte para ajustar dúvidas e manter o acompanhamento mais próximo. O objetivo é que você se sinta mais motivado, organizado e confiante durante o processo.</p><div class="nutrition-note">Esse modelo de atendimento é indicado para quem busca acompanhamento nutricional com clareza, estratégia e constância.</div>';
+        }
+        if (firstBlocks[1]) {
+          firstBlocks[1].innerHTML = '<p class="section-kicker">Tecnologia e precisão</p><h2>Avaliação completa para uma nutrição mais individualizada</h2><p>Na clínica, a nutrição conta com métodos modernos para oferecer uma avaliação mais completa e personalizada da saúde, considerando composição corporal, saúde intestinal, inflamação e performance metabólica.</p><ul class="nutrition-highlight-list"><li>Ultrassom corporal BodyMetrix®</li><li>Testes genéticos aplicados à nutrição funcional</li><li>Avaliação avançada de composição corporal</li><li>Estratégias integrativas para saúde hormonal e metabólica</li><li>Parceria com laboratório Fleury para exames laboratoriais de alta precisão</li></ul><p class="nutrition-note">Mais do que tratar sintomas, buscamos entender a raiz dos desequilíbrios para construir resultados reais e sustentáveis.</p>';
+        }
+
+        const secondBlocks = page.querySelectorAll('.section.soft-gray .content-block');
+        if (secondBlocks[0]) {
+          secondBlocks[0].innerHTML = '<p class="section-kicker">Acompanhamento individualizado</p><h2>Programas nutricionais com estratégia e constância</h2><p>Os programas nutricionais foram desenvolvidos para proporcionar acompanhamento contínuo e uma abordagem mais profunda da saúde.</p><p>Ao longo do processo, o paciente conta com avaliações periódicas, monitoramento de evolução, ajustes estratégicos e suporte nutricional personalizado, favorecendo mais aderência, segurança e resultados consistentes.</p><ul class="nutrition-highlight-list"><li>Planejamento alimentar individualizado</li><li>Acompanhamento da evolução corporal e clínica</li><li>Ajustes conforme rotina, exames e objetivos</li><li>Orientação para escolhas alimentares mais conscientes</li><li>Suporte para manter organização e motivação</li></ul>';
+        }
+        if (secondBlocks[1]) {
+          secondBlocks[1].innerHTML = '<p class="section-kicker">Dúvidas frequentes</p><h2>Perguntas sobre nutrição</h2><div class="faq-list compact-faq"><details><summary>Para quem é indicada a consulta nutricional?</summary><p>É indicada para pessoas que desejam melhorar alimentação, saúde, composição corporal, disposição, relação com a comida ou precisam de acompanhamento nutricional individualizado.</p></details><details><summary>A consulta inclui plano alimentar?</summary><p>Sim. O plano alimentar é construído considerando sua rotina, preferências, objetivos e necessidades, para que seja possível aplicar as orientações no dia a dia.</p></details><details><summary>Existe acompanhamento depois da consulta?</summary><p>Sim. O acompanhamento ajuda a ajustar dúvidas, acompanhar evolução e manter mais constância durante o processo.</p></details></div>';
+        }
+
+        const ctaTitle = page.querySelector('.section.blush h2');
+        const ctaText = page.querySelector('.section.blush p');
+        if (ctaTitle) ctaTitle.textContent = 'Quer agendar sua consulta de nutrição?';
+        if (ctaText) ctaText.textContent = 'Fale com a equipe pelo WhatsApp para tirar dúvidas, confirmar disponibilidade e agendar seu atendimento nutricional.';
       }
 
       function ensureInteractiveEnhancements() {
@@ -99,6 +149,7 @@
         ensureSpecialtiesTitle();
         ensureFaqAnswers();
         ensureSpecialtyProfessionalCard();
+        ensureNutritionSpecialtyContent();
       }
 
       document.addEventListener('DOMContentLoaded', ensureInteractiveEnhancements);
