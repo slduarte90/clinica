@@ -22,6 +22,12 @@ article[id] {
 .site-header {
   border-bottom-color: rgba(120, 156, 120, 0.22) !important;
   background: rgba(255, 255, 255, 0.92) !important;
+  overflow: visible !important;
+}
+
+.header-inner,
+.nav {
+  overflow: visible !important;
 }
 
 .nav a:hover,
@@ -40,20 +46,44 @@ article[id] {
   display: inline-flex !important;
   align-items: center !important;
   min-height: 42px !important;
+  cursor: pointer !important;
+}
+
+.nav-dropdown > summary {
+  list-style: none !important;
+}
+
+.nav-dropdown > summary::-webkit-details-marker {
+  display: none !important;
+}
+
+.nav-dropdown-trigger {
+  display: inline-flex !important;
+  align-items: center !important;
+  color: inherit !important;
+  font: inherit !important;
+  cursor: pointer !important;
+  user-select: none !important;
 }
 
 .nav-dropdown-trigger::after {
   content: '▾' !important;
   margin-left: 6px !important;
   font-size: 10px !important;
+  transition: transform 0.18s ease !important;
+}
+
+.nav-dropdown[open] .nav-dropdown-trigger::after,
+.nav-dropdown:hover .nav-dropdown-trigger::after {
+  transform: rotate(180deg) !important;
 }
 
 .nav-dropdown-menu {
   position: absolute !important;
-  top: calc(100% - 2px) !important;
+  top: calc(100% + 8px) !important;
   left: 50% !important;
-  z-index: 80 !important;
-  min-width: 210px !important;
+  z-index: 999 !important;
+  min-width: 220px !important;
   padding: 12px !important;
   border: 1px solid rgba(215, 232, 218, 0.9) !important;
   border-radius: 18px !important;
@@ -63,14 +93,17 @@ article[id] {
   gap: 4px !important;
   opacity: 0 !important;
   visibility: hidden !important;
+  pointer-events: none !important;
   transform: translate(-50%, 8px) !important;
-  transition: 0.18s ease !important;
+  transition: opacity 0.18s ease, transform 0.18s ease, visibility 0.18s ease !important;
 }
 
 .nav-dropdown:hover .nav-dropdown-menu,
-.nav-dropdown:focus-within .nav-dropdown-menu {
+.nav-dropdown:focus-within .nav-dropdown-menu,
+.nav-dropdown[open] .nav-dropdown-menu {
   opacity: 1 !important;
   visibility: visible !important;
+  pointer-events: auto !important;
   transform: translate(-50%, 0) !important;
 }
 
