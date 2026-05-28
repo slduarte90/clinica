@@ -27,6 +27,8 @@
   padding-left: 0 !important;
   text-align: left !important;
   justify-self: start !important;
+  display: flex !important;
+  flex-direction: column !important;
   align-items: flex-start !important;
 }
 
@@ -43,7 +45,7 @@
 .site-footer .footer-grid > div:nth-child(2) > strong,
 .site-footer .footer-grid > div:nth-child(3) > strong {
   display: block !important;
-  margin-bottom: 20px !important;
+  margin-bottom: 18px !important;
   font-size: 13px !important;
   line-height: 1 !important;
   letter-spacing: 0.16em !important;
@@ -55,13 +57,18 @@
 .site-footer .footer-grid > div:nth-child(2) a {
   display: block !important;
   width: max-content !important;
-  margin-top: 13px !important;
+  margin-top: 0 !important;
+  margin-bottom: 10px !important;
   font-size: 15px !important;
   line-height: 1.35 !important;
   font-weight: 700 !important;
   letter-spacing: 0 !important;
   color: rgba(255, 255, 255, 0.88) !important;
   text-align: left !important;
+}
+
+.site-footer .footer-grid > div:nth-child(2) a:last-child {
+  margin-bottom: 0 !important;
 }
 
 .site-footer .footer-grid > div:nth-child(2) a:hover {
@@ -152,7 +159,7 @@
 
 .site-footer .hours-list {
   margin-top: 0 !important;
-  gap: 7px !important;
+  gap: 10px !important;
   justify-items: end !important;
 }
 
