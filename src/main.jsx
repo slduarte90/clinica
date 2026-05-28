@@ -260,7 +260,7 @@ function App() {
         <div className="container footer-grid">
           <div>
             <BrandLogo compact />
-            <p>Site focado em agendamento, campanhas e captação de contatos qualificados.</p>
+            <p>Cuidado, acolhimento e especialidades em saúde para você e sua família.</p>
           </div>
           <div>
             <strong>Links</strong>
