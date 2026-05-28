@@ -10,6 +10,7 @@ const WHATSAPP_DISPLAY = '(35) 3522-8035';
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}`;
 const ADDRESS = 'Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG - 37.900-042';
 const HOURS = 'Segunda a quinta-feira das 08:00 às 18:00. Sextas-feiras das 08:00 às 17:00.';
+const LOGO_SRC = '/logo.png';
 
 const services = [
   'Avaliação inicial',
@@ -70,7 +71,7 @@ function Button({ children, variant = 'primary', href = WHATSAPP_URL, className 
 function BrandLogo({ compact = false }) {
   return (
     <div className={compact ? 'brand brand-compact' : 'brand'}>
-      <img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src="/logo.svg" alt={`Logomarca ${BRAND_NAME}`} />
+      <img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src={LOGO_SRC} alt={`Logomarca ${BRAND_NAME}`} />
       <div>
         <p className={compact ? 'brand-name brand-name-compact' : 'brand-name'}>{BRAND_NAME}</p>
         <p className={compact ? 'brand-subtitle brand-subtitle-compact' : 'brand-subtitle'}>
