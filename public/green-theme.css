@@ -150,9 +150,9 @@ h3,
 
 .site-footer .footer-grid > div:first-child > p,
 .footer-tagline {
-  max-width: 360px !important;
+  max-width: 350px !important;
   margin-top: 32px !important;
-  margin-left: 14px !important;
+  margin-left: -16px !important;
   margin-right: auto !important;
   text-align: center !important;
   font-size: 20px !important;
