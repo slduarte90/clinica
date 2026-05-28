@@ -1,0 +1,17 @@
+.site-footer .footer-grid > div:first-child > p {
+  max-width: 390px;
+  margin-top: 26px;
+  font-size: 18px;
+  line-height: 1.8;
+  letter-spacing: 0.015em;
+  font-weight: 500;
+  color: rgba(255, 255, 255, 0.86);
+}
+
+@media (max-width: 640px) {
+  .site-footer .footer-grid > div:first-child > p {
+    margin-top: 22px;
+    font-size: 16px;
+    line-height: 1.7;
+  }
+}
