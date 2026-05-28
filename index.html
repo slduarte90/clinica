@@ -27,6 +27,19 @@
     <link rel="stylesheet" href="%BASE_URL%footer-logo.css?v=10" />
     <link rel="stylesheet" href="%BASE_URL%footer-specialty-layout.css?v=12" />
     <link rel="stylesheet" href="%BASE_URL%home-hero-image.css?v=2" />
+    <style>
+      .specialty-page .landing-card,
+      .specialty-page .specialty-hero-grid::after { display: none !important; content: none !important; }
+      .specialty-page .specialty-hero-grid { grid-template-columns: minmax(0, 1fr) 360px !important; align-items: stretch !important; gap: 42px !important; }
+      .specialty-professional-card { display: grid !important; gap: 18px !important; align-content: start !important; padding: 26px !important; border-radius: 30px !important; background: rgba(255,255,255,.94) !important; border: 1px solid rgba(207,226,218,.95) !important; box-shadow: 0 22px 48px rgba(11,47,43,.1) !important; }
+      .specialty-professional-photo { width: 100% !important; aspect-ratio: 4/5 !important; border-radius: 24px !important; overflow: hidden !important; background: linear-gradient(145deg,#dfeee8,#f8fbfa) !important; display: grid !important; place-items: center !important; color: #0B4F49 !important; text-align: center !important; font-size: 13px !important; font-weight: 900 !important; letter-spacing: .08em !important; text-transform: uppercase !important; }
+      .specialty-professional-info { text-align: center !important; }
+      .specialty-professional-info strong { display: block !important; color: #0B2F2B !important; font-size: 20px !important; line-height: 1.25 !important; }
+      .specialty-professional-info span { display: block !important; margin-top: 6px !important; color: #4D625D !important; font-weight: 800 !important; }
+      .specialty-professional-note { padding: 16px !important; border-radius: 18px !important; background: #E7F1ED !important; color: #34524c !important; font-size: 13px !important; line-height: 1.45 !important; text-align: center !important; font-weight: 700 !important; }
+      .specialty-page .content-block { border: 1px solid rgba(207,226,218,.9) !important; box-shadow: 0 18px 42px rgba(11,47,43,.06) !important; }
+      @media (max-width: 980px) { .specialty-page .specialty-hero-grid { grid-template-columns: 1fr !important; } .specialty-professional-card { max-width: 420px !important; margin: 0 auto !important; } }
+    </style>
     <title>Especialidades em Saúde e Bem-Estar | Atendimento Humanizado</title>
   </head>
   <body>
@@ -35,34 +48,21 @@
       function ensureFooterContactLinks() {
         const brandColumn = document.querySelector('.site-footer .footer-grid > div:first-child');
         if (!brandColumn || brandColumn.querySelector('.footer-contact-links')) return;
-
         const contact = document.createElement('div');
         contact.className = 'footer-contact-links';
-        contact.innerHTML = [
-          '<span>Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -</span>',
-          '<span>37.900-042</span>',
-          '<a href="https://wa.me/553535228035?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20agendar%20uma%20consulta!" target="_blank" rel="noreferrer">WhatsApp: (35) 3522-8035</a>',
-          '<a href="mailto:saudeebemestarpassos@gmail.com" data-footer-email="true">E-mail: saudeebemestarpassos@gmail.com</a>'
-        ].join('');
-
+        contact.innerHTML = ['<span>Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -</span>','<span>37.900-042</span>','<a href="https://wa.me/553535228035?text=Ol%C3%A1%2C%20vim%20pelo%20site%2C%20gostaria%20de%20agendar%20uma%20consulta!" target="_blank" rel="noreferrer">WhatsApp: (35) 3522-8035</a>','<a href="mailto:saudeebemestarpassos@gmail.com" data-footer-email="true">E-mail: saudeebemestarpassos@gmail.com</a>'].join('');
         brandColumn.appendChild(contact);
       }
 
       function ensureSpecialtiesTitle() {
         const heading = document.querySelector('#especialidades .section-heading');
         if (!heading) return;
-
         const kicker = heading.querySelector('.section-kicker');
         const title = heading.querySelector('h2');
         const description = heading.querySelector('p:not(.section-kicker)');
-
         if (kicker) kicker.style.display = 'none';
         if (description) description.style.display = 'none';
-        if (title) {
-          title.textContent = 'Especialidades';
-          title.style.marginBottom = '0';
-        }
-
+        if (title) { title.textContent = 'Especialidades'; title.style.marginBottom = '0'; }
         heading.style.maxWidth = '760px';
         heading.style.marginBottom = '34px';
       }
@@ -75,23 +75,30 @@
           'Vocês atendem por WhatsApp?': 'Sim, por WhatsApp e ligação.',
           'Quais formas de pagamento são aceitas?': 'Aceitamos as seguintes formas de pagamento: Pix, cartões de crédito e débito e dinheiro.'
         };
-
         document.querySelectorAll('#duvidas .faq-list details').forEach(function (item) {
           const summary = item.querySelector('summary');
           const paragraph = item.querySelector('p');
           if (!summary || !paragraph) return;
-
           const question = summary.textContent.trim();
-          if (answers[question]) {
-            paragraph.textContent = answers[question];
-          }
+          if (answers[question]) paragraph.textContent = answers[question];
         });
+      }
+
+      function ensureSpecialtyProfessionalCard() {
+        const main = document.querySelector('.specialty-page');
+        const grid = document.querySelector('.specialty-page .specialty-hero-grid');
+        if (!main || !grid || grid.querySelector('.specialty-professional-card')) return;
+        const card = document.createElement('aside');
+        card.className = 'specialty-professional-card';
+        card.innerHTML = '<div class="specialty-professional-photo">Foto do profissional</div><div class="specialty-professional-info"><strong>Nome do profissional</strong><span>CRM / registro profissional a definir</span></div><div class="specialty-professional-note">Espaço reservado para foto, nome e registro do profissional responsável por esta especialidade.</div>';
+        grid.appendChild(card);
       }
 
       function ensureInteractiveEnhancements() {
         ensureFooterContactLinks();
         ensureSpecialtiesTitle();
         ensureFaqAnswers();
+        ensureSpecialtyProfessionalCard();
       }
 
       document.addEventListener('DOMContentLoaded', ensureInteractiveEnhancements);
@@ -101,34 +108,18 @@
 
       document.addEventListener('click', function (event) {
         const emailLink = event.target.closest('a[data-footer-email="true"]');
-        if (emailLink) {
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          window.location.href = emailLink.href;
-          return;
-        }
-
+        if (emailLink) { event.preventDefault(); event.stopImmediatePropagation(); window.location.href = emailLink.href; return; }
         const contactLink = event.target.closest('a[href$="#contato"]');
         if (contactLink && contactLink.origin === window.location.origin) {
-          event.preventDefault();
-          event.stopImmediatePropagation();
-          window.history.replaceState(null, '', contactLink.href);
-          setTimeout(function () {
-            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-          }, 30);
-          setTimeout(function () {
-            window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-          }, 250);
+          event.preventDefault(); event.stopImmediatePropagation(); window.history.replaceState(null, '', contactLink.href);
+          setTimeout(function () { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); }, 30);
+          setTimeout(function () { window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); }, 250);
           return;
         }
-
         document.querySelectorAll('.nav-dropdown[open]').forEach(function (dropdown) {
           const clickedInsideDropdown = dropdown.contains(event.target);
           const clickedMenuLink = event.target.closest('.nav-dropdown-menu a');
-
-          if (!clickedInsideDropdown || clickedMenuLink) {
-            dropdown.removeAttribute('open');
-          }
+          if (!clickedInsideDropdown || clickedMenuLink) dropdown.removeAttribute('open');
         });
       }, true);
     </script>
