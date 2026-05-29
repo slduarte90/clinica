@@ -43,6 +43,30 @@
   letter-spacing: 0.28em;
 }
 
+.specialty-page .specialty-disclaimer {
+  display: block;
+  max-width: 720px;
+  margin: 22px 0 0;
+  padding: 16px 18px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: inset 0 0 0 1px rgba(7, 82, 73, 0.12);
+  color: #075249 !important;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 700;
+}
+
+.specialty-page .specialty-disclaimer strong {
+  color: #062f2b !important;
+  font-weight: 900;
+}
+
+.specialty-page .specialty-hero-grid::after {
+  display: none !important;
+  content: none !important;
+}
+
 .specialty-page .landing-card,
 .specialty-professional-card {
   border: 0 !important;
