@@ -4,12 +4,15 @@ import { ArrowRight, CalendarCheck, HeartHandshake, MessageCircle, ShieldCheck, 
 import { motion } from 'framer-motion';
 import './styles.css';
 import './specialty-modern.css';
+import './genetic-test.css';
 
 const BRAND_NAME = 'Especialidades em Saúde e Bem-Estar';
 const WHATSAPP_NUMBER = '553535228035';
 const WHATSAPP_DISPLAY = '(35) 3522-8035';
 const WHATSAPP_MESSAGE = encodeURIComponent('Olá, vim pelo site, gostaria de agendar uma consulta!');
+const GENETIC_MESSAGE = encodeURIComponent('Olá, vim pelo site e gostaria de saber mais sobre o teste genético.');
 const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`;
+const GENETIC_WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${GENETIC_MESSAGE}`;
 const PHONE_URL = 'tel:+553535228035';
 const EMAIL = 'saudeebemestarpassos@gmail.com';
 const EMAIL_SUBJECT = encodeURIComponent('Contato pelo site');
@@ -33,155 +36,42 @@ const HOURS = [
 ];
 
 const specialties = [
-  {
-    title: 'Ginecologia',
-    slug: 'ginecologia',
-    registryLabel: 'CRM',
-    seoTitle: 'Ginecologia em Passos-MG | Especialidades em Saúde e Bem-Estar',
-    metaDescription: 'Agende atendimento em ginecologia em Passos-MG. Cuidado acolhedor, orientação clara e suporte pelo WhatsApp.',
-    kicker: 'Ginecologia em Passos-MG',
-    headline: 'Ginecologia com cuidado, orientação e acolhimento em todas as fases da vida',
-    intro: 'Atendimento ginecológico com foco em prevenção, acompanhamento de rotina, saúde íntima e orientação individualizada.',
-    indications: ['Consulta ginecológica de rotina', 'Prevenção e acompanhamento da saúde íntima', 'Orientação sobre ciclos, sintomas e desconfortos', 'Avaliação individualizada conforme histórico da paciente'],
-    differentials: ['Atendimento humanizado e reservado', 'Comunicação clara antes do agendamento', 'Possibilidade de tirar dúvidas iniciais pelo WhatsApp', 'Orientação sobre o melhor caminho de atendimento'],
-    faqs: [
-      ['Quando devo agendar uma consulta ginecológica?', 'A consulta pode ser agendada para rotina preventiva, acompanhamento de sintomas, dúvidas sobre saúde íntima ou orientação individualizada.'],
-      ['Posso tirar dúvidas antes de marcar?', 'Sim. Você pode falar com nossa equipe pelo WhatsApp para entender melhor o fluxo de agendamento.'],
-      ['O atendimento é feito com horário agendado?', 'Sim. O atendimento é realizado com horário marcado para oferecer mais organização e pontualidade.'],
-    ],
-  },
-  {
-    title: 'Uroginecologia',
-    slug: 'uroginecologia',
-    registryLabel: 'CRM',
-    seoTitle: 'Uroginecologia em Passos-MG | Cuidado Feminino Especializado',
-    metaDescription: 'Atendimento em uroginecologia em Passos-MG para orientação sobre saúde pélvica, sintomas urinários e cuidado feminino especializado.',
-    kicker: 'Uroginecologia em Passos-MG',
-    headline: 'Uroginecologia para saúde pélvica feminina com orientação especializada',
-    intro: 'Atendimento voltado à orientação sobre saúde pélvica, queixas urinárias, desconfortos e prevenção.',
-    indications: ['Sintomas urinários recorrentes', 'Desconfortos relacionados à saúde pélvica', 'Orientação sobre prevenção e acompanhamento', 'Encaminhamento para avaliação adequada quando necessário'],
-    differentials: ['Escuta cuidadosa e sem constrangimento', 'Linguagem simples para explicar próximos passos', 'Agendamento facilitado pelo WhatsApp', 'Ambiente profissional e acolhedor'],
-    faqs: [
-      ['O que a uroginecologia acompanha?', 'A uroginecologia está relacionada à avaliação de questões da saúde pélvica feminina e sintomas urinários, sempre com orientação profissional.'],
-      ['Quando procurar esse tipo de atendimento?', 'Quando houver desconfortos, sintomas urinários, dúvidas sobre saúde pélvica ou necessidade de avaliação especializada.'],
-      ['É possível receber orientação antes da consulta?', 'Sim. A equipe pode orientar pelo WhatsApp sobre agendamento e preparo inicial.'],
-    ],
-  },
-  {
-    title: 'Obstetrícia',
-    slug: 'obstetricia',
-    registryLabel: 'CRM',
-    seoTitle: 'Obstetrícia em Passos-MG | Acompanhamento e Orientação Gestacional',
-    metaDescription: 'Atendimento em obstetrícia em Passos-MG com orientação para gestantes, acompanhamento e cuidado humanizado.',
-    kicker: 'Obstetrícia em Passos-MG',
-    headline: 'Obstetrícia com acolhimento e orientação durante a gestação',
-    intro: 'Cuidado e orientação para gestantes e famílias, com foco em segurança, acompanhamento e acolhimento.',
-    indications: ['Acompanhamento durante a gestação', 'Dúvidas sobre sintomas e cuidados gestacionais', 'Orientação para consultas e exames', 'Acolhimento da gestante e da família'],
-    differentials: ['Cuidado humanizado', 'Orientação clara desde o primeiro contato', 'Agendamento prático', 'Comunicação acolhedora para reduzir inseguranças'],
-    faqs: [
-      ['Quando iniciar o acompanhamento obstétrico?', 'O acompanhamento deve ser iniciado conforme orientação médica e necessidade individual da gestante.'],
-      ['Posso agendar pelo WhatsApp?', 'Sim. Nossa equipe realiza o agendamento pelo WhatsApp.'],
-      ['A clínica orienta sobre preparo para a consulta?', 'Sim. Ao agendar, a equipe pode orientar sobre documentos, exames e informações úteis.'],
-    ],
-  },
-  {
-    title: 'Fertilidade',
-    slug: 'fertilidade',
-    registryLabel: 'CRM',
-    seoTitle: 'Fertilidade em Passos-MG | Orientação e Acompanhamento Especializado',
-    metaDescription: 'Orientação em fertilidade em Passos-MG com acolhimento, avaliação individualizada e agendamento facilitado.',
-    kicker: 'Fertilidade em Passos-MG',
-    headline: 'Fertilidade com orientação individualizada e acolhimento',
-    intro: 'Atendimento para quem busca orientação sobre planejamento reprodutivo, tentativa de gestação e investigação inicial.',
-    indications: ['Dúvidas sobre tentativa de gestação', 'Planejamento reprodutivo', 'Orientação inicial para investigação', 'Acompanhamento conforme histórico do casal ou paciente'],
-    differentials: ['Abordagem cuidadosa e individualizada', 'Primeiro contato simples pelo WhatsApp', 'Explicação clara dos próximos passos', 'Acolhimento durante uma etapa sensível da vida'],
-    faqs: [
-      ['Quando procurar orientação sobre fertilidade?', 'Quando houver dúvidas sobre tentativa de gestação, planejamento reprodutivo ou necessidade de investigação inicial.'],
-      ['A consulta ajuda a definir próximos passos?', 'Sim. A avaliação profissional ajuda a organizar informações e orientar o caminho mais adequado.'],
-      ['Posso agendar uma avaliação inicial?', 'Sim. O agendamento pode ser feito diretamente com nossa equipe.'],
-    ],
-  },
-  {
-    title: 'Oncologia',
-    slug: 'oncologia',
-    registryLabel: 'CRM',
-    seoTitle: 'Oncologia em Passos-MG | Atendimento Humanizado e Orientação',
-    metaDescription: 'Atendimento em oncologia em Passos-MG com orientação, acolhimento e suporte para agendamento pelo WhatsApp.',
-    kicker: 'Oncologia em Passos-MG',
-    headline: 'Oncologia com cuidado humanizado, escuta e orientação',
-    intro: 'Atendimento responsável, com foco em orientação, acolhimento, acompanhamento e direcionamento para avaliação profissional.',
-    indications: ['Orientação após suspeitas ou diagnósticos', 'Acompanhamento especializado', 'Dúvidas sobre encaminhamentos e consultas', 'Suporte para organizar o primeiro atendimento'],
-    differentials: ['Comunicação cuidadosa e responsável', 'Acolhimento em uma fase delicada', 'Agendamento facilitado', 'Orientação sobre documentos e informações para a consulta'],
-    faqs: [
-      ['Quando procurar um oncologista?', 'Quando houver encaminhamento, suspeitas, diagnóstico ou necessidade de avaliação especializada.'],
-      ['Posso agendar uma primeira avaliação?', 'Sim. Nossa equipe pode auxiliar no agendamento pelo WhatsApp.'],
-      ['Quais informações devo levar para a consulta?', 'Leve exames, relatórios, encaminhamentos e informações sobre seu histórico de saúde.'],
-    ],
-  },
-  {
-    title: 'Odontologia',
-    slug: 'odontologia',
-    registryLabel: 'CRO',
-    seoTitle: 'Odontologia em Passos-MG | Atendimento e Saúde Bucal',
-    metaDescription: 'Atendimento em odontologia em Passos-MG com agendamento facilitado, cuidado humanizado e orientação sobre saúde bucal.',
-    kicker: 'Odontologia em Passos-MG',
-    headline: 'Odontologia para cuidado, prevenção e saúde bucal',
-    intro: 'Atendimento odontológico para avaliação, prevenção, orientação sobre tratamentos e cuidado com a saúde bucal.',
-    indications: ['Avaliação odontológica inicial', 'Prevenção e acompanhamento de saúde bucal', 'Orientação sobre tratamentos disponíveis', 'Agendamento para atendimento com horário marcado'],
-    differentials: ['Atendimento organizado e acolhedor', 'Facilidade para tirar dúvidas pelo WhatsApp', 'Comunicação clara sobre o próximo passo', 'Experiência mais prática para o paciente'],
-    faqs: [
-      ['Como agendar uma avaliação odontológica?', 'O agendamento pode ser feito pelo WhatsApp com nossa equipe.'],
-      ['Posso tirar dúvidas antes de marcar?', 'Sim. Você pode falar com a equipe antes de confirmar o atendimento.'],
-      ['Quais tratamentos estarão disponíveis?', 'Os tratamentos devem ser confirmados conforme agenda, equipe e avaliação profissional.'],
-    ],
-  },
-  {
-    title: 'Nutrição',
-    slug: 'nutricao',
-    registryLabel: 'CRN',
-    seoTitle: 'Nutrição em Passos-MG | Consulta nutricional especializada',
-    metaDescription: 'Consulta de nutrição em Passos-MG com atendimento individualizado, avaliação corporal, tecnologia e acompanhamento nutricional para saúde e bem-estar.',
-    kicker: 'Nutrição em Passos-MG',
-    headline: 'Consulta nutricional especializada para saúde, bem-estar e qualidade de vida',
-    intro: 'A consulta nutricional é focada nas suas dificuldades, na sua rotina e nos seus objetivos. O atendimento busca encaixar mais saúde e bem-estar no seu dia a dia, com estratégia, acompanhamento e orientação individualizada.',
-    professional: {
-      name: 'Fernanda Godinho Rosa',
-      registry: 'CRN 9-7322',
-      photoLabel: 'Foto da nutricionista',
-      note: 'Nutricionista responsável pelo atendimento em nutrição, com foco em avaliação individualizada, estratégia alimentar e acompanhamento contínuo.',
-    },
-    sections: [
-      {
-        kicker: 'Consulta especializada',
-        title: 'Como funciona a consulta nutricional',
-        text: [
-          'O diferencial da consulta é estar junto com você durante todo o caminho em busca do seu melhor peso, longevidade, melhora da saúde, bem-estar e qualidade de vida.',
-          'Na primeira consulta, é feita uma escuta cuidadosa da sua história alimentar, preferências, dificuldades e objetivos. A partir disso, é construído um plano alimentar pensado para a sua rotina, com orientações práticas para que você consiga fazer escolhas melhores sem abrir mão do prazer em se alimentar.',
-          'Depois da consulta, entre uma consulta e outra, você pode contar com suporte para ajustar dúvidas e manter o acompanhamento mais próximo. O objetivo é que você se sinta mais motivado, organizado e confiante durante o processo.',
-        ],
-        note: 'Esse modelo de atendimento é indicado para quem busca acompanhamento nutricional com clareza, estratégia e constância.',
-      },
-      {
-        kicker: 'Tecnologia e precisão',
-        title: 'Avaliação completa para uma nutrição mais individualizada',
-        text: ['Na clínica, a nutrição conta com métodos modernos para oferecer uma avaliação mais completa e personalizada da saúde, considerando composição corporal, saúde intestinal, inflamação e performance metabólica.'],
-        list: ['Ultrassom corporal BodyMetrix®', 'Testes genéticos aplicados à nutrição funcional', 'Avaliação avançada de composição corporal', 'Estratégias integrativas para saúde hormonal e metabólica', 'Parceria com laboratório Fleury para exames laboratoriais de alta precisão'],
-        note: 'Mais do que tratar sintomas, buscamos entender a raiz dos desequilíbrios para construir resultados reais e sustentáveis.',
-      },
-      {
-        kicker: 'Acompanhamento individualizado',
-        title: 'Programas nutricionais com estratégia e constância',
-        text: ['Os programas nutricionais foram desenvolvidos para proporcionar acompanhamento contínuo e uma abordagem mais profunda da saúde.', 'Ao longo do processo, o paciente conta com avaliações periódicas, monitoramento de evolução, ajustes estratégicos e suporte nutricional personalizado, favorecendo mais aderência, segurança e resultados consistentes.'],
-        list: ['Planejamento alimentar individualizado', 'Acompanhamento da evolução corporal e clínica', 'Ajustes conforme rotina, exames e objetivos', 'Orientação para escolhas alimentares mais conscientes', 'Suporte para manter organização e motivação'],
-      },
-    ],
-    faqs: [
-      ['Para quem é indicada a consulta nutricional?', 'É indicada para pessoas que desejam melhorar alimentação, saúde, composição corporal, disposição, relação com a comida ou precisam de acompanhamento nutricional individualizado.'],
-      ['A consulta inclui plano alimentar?', 'Sim. O plano alimentar é construído considerando sua rotina, preferências, objetivos e necessidades, para que seja possível aplicar as orientações no dia a dia.'],
-      ['Existe acompanhamento depois da consulta?', 'Sim. O acompanhamento ajuda a ajustar dúvidas, acompanhar evolução e manter mais constância durante o processo.'],
-    ],
-  },
-];
+  ['Ginecologia', 'ginecologia', 'CRM', 'Ginecologia em Passos-MG | Especialidades em Saúde e Bem-Estar', 'Agende atendimento em ginecologia em Passos-MG. Cuidado acolhedor, orientação clara e suporte pelo WhatsApp.', 'Ginecologia em Passos-MG', 'Ginecologia com cuidado, orientação e acolhimento em todas as fases da vida', 'Atendimento ginecológico com foco em prevenção, acompanhamento de rotina, saúde íntima e orientação individualizada.', ['Consulta ginecológica de rotina', 'Prevenção e acompanhamento da saúde íntima', 'Orientação sobre ciclos, sintomas e desconfortos', 'Avaliação individualizada conforme histórico da paciente'], ['Atendimento humanizado e reservado', 'Comunicação clara antes do agendamento', 'Possibilidade de tirar dúvidas iniciais pelo WhatsApp', 'Orientação sobre o melhor caminho de atendimento']],
+  ['Uroginecologia', 'uroginecologia', 'CRM', 'Uroginecologia em Passos-MG | Cuidado Feminino Especializado', 'Atendimento em uroginecologia em Passos-MG para orientação sobre saúde pélvica, sintomas urinários e cuidado feminino especializado.', 'Uroginecologia em Passos-MG', 'Uroginecologia para saúde pélvica feminina com orientação especializada', 'Atendimento voltado à orientação sobre saúde pélvica, queixas urinárias, desconfortos e prevenção.', ['Sintomas urinários recorrentes', 'Desconfortos relacionados à saúde pélvica', 'Orientação sobre prevenção e acompanhamento', 'Encaminhamento para avaliação adequada quando necessário'], ['Escuta cuidadosa e sem constrangimento', 'Linguagem simples para explicar próximos passos', 'Agendamento facilitado pelo WhatsApp', 'Ambiente profissional e acolhedor']],
+  ['Obstetrícia', 'obstetricia', 'CRM', 'Obstetrícia em Passos-MG | Acompanhamento e Orientação Gestacional', 'Atendimento em obstetrícia em Passos-MG com orientação para gestantes, acompanhamento e cuidado humanizado.', 'Obstetrícia em Passos-MG', 'Obstetrícia com acolhimento e orientação durante a gestação', 'Cuidado e orientação para gestantes e famílias, com foco em segurança, acompanhamento e acolhimento.', ['Acompanhamento durante a gestação', 'Dúvidas sobre sintomas e cuidados gestacionais', 'Orientação para consultas e exames', 'Acolhimento da gestante e da família'], ['Cuidado humanizado', 'Orientação clara desde o primeiro contato', 'Agendamento prático', 'Comunicação acolhedora para reduzir inseguranças']],
+  ['Fertilidade', 'fertilidade', 'CRM', 'Fertilidade em Passos-MG | Orientação e Acompanhamento Especializado', 'Orientação em fertilidade em Passos-MG com acolhimento, avaliação individualizada e agendamento facilitado.', 'Fertilidade em Passos-MG', 'Fertilidade com orientação individualizada e acolhimento', 'Atendimento para quem busca orientação sobre planejamento reprodutivo, tentativa de gestação e investigação inicial.', ['Dúvidas sobre tentativa de gestação', 'Planejamento reprodutivo', 'Orientação inicial para investigação', 'Acompanhamento conforme histórico do casal ou paciente'], ['Abordagem cuidadosa e individualizada', 'Primeiro contato simples pelo WhatsApp', 'Explicação clara dos próximos passos', 'Acolhimento durante uma etapa sensível da vida']],
+  ['Oncologia', 'oncologia', 'CRM', 'Oncologia em Passos-MG | Atendimento Humanizado e Orientação', 'Atendimento em oncologia em Passos-MG com orientação, acolhimento e suporte para agendamento pelo WhatsApp.', 'Oncologia em Passos-MG', 'Oncologia com cuidado humanizado, escuta e orientação', 'Atendimento responsável, com foco em orientação, acolhimento, acompanhamento e direcionamento para avaliação profissional.', ['Orientação após suspeitas ou diagnósticos', 'Acompanhamento especializado', 'Dúvidas sobre encaminhamentos e consultas', 'Suporte para organizar o primeiro atendimento'], ['Comunicação cuidadosa e responsável', 'Acolhimento em uma fase delicada', 'Agendamento facilitado', 'Orientação sobre documentos e informações para a consulta']],
+  ['Odontologia', 'odontologia', 'CRO', 'Odontologia em Passos-MG | Atendimento e Saúde Bucal', 'Atendimento em odontologia em Passos-MG com agendamento facilitado, cuidado humanizado e orientação sobre saúde bucal.', 'Odontologia em Passos-MG', 'Odontologia para cuidado, prevenção e saúde bucal', 'Atendimento odontológico para avaliação, prevenção, orientação sobre tratamentos e cuidado com a saúde bucal.', ['Avaliação odontológica inicial', 'Prevenção e acompanhamento de saúde bucal', 'Orientação sobre tratamentos disponíveis', 'Agendamento para atendimento com horário marcado'], ['Atendimento organizado e acolhedor', 'Facilidade para tirar dúvidas pelo WhatsApp', 'Comunicação clara sobre o próximo passo', 'Experiência mais prática para o paciente']],
+].map(([title, slug, registryLabel, seoTitle, metaDescription, kicker, headline, intro, indications, differentials]) => ({
+  title, slug, registryLabel, seoTitle, metaDescription, kicker, headline, intro, indications, differentials,
+  faqs: [
+    ['Quando devo agendar?', 'O agendamento é indicado quando você deseja avaliação, orientação ou acompanhamento profissional na especialidade escolhida.'],
+    ['Posso tirar dúvidas antes de marcar?', 'Sim. Você pode falar com nossa equipe pelo WhatsApp para entender melhor o fluxo de atendimento e agendamento.'],
+    ['O atendimento é com horário marcado?', 'Sim. O atendimento é feito com horário agendado para oferecer organização e pontualidade.'],
+  ],
+}));
+
+specialties.push({
+  title: 'Nutrição',
+  slug: 'nutricao',
+  registryLabel: 'CRN',
+  seoTitle: 'Nutrição em Passos-MG | Consulta nutricional especializada',
+  metaDescription: 'Consulta de nutrição em Passos-MG com atendimento individualizado, avaliação corporal, tecnologia e acompanhamento nutricional para saúde e bem-estar.',
+  kicker: 'Nutrição em Passos-MG',
+  headline: 'Consulta nutricional especializada para saúde, bem-estar e qualidade de vida',
+  intro: 'A consulta nutricional é focada nas suas dificuldades, na sua rotina e nos seus objetivos. O atendimento busca encaixar mais saúde e bem-estar no seu dia a dia, com estratégia, acompanhamento e orientação individualizada.',
+  professional: { name: 'Fernanda Godinho Rosa', registry: 'CRN 9-7322', photoLabel: 'Foto da nutricionista', note: 'Nutricionista responsável pelo atendimento em nutrição, com foco em avaliação individualizada, estratégia alimentar e acompanhamento contínuo.' },
+  sections: [
+    { kicker: 'Consulta especializada', title: 'Como funciona a consulta nutricional', text: ['O diferencial da consulta é estar junto com você durante todo o caminho em busca do seu melhor peso, longevidade, melhora da saúde, bem-estar e qualidade de vida.', 'Na primeira consulta, é feita uma escuta cuidadosa da sua história alimentar, preferências, dificuldades e objetivos. A partir disso, é construído um plano alimentar pensado para a sua rotina, com orientações práticas para que você consiga fazer escolhas melhores sem abrir mão do prazer em se alimentar.', 'Depois da consulta, entre uma consulta e outra, você pode contar com suporte para ajustar dúvidas e manter o acompanhamento mais próximo. O objetivo é que você se sinta mais motivado, organizado e confiante durante o processo.'], note: 'Esse modelo de atendimento é indicado para quem busca acompanhamento nutricional com clareza, estratégia e constância.' },
+    { kicker: 'Tecnologia e precisão', title: 'Avaliação completa para uma nutrição mais individualizada', text: ['Na clínica, a nutrição conta com métodos modernos para oferecer uma avaliação mais completa e personalizada da saúde, considerando composição corporal, saúde intestinal, inflamação e performance metabólica.'], list: ['Ultrassom corporal BodyMetrix®', 'Testes genéticos aplicados à nutrição funcional', 'Avaliação avançada de composição corporal', 'Estratégias integrativas para saúde hormonal e metabólica', 'Parceria com laboratório Fleury para exames laboratoriais de alta precisão'], note: 'Mais do que tratar sintomas, buscamos entender a raiz dos desequilíbrios para construir resultados reais e sustentáveis.' },
+    { kicker: 'Acompanhamento individualizado', title: 'Programas nutricionais com estratégia e constância', text: ['Os programas nutricionais foram desenvolvidos para proporcionar acompanhamento contínuo e uma abordagem mais profunda da saúde.', 'Ao longo do processo, o paciente conta com avaliações periódicas, monitoramento de evolução, ajustes estratégicos e suporte nutricional personalizado, favorecendo mais aderência, segurança e resultados consistentes.'], list: ['Planejamento alimentar individualizado', 'Acompanhamento da evolução corporal e clínica', 'Ajustes conforme rotina, exames e objetivos', 'Orientação para escolhas alimentares mais conscientes', 'Suporte para manter organização e motivação'] },
+  ],
+  faqs: [
+    ['Para quem é indicada a consulta nutricional?', 'É indicada para pessoas que desejam melhorar alimentação, saúde, composição corporal, disposição, relação com a comida ou precisam de acompanhamento nutricional individualizado.'],
+    ['A consulta inclui plano alimentar?', 'Sim. O plano alimentar é construído considerando sua rotina, preferências, objetivos e necessidades, para que seja possível aplicar as orientações no dia a dia.'],
+    ['Existe acompanhamento depois da consulta?', 'Sim. O acompanhamento ajuda a ajustar dúvidas, acompanhar evolução e manter mais constância durante o processo.'],
+  ],
+});
 
 const services = ['Avaliação inicial', 'Consulta especializada', 'Atendimento preventivo', 'Procedimentos personalizados', 'Acompanhamento contínuo', 'Orientação pelo WhatsApp'];
 const benefits = [
@@ -198,284 +88,70 @@ const homeFaqs = [
   ['Quais formas de pagamento são aceitas?', 'Aceitamos as seguintes formas de pagamento: Pix, cartões de crédito e débito e dinheiro.'],
 ];
 
-function localPath(path = '') {
-  return `${BASE_URL}${path.replace(/^\/+/, '')}`;
-}
-
+function localPath(path = '') { return `${BASE_URL}${path.replace(/^\/+/, '')}`; }
 function setPageMeta({ title, description, path = '' }) {
   document.title = title;
   let descriptionTag = document.querySelector('meta[name="description"]');
-  if (!descriptionTag) {
-    descriptionTag = document.createElement('meta');
-    descriptionTag.setAttribute('name', 'description');
-    document.head.appendChild(descriptionTag);
-  }
+  if (!descriptionTag) { descriptionTag = document.createElement('meta'); descriptionTag.setAttribute('name', 'description'); document.head.appendChild(descriptionTag); }
   descriptionTag.setAttribute('content', description);
-
   let canonicalTag = document.querySelector('link[rel="canonical"]');
-  if (!canonicalTag) {
-    canonicalTag = document.createElement('link');
-    canonicalTag.setAttribute('rel', 'canonical');
-    document.head.appendChild(canonicalTag);
-  }
+  if (!canonicalTag) { canonicalTag = document.createElement('link'); canonicalTag.setAttribute('rel', 'canonical'); document.head.appendChild(canonicalTag); }
   canonicalTag.setAttribute('href', `${window.location.origin}${localPath(path)}`);
 }
-
 function Button({ children, variant = 'primary', href = WHATSAPP_URL, className = '' }) {
   const external = href.startsWith('http');
   return <a className={`btn btn-${variant} ${className}`} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>{children}</a>;
 }
-
 function BrandLogo({ compact = false }) {
-  return (
-    <div className={compact ? 'brand brand-compact' : 'brand'}>
-      <img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src={LOGO_SRC} alt={`Logomarca ${BRAND_NAME}`} />
-      <div>
-        <p className={compact ? 'brand-name brand-name-compact' : 'brand-name'}>{BRAND_NAME}</p>
-        <p className={compact ? 'brand-subtitle brand-subtitle-compact' : 'brand-subtitle'}>Atendimento humanizado</p>
-      </div>
-    </div>
-  );
+  return <div className={compact ? 'brand brand-compact' : 'brand'}><img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src={LOGO_SRC} alt={`Logomarca ${BRAND_NAME}`} /><div><p className={compact ? 'brand-name brand-name-compact' : 'brand-name'}>{BRAND_NAME}</p><p className={compact ? 'brand-subtitle brand-subtitle-compact' : 'brand-subtitle'}>Atendimento humanizado</p></div></div>;
 }
-
 function Header() {
   const dropdownRef = useRef(null);
   const [open, setOpen] = useState(false);
-
-  useEffect(() => {
-    const close = (event) => {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setOpen(false);
-    };
-    document.addEventListener('click', close);
-    return () => document.removeEventListener('click', close);
-  }, []);
-
-  return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <a href={localPath('#inicio')} aria-label="Ir para o início"><BrandLogo compact /></a>
-        <nav className="nav">
-          <a href={localPath('#inicio')}>Início</a>
-          <details className="nav-dropdown" ref={dropdownRef} open={open} onToggle={(event) => setOpen(event.currentTarget.open)}>
-            <summary className="nav-dropdown-trigger">Especialidades</summary>
-            <div className="nav-dropdown-menu">
-              <a href={localPath('#especialidades')} onClick={() => setOpen(false)}>Ver todas</a>
-              {specialties.map((specialty) => <a key={specialty.slug} href={localPath(`especialidades/${specialty.slug}`)} onClick={() => setOpen(false)}>{specialty.title}</a>)}
-            </div>
-          </details>
-          <a href={localPath('#servicos')}>Serviços</a>
-          <a href={localPath('#sobre')}>Sobre</a>
-          <a href={localPath('#duvidas')}>Dúvidas</a>
-          <a href={localPath('#contato')}>Contato</a>
-        </nav>
-        <Button>Agendar pelo WhatsApp</Button>
-      </div>
-    </header>
-  );
+  useEffect(() => { const close = (event) => { if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setOpen(false); }; document.addEventListener('click', close); return () => document.removeEventListener('click', close); }, []);
+  return <header className="site-header"><div className="container header-inner"><a href={localPath('#inicio')} aria-label="Ir para o início"><BrandLogo compact /></a><nav className="nav"><a href={localPath('#inicio')}>Início</a><details className="nav-dropdown" ref={dropdownRef} open={open} onToggle={(event) => setOpen(event.currentTarget.open)}><summary className="nav-dropdown-trigger">Especialidades</summary><div className="nav-dropdown-menu"><a href={localPath('#especialidades')} onClick={() => setOpen(false)}>Ver todas</a>{specialties.map((specialty) => <a key={specialty.slug} href={localPath(`especialidades/${specialty.slug}`)} onClick={() => setOpen(false)}>{specialty.title}</a>)}<a href={localPath('teste-genetico')} onClick={() => setOpen(false)}>Teste Genético</a></div></details><a href={localPath('#servicos')}>Serviços</a><a href={localPath('#sobre')}>Sobre</a><a href={localPath('#duvidas')}>Dúvidas</a><a href={localPath('#contato')}>Contato</a></nav><Button>Agendar pelo WhatsApp</Button></div></header>;
 }
-
 function Footer() {
-  const handleEmailClick = (event) => {
-    event.preventDefault();
-    window.location.href = EMAIL_URL;
-  };
-
-  return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div>
-          <BrandLogo compact />
-          <div className="footer-contact-links">
-            <a href={MAPS_URL} target="_blank" rel="noreferrer"><span>{ADDRESS_LINE_1}</span><span>{ADDRESS_LINE_2}</span></a>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a>
-            <a href={PHONE_URL}>Ligação: {WHATSAPP_DISPLAY}</a>
-            <a href={EMAIL_URL} onClick={handleEmailClick}>E-mail: {EMAIL}</a>
-          </div>
-        </div>
-        <div>
-          <strong>Links</strong>
-          <a href={localPath('#especialidades')}>Especialidades</a>
-          <a href={localPath('#servicos')}>Serviços</a>
-          <a href={localPath('#sobre')}>Sobre</a>
-          <a href={localPath('#contato')}>Contato</a>
-          <a href={localPath('politica-de-privacidade')}>Política de Privacidade</a>
-        </div>
-        <div>
-          <strong>Horários</strong>
-          <div className="hours-list">{HOURS.map(([day, time]) => <span key={day}>{day}: {time}</span>)}</div>
-        </div>
-      </div>
-    </footer>
-  );
-}
-
-function PrivacyPolicy() {
-  return (
-    <div className="site-shell">
-      <Header />
-      <main className="privacy-page">
-        <section className="privacy-hero"><div className="container narrow"><p className="section-kicker">LGPD</p><h1>Política de Privacidade</h1><p>Esta Política de Privacidade explica como {BRAND_NAME} coleta, utiliza, armazena e protege dados pessoais fornecidos por visitantes, pacientes e interessados em atendimento.</p><p className="privacy-updated">Última atualização: 28 de maio de 2026.</p></div></section>
-        <section className="privacy-content"><div className="container narrow privacy-card"><h2>1. Quem somos</h2><p>{BRAND_NAME} é um centro de especialidades em saúde e bem-estar localizado em {ADDRESS}.</p><h2>2. Dados e finalidades</h2><p>Podemos usar dados fornecidos voluntariamente para responder dúvidas, realizar pré-atendimento, agendar consultas, confirmar horários e cumprir obrigações legais.</p><h2>3. Compartilhamento</h2><p>Os dados poderão ser compartilhados apenas quando necessário para viabilizar contato, atendimento, ferramentas tecnológicas ou obrigações legais. Não vendemos dados pessoais.</p><h2>4. Contato</h2><p>Para dúvidas sobre privacidade, fale conosco pelo WhatsApp {WHATSAPP_DISPLAY} ou pelo e-mail {EMAIL}.</p></div></section>
-      </main>
-      <Footer />
-    </div>
-  );
+  const handleEmailClick = (event) => { event.preventDefault(); window.location.href = EMAIL_URL; };
+  return <footer className="site-footer"><div className="container footer-grid"><div><BrandLogo compact /><div className="footer-contact-links"><a href={MAPS_URL} target="_blank" rel="noreferrer"><span>{ADDRESS_LINE_1}</span><span>{ADDRESS_LINE_2}</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a><a href={PHONE_URL}>Ligação: {WHATSAPP_DISPLAY}</a><a href={EMAIL_URL} onClick={handleEmailClick}>E-mail: {EMAIL}</a></div></div><div><strong>Links</strong><a href={localPath('#especialidades')}>Especialidades</a><a href={localPath('#servicos')}>Serviços</a><a href={localPath('#sobre')}>Sobre</a><a href={localPath('#contato')}>Contato</a><a href={localPath('politica-de-privacidade')}>Política de Privacidade</a></div><div><strong>Horários</strong><div className="hours-list">{HOURS.map(([day, time]) => <span key={day}>{day}: {time}</span>)}</div></div></div></footer>;
 }
 
 function ProfessionalCard({ specialty }) {
-  const professional = specialty.professional || {
-    name: 'Nome do profissional',
-    registry: `${specialty.registryLabel || 'CRM'} / registro profissional a definir`,
-    photoLabel: 'Foto do profissional',
-    note: 'Espaço reservado para foto, nome e registro do profissional responsável por esta especialidade.',
-  };
-
-  return (
-    <aside className="specialty-professional-card">
-      <div className="specialty-professional-photo">{professional.photoLabel}</div>
-      <div className="specialty-professional-info"><strong>{professional.name}</strong><span>{professional.registry}</span></div>
-      <p className="specialty-professional-note">{professional.note}</p>
-    </aside>
-  );
+  const professional = specialty.professional || { name: 'Nome do profissional', registry: `${specialty.registryLabel || 'CRM'} / registro profissional a definir`, photoLabel: 'Foto do profissional', note: 'Espaço reservado para foto, nome e registro do profissional responsável por esta especialidade.' };
+  return <aside className="specialty-professional-card"><div className="specialty-professional-photo">{professional.photoLabel}</div><div className="specialty-professional-info"><strong>{professional.name}</strong><span>{professional.registry}</span></div><p className="specialty-professional-note">{professional.note}</p></aside>;
 }
-
-function defaultSections(specialty) {
-  return [
-    { kicker: 'Quando procurar', title: `Principais motivos para buscar atendimento em ${specialty.title}`, text: ['Atendimento pensado para orientar o paciente com clareza, acolhimento e direcionamento adequado desde o primeiro contato.'], list: specialty.indications },
-    { kicker: 'Diferenciais', title: 'Como o atendimento é conduzido', text: ['A clínica valoriza atendimento humanizado, comunicação simples e organização no processo de agendamento.'], list: specialty.differentials },
-  ];
-}
-
-function SpecialtyBlock({ section }) {
-  return (
-    <article className="content-block specialty-content-card">
-      <p className="section-kicker">{section.kicker}</p>
-      <h2>{section.title}</h2>
-      {section.text?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-      {section.list && <ul className="info-list">{section.list.map((item) => <li key={item}><CheckCircle2 size={18} /> {item}</li>)}</ul>}
-      {section.note && <p className="nutrition-note">{section.note}</p>}
-    </article>
-  );
-}
-
-function SpecialtyFaq({ specialty }) {
-  return (
-    <article className="content-block specialty-content-card">
-      <p className="section-kicker">Dúvidas frequentes</p>
-      <h2>Perguntas sobre {specialty.title}</h2>
-      <div className="faq-list compact-faq">{specialty.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div>
-    </article>
-  );
-}
-
-function SpecialtyDisclaimer() {
-  return <p className="specialty-disclaimer"><strong>**Importante:**</strong> As informações desta página são educativas e não substituem avaliação profissional individualizada.</p>;
-}
-
+function defaultSections(specialty) { return [{ kicker: 'Quando procurar', title: `Principais motivos para buscar atendimento em ${specialty.title}`, text: ['Atendimento pensado para orientar o paciente com clareza, acolhimento e direcionamento adequado desde o primeiro contato.'], list: specialty.indications }, { kicker: 'Diferenciais', title: 'Como o atendimento é conduzido', text: ['A clínica valoriza atendimento humanizado, comunicação simples e organização no processo de agendamento.'], list: specialty.differentials }]; }
+function SpecialtyBlock({ section }) { return <article className="content-block specialty-content-card"><p className="section-kicker">{section.kicker}</p><h2>{section.title}</h2>{section.text?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}{section.list && <ul className="info-list">{section.list.map((item) => <li key={item}><CheckCircle2 size={18} /> {item}</li>)}</ul>}{section.note && <p className="nutrition-note">{section.note}</p>}</article>; }
+function SpecialtyFaq({ specialty }) { return <article className="content-block specialty-content-card"><p className="section-kicker">Dúvidas frequentes</p><h2>Perguntas sobre {specialty.title}</h2><div className="faq-list compact-faq">{specialty.faqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></article>; }
+function SpecialtyDisclaimer() { return <p className="specialty-disclaimer"><strong>**Importante:**</strong> As informações desta página são educativas e não substituem avaliação profissional individualizada.</p>; }
 function SpecialtyPage({ specialty }) {
   const sections = specialty.sections || defaultSections(specialty);
-
-  return (
-    <div className="site-shell">
-      <Header />
-      <main className="specialty-page">
-        <section className="specialty-hero section-blush"><div className="container specialty-hero-grid"><div><p className="section-kicker">{specialty.kicker}</p><h1>{specialty.headline}</h1><p className="hero-text">{specialty.intro}</p><div className="hero-actions"><Button>Agendar {specialty.title} pelo WhatsApp <ArrowRight size={18} /></Button><Button variant="outline" href={localPath('#especialidades')}>Ver outras especialidades</Button></div><SpecialtyDisclaimer /></div><ProfessionalCard specialty={specialty} /></div></section>
-        <section className="section white"><div className="container specialty-layout">{sections.slice(0, 2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}</div></section>
-        <section className="section soft-gray"><div className="container specialty-layout">{sections.slice(2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}<SpecialtyFaq specialty={specialty} /></div></section>
-        <section className="section blush center"><div className="container narrow"><h2>Quer agendar atendimento em {specialty.title}?</h2><p>Fale com a equipe pelo WhatsApp para tirar dúvidas, confirmar disponibilidade e receber orientação sobre o melhor horário.</p><Button>Agendar consulta <MessageCircle size={20} /></Button></div></section>
-      </main>
-      <Footer />
-    </div>
-  );
+  return <div className="site-shell"><Header /><main className="specialty-page"><section className="specialty-hero section-blush"><div className="container specialty-hero-grid"><div><p className="section-kicker">{specialty.kicker}</p><h1>{specialty.headline}</h1><p className="hero-text">{specialty.intro}</p><div className="hero-actions"><Button>Agendar {specialty.title} pelo WhatsApp <ArrowRight size={18} /></Button><Button variant="outline" href={localPath('#especialidades')}>Ver outras especialidades</Button></div><SpecialtyDisclaimer /></div><ProfessionalCard specialty={specialty} /></div></section><section className="section white"><div className="container specialty-layout">{sections.slice(0, 2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}</div></section><section className="section soft-gray"><div className="container specialty-layout">{sections.slice(2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}<SpecialtyFaq specialty={specialty} /></div></section><section className="section blush center"><div className="container narrow"><h2>Quer agendar atendimento em {specialty.title}?</h2><p>Fale com a equipe pelo WhatsApp para tirar dúvidas, confirmar disponibilidade e receber orientação sobre o melhor horário.</p><Button>Agendar consulta <MessageCircle size={20} /></Button></div></section></main><Footer /></div>;
 }
 
-function HomePage() {
-  return (
-    <div className="site-shell">
-      <Header />
-      <main>
-        <section id="inicio" className="hero section-blush"><div className="blob blob-one" /><div className="blob blob-two" /><div className="container hero-grid"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}><a className="eyebrow" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Atendimento pelo WhatsApp</a><h1>Atendimento rápido, humanizado e pensado para facilitar sua escolha</h1><p className="hero-text">Agende seu atendimento de forma simples, tire suas dúvidas pelo WhatsApp e conte com uma equipe preparada para orientar você desde o primeiro contato.</p><div className="hero-actions"><Button>Quero agendar agora <ArrowRight size={18} /></Button><Button variant="outline" href="#especialidades">Conhecer especialidades</Button></div><div className="trust-list"><span><CheckCircle2 size={16} /> Resposta rápida</span><span><CheckCircle2 size={16} /> Atendimento com horário</span></div></motion.div><motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }}><div className="visual-card-outer"><div className="visual-card-inner"><div className="visual-card-content"><BrandLogo /><div className="mini-card-grid"><a className="mini-card" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp para agendamento"><Clock /> <strong>Agendamento rápido</strong></a><a className="mini-card" href={MAPS_URL} target="_blank" rel="noreferrer" aria-label="Abrir rota para a clínica no Google Maps"><MapPin /> <strong>Passos-MG</strong></a></div></div></div></div></motion.div></div></section>
-        <section className="section white"><div className="container"><div className="section-heading center"><p className="section-kicker">Benefícios</p><h2>Uma experiência mais simples do primeiro contato ao atendimento</h2></div><div className="benefit-grid">{benefits.map(([Icon, title, text]) => <article key={title} className="card"><div className="card-icon"><Icon size={26} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section>
-        <section id="especialidades" className="section soft-gray"><div className="container"><div className="section-heading center"><h2>Especialidades</h2></div><div className="specialty-grid">{specialties.map((specialty) => <article key={specialty.slug} className="service-card specialty-card"><h3>{specialty.title}</h3><p>{specialty.metaDescription}</p><a href={localPath(`especialidades/${specialty.slug}`)}>Ver página de {specialty.title} <ArrowRight size={16} /></a></article>)}</div></div></section>
-        <section id="servicos" className="section blush"><div className="container"><div className="split-heading"><div><p className="section-kicker">Serviços</p><h2>Escolha o serviço ideal para você</h2><p>Conheça as principais opções de atendimento e fale com nossa equipe para receber orientação personalizada.</p></div><div className="note-card"><strong>Observação</strong><p>Os nomes abaixo são provisórios e devem ser substituídos pelos serviços reais da clínica antes da publicação.</p></div></div><div className="service-grid">{services.map((service, index) => <article key={service} className="service-card"><div className="service-number">{String(index + 1).padStart(2, '0')}</div><h3>{service}</h3><p>Descrição curta do serviço, com foco em clareza, benefício e chamada para agendamento.</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quero saber mais <ArrowRight size={16} /></a></article>)}</div></div></section>
-        <section className="section white compact"><div className="container"><div className="campaign-card"><div><p className="campaign-kicker">Chamada de campanha</p><h2>Precisa de atendimento com praticidade?</h2><p>Nossa equipe pode orientar você agora mesmo pelo WhatsApp. Envie uma mensagem, tire suas dúvidas e veja a melhor opção de agendamento.</p></div><Button>Falar no WhatsApp</Button></div></div></section>
-        <section id="sobre" className="section soft-gray"><div className="container about-grid"><div className="about-card"><div><p className="section-kicker">Sobre a marca</p><h2>Cuidado, clareza e praticidade em cada etapa</h2><p>Nosso atendimento foi pensado para tornar sua experiência mais simples, desde o primeiro contato até o acompanhamento final. Valorizamos uma comunicação clara, acolhedora e objetiva.</p></div></div><div className="check-list">{['Atendimento humanizado', 'Orientação clara antes do agendamento', 'Comunicação rápida pelo WhatsApp', 'Ambiente profissional e acolhedor'].map((item) => <div key={item}><CheckCircle2 /> <strong>{item}</strong></div>)}</div></div></section>
-        <section id="duvidas" className="section white"><div className="container narrow"><div className="section-heading center"><p className="section-kicker">FAQ</p><h2>Dúvidas frequentes</h2></div><div className="faq-list">{homeFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section>
-        <section id="contato" className="section blush center"><div className="container narrow"><h2>Vamos facilitar seu atendimento?</h2><p>Clique no botão abaixo e fale com a equipe pelo WhatsApp para receber orientação e agendar seu atendimento.</p><Button>Agendar agora <MessageCircle size={20} /></Button></div></section>
-      </main>
-      <Footer />
-    </div>
-  );
+function GeneticTestingPage() {
+  const reasons = [
+    ['Entender predisposições e necessidades individuais', 'O teste pode apontar variações genéticas relacionadas a metabolismo, resposta a nutrientes, sensibilidade alimentar, inflamação e outros pontos que ajudam a personalizar estratégias de cuidado.'],
+    ['Sair do genérico e planejar com mais precisão', 'Em vez de repetir fórmulas prontas, a interpretação profissional ajuda a cruzar genética, rotina, sintomas, exames, objetivos e histórico familiar.'],
+    ['Direcionar prevenção e acompanhamento', 'Resultados genéticos podem orientar conversas sobre monitoramento, hábitos e tomada de decisão em saúde, sempre respeitando limites do teste e avaliação clínica.'],
+  ];
+  const areas = ['Metabolismo de carboidratos, gorduras e vitaminas', 'Predisposição a intolerâncias e sensibilidades', 'Inflamação, detoxificação e estresse oxidativo', 'Controle de peso e composição corporal', 'Performance, recuperação e resposta ao exercício', 'Saúde hormonal, intestinal e cardiovascular como parte de avaliação integrada'];
+  const steps = [['Solicitação e orientação inicial', 'Entendemos seu objetivo, explicamos o que o teste pode ou não responder e orientamos o melhor caminho.'], ['Coleta e análise laboratorial', 'A coleta costuma ser simples, como amostra de saliva ou swab bucal, conforme o exame escolhido.'], ['Interpretação profissional', 'O laudo é traduzido em linguagem prática e conectado à sua história, rotina, exames e prioridades.'], ['Plano de ação individualizado', 'As informações ajudam a direcionar alimentação, acompanhamento e estratégias de saúde com mais clareza.']];
+  return <div className="site-shell"><Header /><main className="genetic-page"><section className="genetic-hero"><div className="container genetic-hero-grid"><div><p className="section-kicker">Teste genético nutricional</p><h1>Conheça seu corpo em profundidade e transforme dados genéticos em estratégia de saúde</h1><p className="hero-text">O teste genético é uma ferramenta de precisão que ajuda a entender predisposições individuais e direcionar condutas nutricionais, metabólicas e preventivas com mais clareza. Ele não substitui consulta, exames ou avaliação profissional: ele complementa o cuidado.</p><div className="hero-actions"><Button href={GENETIC_WHATSAPP_URL}>Quero saber sobre o teste <ArrowRight size={18} /></Button><Button variant="outline" href={localPath('especialidades/nutricao')}>Ver Nutrição</Button></div><div className="genetic-trust-row"><span><CheckCircle2 size={16} /> Personalização</span><span><CheckCircle2 size={16} /> Prevenção</span><span><CheckCircle2 size={16} /> Interpretação profissional</span></div></div><aside className="genetic-side-card"><strong>Por que realizar um teste genético?</strong><p>Porque seu DNA pode revelar tendências importantes sobre como seu organismo responde a nutrientes, hábitos e estratégias de cuidado.</p><div className="genetic-side-list"><span><CheckCircle2 size={18} /> Mais clareza para decisões</span><span><CheckCircle2 size={18} /> Plano mais individualizado</span><span><CheckCircle2 size={18} /> Acompanhamento com contexto</span></div></aside></div></section><section className="genetic-section"><div className="container"><div className="genetic-heading center"><p className="section-kicker">Benefícios</p><h2>Mais do que curiosidade: informação para orientar escolhas com responsabilidade</h2><p>Um resultado genético pode trazer alívio de incertezas e apoiar decisões sobre prevenção, monitoramento e cuidado, mas precisa ser interpretado com critério e dentro do contexto clínico.</p></div><div className="genetic-card-grid">{reasons.map(([title, text]) => <article className="genetic-card" key={title}><div className="card-icon"><CheckCircle2 size={24} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section><section className="genetic-section soft"><div className="container"><div className="genetic-heading"><p className="section-kicker">Aplicações</p><h2>O que pode ser avaliado em um teste genético voltado à nutrição e bem-estar</h2><p>Os painéis variam conforme o laboratório, mas podem abordar marcadores úteis para uma leitura mais completa da saúde e da resposta individual.</p></div><div className="genetic-card-grid two"><article className="genetic-card"><h3>Áreas que podem entrar na análise</h3><ul>{areas.map((item) => <li key={item}>{item}</li>)}</ul></article><article className="genetic-card"><h3>O que o teste não faz sozinho</h3><p>O teste não define diagnóstico isoladamente, não prevê tudo que acontecerá com a sua saúde e não substitui exames, consulta ou acompanhamento. Gene é predisposição; rotina, ambiente, alimentação, sono, estresse e histórico também importam.</p><div className="genetic-warning">**Importante:** o resultado deve ser analisado por profissional habilitado para evitar interpretações simplistas ou condutas desnecessárias.</div></article></div></div></section><section className="genetic-section"><div className="container"><div className="genetic-heading center"><p className="section-kicker">Como funciona</p><h2>Um processo simples, com interpretação profissional</h2></div><div className="genetic-process">{steps.map(([title, text]) => <article className="genetic-step" key={title}><div><h3>{title}</h3><p>{text}</p></div></article>)}</div></div></section><section className="genetic-section soft"><div className="container"><div className="genetic-heading"><p className="section-kicker">Indicações</p><h2>Para quem essa avaliação pode fazer sentido?</h2></div><div className="genetic-card-grid three"><article className="genetic-card"><h3>Quem busca personalização</h3><p>Pessoas que já tentaram estratégias genéricas e querem compreender melhor respostas individuais a alimentação, composição corporal e hábitos.</p></article><article className="genetic-card"><h3>Quem pensa em prevenção</h3><p>Pacientes que desejam usar informação genética como parte de um plano preventivo, junto com exames, história familiar e acompanhamento.</p></article><article className="genetic-card"><h3>Quem deseja clareza</h3><p>Pessoas que querem transformar um laudo técnico em orientações práticas, possíveis e conectadas à rotina.</p></article></div></div></section><section className="genetic-section genetic-cta"><div className="container narrow"><h2>Quer saber se o teste genético faz sentido para você?</h2><p>Fale com nossa equipe pelo WhatsApp. Vamos orientar sobre o exame, o processo e a melhor forma de encaixar essa avaliação no seu acompanhamento.</p><Button href={GENETIC_WHATSAPP_URL}>Quero falar sobre teste genético <MessageCircle size={20} /></Button></div></section></main><Footer /></div>;
 }
 
-function getRoute() {
-  const basePath = BASE_URL.replace(/\/$/, '');
-  const pathname = window.location.pathname;
-  const route = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
-  return route.replace(/^\/+/, '').replace(/\/+$/, '');
-}
+function PrivacyPolicy() { return <div className="site-shell"><Header /><main className="privacy-page"><section className="privacy-hero"><div className="container narrow"><p className="section-kicker">LGPD</p><h1>Política de Privacidade</h1><p>Esta Política de Privacidade explica como {BRAND_NAME} coleta, utiliza, armazena e protege dados pessoais fornecidos por visitantes, pacientes e interessados em atendimento.</p><p className="privacy-updated">Última atualização: 28 de maio de 2026.</p></div></section><section className="privacy-content"><div className="container narrow privacy-card"><h2>1. Quem somos</h2><p>{BRAND_NAME} é um centro de especialidades em saúde e bem-estar localizado em {ADDRESS}.</p><h2>2. Dados e finalidades</h2><p>Podemos usar dados fornecidos voluntariamente para responder dúvidas, realizar pré-atendimento, agendar consultas, confirmar horários e cumprir obrigações legais.</p><h2>3. Compartilhamento</h2><p>Os dados poderão ser compartilhados apenas quando necessário para viabilizar contato, atendimento, ferramentas tecnológicas ou obrigações legais. Não vendemos dados pessoais.</p><h2>4. Contato</h2><p>Para dúvidas sobre privacidade, fale conosco pelo WhatsApp {WHATSAPP_DISPLAY} ou pelo e-mail {EMAIL}.</p></div></section></main><Footer /></div>; }
+function HomePage() { return <div className="site-shell"><Header /><main><section id="inicio" className="hero section-blush"><div className="blob blob-one" /><div className="blob blob-two" /><div className="container hero-grid"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}><a className="eyebrow" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Atendimento pelo WhatsApp</a><h1>Atendimento rápido, humanizado e pensado para facilitar sua escolha</h1><p className="hero-text">Agende seu atendimento de forma simples, tire suas dúvidas pelo WhatsApp e conte com uma equipe preparada para orientar você desde o primeiro contato.</p><div className="hero-actions"><Button>Quero agendar agora <ArrowRight size={18} /></Button><Button variant="outline" href="#especialidades">Conhecer especialidades</Button></div><div className="trust-list"><span><CheckCircle2 size={16} /> Resposta rápida</span><span><CheckCircle2 size={16} /> Atendimento com horário</span></div></motion.div><motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }}><div className="visual-card-outer"><div className="visual-card-inner"><div className="visual-card-content"><BrandLogo /><div className="mini-card-grid"><a className="mini-card" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><Clock /> <strong>Agendamento rápido</strong></a><a className="mini-card" href={MAPS_URL} target="_blank" rel="noreferrer"><MapPin /> <strong>Passos-MG</strong></a></div></div></div></div></motion.div></div></section><section className="section white"><div className="container"><div className="section-heading center"><p className="section-kicker">Benefícios</p><h2>Uma experiência mais simples do primeiro contato ao atendimento</h2></div><div className="benefit-grid">{benefits.map(([Icon, title, text]) => <article key={title} className="card"><div className="card-icon"><Icon size={26} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section><section id="especialidades" className="section soft-gray"><div className="container"><div className="section-heading center"><h2>Especialidades</h2></div><div className="specialty-grid">{specialties.map((specialty) => <article key={specialty.slug} className="service-card specialty-card"><h3>{specialty.title}</h3><p>{specialty.metaDescription}</p><a href={localPath(`especialidades/${specialty.slug}`)}>Ver página de {specialty.title} <ArrowRight size={16} /></a></article>)}<article className="service-card specialty-card"><h3>Teste Genético</h3><p>Landing page educativa sobre teste genético, nutrição de precisão e acompanhamento individualizado.</p><a href={localPath('teste-genetico')}>Conhecer teste genético <ArrowRight size={16} /></a></article></div></div></section><section id="servicos" className="section blush"><div className="container"><div className="split-heading"><div><p className="section-kicker">Serviços</p><h2>Escolha o serviço ideal para você</h2><p>Conheça as principais opções de atendimento e fale com nossa equipe para receber orientação personalizada.</p></div><div className="note-card"><strong>Observação</strong><p>Os nomes abaixo são provisórios e devem ser substituídos pelos serviços reais da clínica antes da publicação.</p></div></div><div className="service-grid">{services.map((service, index) => <article key={service} className="service-card"><div className="service-number">{String(index + 1).padStart(2, '0')}</div><h3>{service}</h3><p>Descrição curta do serviço, com foco em clareza, benefício e chamada para agendamento.</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quero saber mais <ArrowRight size={16} /></a></article>)}</div></div></section><section className="section white compact"><div className="container"><div className="campaign-card"><div><p className="campaign-kicker">Teste genético nutricional</p><h2>Seu DNA pode ajudar a personalizar seu cuidado</h2><p>Entenda como o teste genético pode orientar estratégias nutricionais, metabólicas e preventivas com mais clareza.</p></div><Button href={localPath('teste-genetico')}>Conhecer teste genético</Button></div></div></section><section id="sobre" className="section soft-gray"><div className="container about-grid"><div className="about-card"><div><p className="section-kicker">Sobre a marca</p><h2>Cuidado, clareza e praticidade em cada etapa</h2><p>Nosso atendimento foi pensado para tornar sua experiência mais simples, desde o primeiro contato até o acompanhamento final. Valorizamos uma comunicação clara, acolhedora e objetiva.</p></div></div><div className="check-list">{['Atendimento humanizado', 'Orientação clara antes do agendamento', 'Comunicação rápida pelo WhatsApp', 'Ambiente profissional e acolhedor'].map((item) => <div key={item}><CheckCircle2 /> <strong>{item}</strong></div>)}</div></div></section><section id="duvidas" className="section white"><div className="container narrow"><div className="section-heading center"><p className="section-kicker">FAQ</p><h2>Dúvidas frequentes</h2></div><div className="faq-list">{homeFaqs.map(([question, answer]) => <details key={question}><summary>{question}</summary><p>{answer}</p></details>)}</div></div></section><section id="contato" className="section blush center"><div className="container narrow"><h2>Vamos facilitar seu atendimento?</h2><p>Clique no botão abaixo e fale com a equipe pelo WhatsApp para receber orientação e agendar seu atendimento.</p><Button>Agendar agora <MessageCircle size={20} /></Button></div></section></main><Footer /></div>; }
 
+function getRoute() { const basePath = BASE_URL.replace(/\/$/, ''); const pathname = window.location.pathname; const route = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname; return route.replace(/^\/+/, '').replace(/\/+$/, ''); }
 function App() {
   const [route, setRoute] = useState(getRoute());
   const [hash, setHash] = useState(window.location.hash || '#inicio');
-
-  useEffect(() => {
-    const redirectPath = sessionStorage.getItem('spa-redirect-path');
-    if (redirectPath) {
-      sessionStorage.removeItem('spa-redirect-path');
-      window.history.replaceState(null, '', redirectPath);
-      setRoute(getRoute());
-      setHash(window.location.hash || '#inicio');
-    }
-  }, []);
-
-  useEffect(() => {
-    const sync = () => {
-      setRoute(getRoute());
-      setHash(window.location.hash || '#inicio');
-    };
-    const click = (event) => {
-      const link = event.target.closest('a[href]');
-      if (!link) return;
-      if (link.href.startsWith('mailto:') || link.href.startsWith('tel:')) return;
-      const url = new URL(link.href);
-      if (url.origin === window.location.origin) setTimeout(sync, 0);
-    };
-    window.addEventListener('popstate', sync);
-    window.addEventListener('hashchange', sync);
-    document.addEventListener('click', click);
-    return () => {
-      window.removeEventListener('popstate', sync);
-      window.removeEventListener('hashchange', sync);
-      document.removeEventListener('click', click);
-    };
-  }, []);
-
-  useEffect(() => {
-    if (route === 'politica-de-privacidade') {
-      setPageMeta({ title: `Política de Privacidade | ${BRAND_NAME}`, description: `Política de Privacidade e LGPD de ${BRAND_NAME}.`, path: 'politica-de-privacidade' });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    const specialty = specialties.find((item) => route === `especialidades/${item.slug}`);
-    if (specialty) {
-      setPageMeta({ title: specialty.seoTitle, description: specialty.metaDescription, path: `especialidades/${specialty.slug}` });
-      window.scrollTo({ top: 0, behavior: 'smooth' });
-      return;
-    }
-
-    setPageMeta({ title: `${BRAND_NAME} | Atendimento Humanizado em Passos-MG`, description: 'Especialidades em saúde e bem-estar em Passos-MG. Atendimento humanizado, agendamento pelo WhatsApp e cuidado para você e sua família.' });
-    const timer = window.setTimeout(() => {
-      if (hash && hash !== '#inicio') {
-        if (hash === '#contato') window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-        else document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      }
-    }, 0);
-    return () => window.clearTimeout(timer);
-  }, [route, hash]);
-
+  useEffect(() => { const redirectPath = sessionStorage.getItem('spa-redirect-path'); if (redirectPath) { sessionStorage.removeItem('spa-redirect-path'); window.history.replaceState(null, '', redirectPath); setRoute(getRoute()); setHash(window.location.hash || '#inicio'); } }, []);
+  useEffect(() => { const sync = () => { setRoute(getRoute()); setHash(window.location.hash || '#inicio'); }; const click = (event) => { const link = event.target.closest('a[href]'); if (!link || link.href.startsWith('mailto:') || link.href.startsWith('tel:')) return; const url = new URL(link.href); if (url.origin === window.location.origin) setTimeout(sync, 0); }; window.addEventListener('popstate', sync); window.addEventListener('hashchange', sync); document.addEventListener('click', click); return () => { window.removeEventListener('popstate', sync); window.removeEventListener('hashchange', sync); document.removeEventListener('click', click); }; }, []);
+  useEffect(() => { if (route === 'politica-de-privacidade') { setPageMeta({ title: `Política de Privacidade | ${BRAND_NAME}`, description: `Política de Privacidade e LGPD de ${BRAND_NAME}.`, path: 'politica-de-privacidade' }); window.scrollTo({ top: 0, behavior: 'smooth' }); return; } if (route === 'teste-genetico') { setPageMeta({ title: 'Teste genético nutricional em Passos-MG | Nutrição de precisão', description: 'Landing page sobre teste genético nutricional, benefícios, limitações, indicações e acompanhamento profissional em Passos-MG.', path: 'teste-genetico' }); window.scrollTo({ top: 0, behavior: 'smooth' }); return; } const specialty = specialties.find((item) => route === `especialidades/${item.slug}`); if (specialty) { setPageMeta({ title: specialty.seoTitle, description: specialty.metaDescription, path: `especialidades/${specialty.slug}` }); window.scrollTo({ top: 0, behavior: 'smooth' }); return; } setPageMeta({ title: `${BRAND_NAME} | Atendimento Humanizado em Passos-MG`, description: 'Especialidades em saúde e bem-estar em Passos-MG. Atendimento humanizado, agendamento pelo WhatsApp e cuidado para você e sua família.' }); const timer = window.setTimeout(() => { if (hash && hash !== '#inicio') { if (hash === '#contato') window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' }); else document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' }); } }, 0); return () => window.clearTimeout(timer); }, [route, hash]);
   if (route === 'politica-de-privacidade') return <PrivacyPolicy />;
+  if (route === 'teste-genetico') return <GeneticTestingPage />;
   const specialty = specialties.find((item) => route === `especialidades/${item.slug}`);
   if (specialty) return <SpecialtyPage specialty={specialty} />;
   return <HomePage />;
