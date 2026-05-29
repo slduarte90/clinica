@@ -1,0 +1,240 @@
+/* Visual moderno e padronizado para páginas de especialidades */
+.specialty-page {
+  background: #f8fbfa;
+}
+
+.specialty-page .specialty-hero {
+  position: relative;
+  overflow: hidden;
+  padding: 92px 0 76px;
+  background:
+    radial-gradient(circle at 12% 20%, rgba(11, 138, 122, 0.12), transparent 34%),
+    radial-gradient(circle at 88% 0%, rgba(7, 82, 73, 0.10), transparent 30%),
+    linear-gradient(135deg, #f7fbf9 0%, #e9f4ef 100%);
+}
+
+.specialty-page .specialty-hero-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) 360px;
+  align-items: center;
+  gap: 48px;
+}
+
+.specialty-page .specialty-hero h1 {
+  max-width: 780px;
+  margin-top: 18px;
+  color: #062f2b;
+  font-size: clamp(38px, 5vw, 64px);
+  line-height: 1.06;
+  letter-spacing: -0.045em;
+}
+
+.specialty-page .specialty-hero .hero-text {
+  max-width: 760px;
+  margin-top: 24px;
+  color: #425d57;
+  font-size: 18px;
+  line-height: 1.75;
+}
+
+.specialty-page .section-kicker {
+  color: #00796b;
+  font-size: 12px;
+  letter-spacing: 0.28em;
+}
+
+.specialty-page .landing-card,
+.specialty-professional-card {
+  border: 0 !important;
+  border-radius: 34px !important;
+  padding: 28px !important;
+  background: rgba(255,255,255,0.92) !important;
+  box-shadow: 0 24px 70px rgba(7, 63, 56, 0.12) !important;
+  backdrop-filter: blur(18px);
+}
+
+.specialty-professional-photo {
+  min-height: 320px;
+  border-radius: 26px;
+  display: grid;
+  place-items: center;
+  background: linear-gradient(145deg, #deeee8, #ffffff);
+  color: #00796b;
+  font-weight: 900;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  text-align: center;
+}
+
+.specialty-professional-info {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.specialty-professional-info strong {
+  display: block;
+  color: #062f2b;
+  font-size: 22px;
+  line-height: 1.25;
+}
+
+.specialty-professional-info span {
+  display: block;
+  margin-top: 6px;
+  color: #425d57;
+  font-weight: 800;
+}
+
+.specialty-professional-note {
+  margin-top: 18px;
+  border-radius: 22px;
+  padding: 18px;
+  background: #e7f1ed;
+  color: #34524c;
+  font-size: 14px;
+  line-height: 1.55;
+  font-weight: 700;
+  text-align: center;
+}
+
+.specialty-page .specialty-layout {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 26px;
+  align-items: stretch;
+}
+
+.specialty-page .content-block {
+  position: relative;
+  overflow: hidden;
+  border: 0 !important;
+  border-radius: 34px !important;
+  padding: clamp(28px, 4vw, 42px) !important;
+  background: rgba(255,255,255,0.92) !important;
+  box-shadow: 0 20px 60px rgba(7, 63, 56, 0.08) !important;
+}
+
+.specialty-page .content-block::before {
+  content: "";
+  position: absolute;
+  inset: 0 auto auto 0;
+  width: 160px;
+  height: 160px;
+  background: radial-gradient(circle, rgba(0,121,107,0.10), transparent 70%);
+  pointer-events: none;
+}
+
+.specialty-page .content-block h2 {
+  position: relative;
+  margin: 0 0 22px;
+  color: #062f2b;
+  font-size: clamp(26px, 3vw, 36px);
+  line-height: 1.16;
+  letter-spacing: -0.035em;
+}
+
+.specialty-page .content-block p {
+  position: relative;
+  margin-bottom: 18px;
+  color: #425d57;
+  font-size: 16px;
+  line-height: 1.78;
+}
+
+.specialty-page .info-list,
+.specialty-page .nutrition-highlight-list,
+.specialty-page .seo-outline {
+  position: relative;
+  display: grid;
+  gap: 14px;
+  margin: 22px 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.specialty-page .info-list li,
+.specialty-page .nutrition-highlight-list li,
+.specialty-page .seo-outline li {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  min-height: 42px;
+  padding: 14px 16px;
+  border-radius: 18px;
+  background: #f0f8f5;
+  color: #173f39;
+  font-weight: 750;
+  line-height: 1.45;
+}
+
+.specialty-page .info-list svg {
+  color: #00796b;
+  flex: 0 0 auto;
+  margin-top: 2px;
+}
+
+.specialty-page .nutrition-highlight-list li::before,
+.specialty-page .seo-outline li::before {
+  content: "✓";
+  color: #00796b;
+  font-weight: 900;
+}
+
+.specialty-page .nutrition-note {
+  margin-top: 24px !important;
+  margin-bottom: 0 !important;
+  border-radius: 24px;
+  padding: 20px 22px;
+  background: linear-gradient(135deg, #e7f1ed, #f7fbf9);
+  color: #173f39 !important;
+  font-weight: 800;
+  box-shadow: inset 0 0 0 1px rgba(0,121,107,0.08);
+}
+
+.specialty-page .faq-list {
+  margin-top: 28px;
+  gap: 16px;
+}
+
+.specialty-page .faq-list details {
+  border: 0;
+  border-radius: 22px;
+  background: #f0f8f5;
+  padding: 20px 22px;
+  box-shadow: inset 0 0 0 1px rgba(0,121,107,0.08);
+}
+
+.specialty-page .faq-list summary {
+  color: #062f2b;
+  font-size: 16px;
+}
+
+.specialty-page .faq-list p {
+  margin-top: 14px;
+}
+
+.specialty-page .section.blush.center {
+  background: linear-gradient(135deg, #075249, #053f38);
+  color: white;
+}
+
+.specialty-page .section.blush.center h2 {
+  color: white;
+}
+
+.specialty-page .section.blush.center p {
+  color: rgba(255,255,255,0.78);
+}
+
+@media (max-width: 980px) {
+  .specialty-page .specialty-hero-grid,
+  .specialty-page .specialty-layout {
+    grid-template-columns: 1fr;
+  }
+
+  .specialty-professional-card,
+  .specialty-page .landing-card {
+    max-width: 440px;
+    margin: 0 auto;
+  }
+}
