@@ -51,6 +51,27 @@
   background: rgba(255,255,255,0.92) !important;
   box-shadow: 0 24px 70px rgba(7, 63, 56, 0.12) !important;
   backdrop-filter: blur(18px);
+  color: #062f2b !important;
+}
+
+.specialty-page .landing-card strong,
+.specialty-page .landing-card .brand-name,
+.specialty-page .landing-card .brand-name-compact,
+.specialty-professional-info strong {
+  color: #062f2b !important;
+}
+
+.specialty-page .landing-card span,
+.specialty-page .landing-card p,
+.specialty-page .landing-card .brand-subtitle,
+.specialty-page .landing-card .brand-subtitle-compact,
+.specialty-professional-info span,
+.specialty-professional-note {
+  color: #425d57 !important;
+}
+
+.specialty-page .landing-card a {
+  color: #00796b !important;
 }
 
 .specialty-professional-photo {
@@ -219,11 +240,17 @@
 }
 
 .specialty-page .section.blush.center h2 {
-  color: white;
+  color: white !important;
 }
 
 .specialty-page .section.blush.center p {
-  color: rgba(255,255,255,0.78);
+  color: rgba(255,255,255,0.78) !important;
+}
+
+.specialty-page .section.blush.center .btn {
+  background: #ffffff;
+  color: #075249;
+  box-shadow: 0 14px 34px rgba(0,0,0,0.18);
 }
 
 @media (max-width: 980px) {
