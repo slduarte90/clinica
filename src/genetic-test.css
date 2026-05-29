@@ -261,22 +261,40 @@
 }
 
 .genetic-cta {
-  background: linear-gradient(135deg, #075249, #053f38);
-  color: #fff;
+  background:
+    radial-gradient(circle at 18% 18%, rgba(11, 138, 122, 0.13), transparent 32%),
+    linear-gradient(135deg, #f8fbfa 0%, #e7f1ed 100%);
+  color: #062f2b;
   text-align: center;
 }
 
+.genetic-cta .container.narrow {
+  max-width: 840px;
+  padding: clamp(28px, 5vw, 54px);
+  border-radius: 34px;
+  background: rgba(255, 255, 255, 0.92);
+  box-shadow: 0 24px 70px rgba(7, 63, 56, 0.11);
+}
+
 .genetic-cta h2 {
-  color: #fff;
+  color: #062f2b;
 }
 
 .genetic-cta p {
-  color: rgba(255,255,255,.78);
+  max-width: 680px;
+  margin-left: auto;
+  margin-right: auto;
+  color: #425d57;
 }
 
 .genetic-cta .btn {
-  background: #fff;
-  color: #075249;
+  background: #075249;
+  color: #fff;
+  box-shadow: 0 18px 42px rgba(7, 82, 73, 0.24);
+}
+
+.genetic-cta .btn:hover {
+  background: #0b6a5e;
 }
 
 @media (max-width: 980px) {
