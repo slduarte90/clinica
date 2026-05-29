@@ -1,8 +1,0 @@
-/* Regra visual atual:
-   - Áreas claras usam a logo padrão definida no React: logo.png
-   - Rodapé com fundo escuro usa a versão clara: logo02.png
-   Este ajuste fica limitado ao rodapé para não afetar cabeçalho, cards ou páginas claras. */
-.site-footer .brand-logo,
-.site-footer .brand-logo-compact {
-  content: url("./logo02.png") !important;
-}
