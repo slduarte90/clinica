@@ -20,6 +20,7 @@
   flex-direction: column !important;
   align-items: center !important;
   justify-self: center !important;
+  transform: translateY(-14px) !important;
 }
 
 .site-footer .footer-grid > div:nth-child(2) {
