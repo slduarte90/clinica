@@ -13,19 +13,21 @@ const WHATSAPP_URL = `https://wa.me/${WHATSAPP_NUMBER}?text=${WHATSAPP_MESSAGE}`
 const PHONE_URL = 'tel:+553535228035';
 const EMAIL = 'saudeebemestarpassos@gmail.com';
 const EMAIL_URL = `mailto:${EMAIL}`;
-const ADDRESS = 'Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG - 37.900-042';
+const ADDRESS_LINE_1 = 'Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -';
+const ADDRESS_LINE_2 = '37.900-042';
+const ADDRESS = `${ADDRESS_LINE_1} ${ADDRESS_LINE_2}`;
 const MAPS_URL = 'https://www.google.com/maps/dir/?api=1&destination=Rua%20Elvira%20Silveira%20Coimbra%2C%20430%20-%20Centro%20-%20Passos-MG%20-%2037900-042';
 const BASE_URL = import.meta.env.BASE_URL;
 const LOGO_SRC = `${BASE_URL}logo.png`;
 
 const HOURS = [
-  { day: 'Segunda-feira', time: '08:00 às 18:00' },
-  { day: 'Terça-feira', time: '08:00 às 18:00' },
-  { day: 'Quarta-feira', time: '08:00 às 18:00' },
-  { day: 'Quinta-feira', time: '08:00 às 18:00' },
-  { day: 'Sexta-feira', time: '08:00 às 17:00' },
-  { day: 'Sábado', time: 'Fechado' },
-  { day: 'Domingo', time: 'Fechado' },
+  ['Segunda-feira', '08:00 às 18:00'],
+  ['Terça-feira', '08:00 às 18:00'],
+  ['Quarta-feira', '08:00 às 18:00'],
+  ['Quinta-feira', '08:00 às 18:00'],
+  ['Sexta-feira', '08:00 às 17:00'],
+  ['Sábado', 'Fechado'],
+  ['Domingo', 'Fechado'],
 ];
 
 function localPath(path = '') {
@@ -34,7 +36,6 @@ function localPath(path = '') {
 
 function setPageMeta({ title, description, path = '' }) {
   document.title = title;
-
   let descriptionTag = document.querySelector('meta[name="description"]');
   if (!descriptionTag) {
     descriptionTag = document.createElement('meta');
@@ -70,9 +71,9 @@ const specialties = [
     indications: ['Consulta ginecológica de rotina', 'Prevenção e acompanhamento da saúde íntima', 'Orientação sobre ciclos, sintomas e desconfortos', 'Avaliação individualizada conforme histórico da paciente'],
     differentials: ['Atendimento humanizado e reservado', 'Comunicação clara antes do agendamento', 'Possibilidade de tirar dúvidas iniciais pelo WhatsApp', 'Orientação sobre o melhor caminho de atendimento'],
     faqs: [
-      { question: 'Quando devo agendar uma consulta ginecológica?', answer: 'A consulta pode ser agendada para rotina preventiva, acompanhamento de sintomas, dúvidas sobre saúde íntima ou orientação individualizada.' },
-      { question: 'Posso tirar dúvidas antes de marcar?', answer: 'Sim. Você pode falar com nossa equipe pelo WhatsApp para entender melhor o fluxo de agendamento.' },
-      { question: 'O atendimento é feito com horário agendado?', answer: 'Sim. O atendimento é realizado com horário marcado para oferecer mais organização e pontualidade.' },
+      ['Quando devo agendar uma consulta ginecológica?', 'A consulta pode ser agendada para rotina preventiva, acompanhamento de sintomas, dúvidas sobre saúde íntima ou orientação individualizada.'],
+      ['Posso tirar dúvidas antes de marcar?', 'Sim. Você pode falar com nossa equipe pelo WhatsApp para entender melhor o fluxo de agendamento.'],
+      ['O atendimento é feito com horário agendado?', 'Sim. O atendimento é realizado com horário marcado para oferecer mais organização e pontualidade.'],
     ],
   },
   {
@@ -85,9 +86,9 @@ const specialties = [
     indications: ['Sintomas urinários recorrentes', 'Desconfortos relacionados à saúde pélvica', 'Orientação sobre prevenção e acompanhamento', 'Encaminhamento para avaliação adequada quando necessário'],
     differentials: ['Escuta cuidadosa e sem constrangimento', 'Linguagem simples para explicar próximos passos', 'Agendamento facilitado pelo WhatsApp', 'Ambiente profissional e acolhedor'],
     faqs: [
-      { question: 'O que a uroginecologia acompanha?', answer: 'A uroginecologia está relacionada à avaliação de questões da saúde pélvica feminina e sintomas urinários, sempre com orientação profissional.' },
-      { question: 'Quando procurar esse tipo de atendimento?', answer: 'Quando houver desconfortos, sintomas urinários, dúvidas sobre saúde pélvica ou necessidade de avaliação especializada.' },
-      { question: 'É possível receber orientação antes da consulta?', answer: 'Sim. A equipe pode orientar pelo WhatsApp sobre agendamento e preparo inicial.' },
+      ['O que a uroginecologia acompanha?', 'A uroginecologia está relacionada à avaliação de questões da saúde pélvica feminina e sintomas urinários, sempre com orientação profissional.'],
+      ['Quando procurar esse tipo de atendimento?', 'Quando houver desconfortos, sintomas urinários, dúvidas sobre saúde pélvica ou necessidade de avaliação especializada.'],
+      ['É possível receber orientação antes da consulta?', 'Sim. A equipe pode orientar pelo WhatsApp sobre agendamento e preparo inicial.'],
     ],
   },
   {
@@ -100,9 +101,9 @@ const specialties = [
     indications: ['Acompanhamento durante a gestação', 'Dúvidas sobre sintomas e cuidados gestacionais', 'Orientação para consultas e exames', 'Acolhimento da gestante e da família'],
     differentials: ['Cuidado humanizado', 'Orientação clara desde o primeiro contato', 'Agendamento prático', 'Comunicação acolhedora para reduzir inseguranças'],
     faqs: [
-      { question: 'Quando iniciar o acompanhamento obstétrico?', answer: 'O acompanhamento deve ser iniciado conforme orientação médica e necessidade individual da gestante.' },
-      { question: 'Posso agendar pelo WhatsApp?', answer: 'Sim. Nossa equipe realiza o agendamento pelo WhatsApp.' },
-      { question: 'A clínica orienta sobre preparo para a consulta?', answer: 'Sim. Ao agendar, a equipe pode orientar sobre documentos, exames e informações úteis.' },
+      ['Quando iniciar o acompanhamento obstétrico?', 'O acompanhamento deve ser iniciado conforme orientação médica e necessidade individual da gestante.'],
+      ['Posso agendar pelo WhatsApp?', 'Sim. Nossa equipe realiza o agendamento pelo WhatsApp.'],
+      ['A clínica orienta sobre preparo para a consulta?', 'Sim. Ao agendar, a equipe pode orientar sobre documentos, exames e informações úteis.'],
     ],
   },
   {
@@ -115,9 +116,9 @@ const specialties = [
     indications: ['Dúvidas sobre tentativa de gestação', 'Planejamento reprodutivo', 'Orientação inicial para investigação', 'Acompanhamento conforme histórico do casal ou paciente'],
     differentials: ['Abordagem cuidadosa e individualizada', 'Primeiro contato simples pelo WhatsApp', 'Explicação clara dos próximos passos', 'Acolhimento durante uma etapa sensível da vida'],
     faqs: [
-      { question: 'Quando procurar orientação sobre fertilidade?', answer: 'Quando houver dúvidas sobre tentativa de gestação, planejamento reprodutivo ou necessidade de investigação inicial.' },
-      { question: 'A consulta ajuda a definir próximos passos?', answer: 'Sim. A avaliação profissional ajuda a organizar informações e orientar o caminho mais adequado.' },
-      { question: 'Posso agendar uma avaliação inicial?', answer: 'Sim. O agendamento pode ser feito diretamente com nossa equipe.' },
+      ['Quando procurar orientação sobre fertilidade?', 'Quando houver dúvidas sobre tentativa de gestação, planejamento reprodutivo ou necessidade de investigação inicial.'],
+      ['A consulta ajuda a definir próximos passos?', 'Sim. A avaliação profissional ajuda a organizar informações e orientar o caminho mais adequado.'],
+      ['Posso agendar uma avaliação inicial?', 'Sim. O agendamento pode ser feito diretamente com nossa equipe.'],
     ],
   },
   {
@@ -130,9 +131,9 @@ const specialties = [
     indications: ['Orientação após suspeitas ou diagnósticos', 'Acompanhamento especializado', 'Dúvidas sobre encaminhamentos e consultas', 'Suporte para organizar o primeiro atendimento'],
     differentials: ['Comunicação cuidadosa e responsável', 'Acolhimento em uma fase delicada', 'Agendamento facilitado', 'Orientação sobre documentos e informações para a consulta'],
     faqs: [
-      { question: 'Quando procurar um oncologista?', answer: 'Quando houver encaminhamento, suspeitas, diagnóstico ou necessidade de avaliação especializada.' },
-      { question: 'Posso agendar uma primeira avaliação?', answer: 'Sim. Nossa equipe pode auxiliar no agendamento pelo WhatsApp.' },
-      { question: 'Quais informações devo levar para a consulta?', answer: 'Leve exames, relatórios, encaminhamentos e informações sobre seu histórico de saúde.' },
+      ['Quando procurar um oncologista?', 'Quando houver encaminhamento, suspeitas, diagnóstico ou necessidade de avaliação especializada.'],
+      ['Posso agendar uma primeira avaliação?', 'Sim. Nossa equipe pode auxiliar no agendamento pelo WhatsApp.'],
+      ['Quais informações devo levar para a consulta?', 'Leve exames, relatórios, encaminhamentos e informações sobre seu histórico de saúde.'],
     ],
   },
   {
@@ -145,9 +146,9 @@ const specialties = [
     indications: ['Avaliação odontológica inicial', 'Prevenção e acompanhamento de saúde bucal', 'Orientação sobre tratamentos disponíveis', 'Agendamento para atendimento com horário marcado'],
     differentials: ['Atendimento organizado e acolhedor', 'Facilidade para tirar dúvidas pelo WhatsApp', 'Comunicação clara sobre o próximo passo', 'Experiência mais prática para o paciente'],
     faqs: [
-      { question: 'Como agendar uma avaliação odontológica?', answer: 'O agendamento pode ser feito pelo WhatsApp com nossa equipe.' },
-      { question: 'Posso tirar dúvidas antes de marcar?', answer: 'Sim. Você pode falar com a equipe antes de confirmar o atendimento.' },
-      { question: 'Quais tratamentos estarão disponíveis?', answer: 'Os tratamentos devem ser confirmados conforme agenda, equipe e avaliação profissional.' },
+      ['Como agendar uma avaliação odontológica?', 'O agendamento pode ser feito pelo WhatsApp com nossa equipe.'],
+      ['Posso tirar dúvidas antes de marcar?', 'Sim. Você pode falar com a equipe antes de confirmar o atendimento.'],
+      ['Quais tratamentos estarão disponíveis?', 'Os tratamentos devem ser confirmados conforme agenda, equipe e avaliação profissional.'],
     ],
   },
   {
@@ -158,250 +159,102 @@ const specialties = [
     headline: 'Consulta nutricional especializada para saúde, bem-estar e qualidade de vida',
     intro: 'A consulta nutricional é focada nas suas dificuldades, na sua rotina e nos seus objetivos. O atendimento busca encaixar mais saúde e bem-estar no seu dia a dia, com estratégia, acompanhamento e orientação individualizada.',
     professional: {
-      name: 'Fernanda Godinho Rosa',
-      registry: 'CRN 9-7322',
-      photoLabel: 'Foto da nutricionista',
+      name: 'Fernanda Godinho Rosa', registry: 'CRN 9-7322', photoLabel: 'Foto da nutricionista',
       note: 'Nutricionista responsável pelo atendimento em nutrição, com foco em avaliação individualizada, estratégia alimentar e acompanhamento contínuo.',
     },
     sections: [
       {
-        kicker: 'Consulta especializada',
-        title: 'Como funciona a consulta nutricional',
-        text: [
-          'O diferencial da consulta é estar junto com você durante todo o caminho em busca do seu melhor peso, longevidade, melhora da saúde, bem-estar e qualidade de vida.',
-          'Na primeira consulta, é feita uma escuta cuidadosa da sua história alimentar, preferências, dificuldades e objetivos. A partir disso, é construído um plano alimentar pensado para a sua rotina, com orientações práticas para que você consiga fazer escolhas melhores sem abrir mão do prazer em se alimentar.',
-          'Depois da consulta, entre uma consulta e outra, você pode contar com suporte para ajustar dúvidas e manter o acompanhamento mais próximo. O objetivo é que você se sinta mais motivado, organizado e confiante durante o processo.',
-        ],
+        kicker: 'Consulta especializada', title: 'Como funciona a consulta nutricional',
+        text: ['O diferencial da consulta é estar junto com você durante todo o caminho em busca do seu melhor peso, longevidade, melhora da saúde, bem-estar e qualidade de vida.', 'Na primeira consulta, é feita uma escuta cuidadosa da sua história alimentar, preferências, dificuldades e objetivos. A partir disso, é construído um plano alimentar pensado para a sua rotina, com orientações práticas para que você consiga fazer escolhas melhores sem abrir mão do prazer em se alimentar.', 'Depois da consulta, entre uma consulta e outra, você pode contar com suporte para ajustar dúvidas e manter o acompanhamento mais próximo. O objetivo é que você se sinta mais motivado, organizado e confiante durante o processo.'],
         note: 'Esse modelo de atendimento é indicado para quem busca acompanhamento nutricional com clareza, estratégia e constância.',
       },
       {
-        kicker: 'Tecnologia e precisão',
-        title: 'Avaliação completa para uma nutrição mais individualizada',
+        kicker: 'Tecnologia e precisão', title: 'Avaliação completa para uma nutrição mais individualizada',
         text: ['Na clínica, a nutrição conta com métodos modernos para oferecer uma avaliação mais completa e personalizada da saúde, considerando composição corporal, saúde intestinal, inflamação e performance metabólica.'],
         list: ['Ultrassom corporal BodyMetrix®', 'Testes genéticos aplicados à nutrição funcional', 'Avaliação avançada de composição corporal', 'Estratégias integrativas para saúde hormonal e metabólica', 'Parceria com laboratório Fleury para exames laboratoriais de alta precisão'],
         note: 'Mais do que tratar sintomas, buscamos entender a raiz dos desequilíbrios para construir resultados reais e sustentáveis.',
       },
       {
-        kicker: 'Acompanhamento individualizado',
-        title: 'Programas nutricionais com estratégia e constância',
+        kicker: 'Acompanhamento individualizado', title: 'Programas nutricionais com estratégia e constância',
         text: ['Os programas nutricionais foram desenvolvidos para proporcionar acompanhamento contínuo e uma abordagem mais profunda da saúde.', 'Ao longo do processo, o paciente conta com avaliações periódicas, monitoramento de evolução, ajustes estratégicos e suporte nutricional personalizado, favorecendo mais aderência, segurança e resultados consistentes.'],
         list: ['Planejamento alimentar individualizado', 'Acompanhamento da evolução corporal e clínica', 'Ajustes conforme rotina, exames e objetivos', 'Orientação para escolhas alimentares mais conscientes', 'Suporte para manter organização e motivação'],
       },
     ],
     faqs: [
-      { question: 'Para quem é indicada a consulta nutricional?', answer: 'É indicada para pessoas que desejam melhorar alimentação, saúde, composição corporal, disposição, relação com a comida ou precisam de acompanhamento nutricional individualizado.' },
-      { question: 'A consulta inclui plano alimentar?', answer: 'Sim. O plano alimentar é construído considerando sua rotina, preferências, objetivos e necessidades, para que seja possível aplicar as orientações no dia a dia.' },
-      { question: 'Existe acompanhamento depois da consulta?', answer: 'Sim. O acompanhamento ajuda a ajustar dúvidas, acompanhar evolução e manter mais constância durante o processo.' },
+      ['Para quem é indicada a consulta nutricional?', 'É indicada para pessoas que desejam melhorar alimentação, saúde, composição corporal, disposição, relação com a comida ou precisam de acompanhamento nutricional individualizado.'],
+      ['A consulta inclui plano alimentar?', 'Sim. O plano alimentar é construído considerando sua rotina, preferências, objetivos e necessidades, para que seja possível aplicar as orientações no dia a dia.'],
+      ['Existe acompanhamento depois da consulta?', 'Sim. O acompanhamento ajuda a ajustar dúvidas, acompanhar evolução e manter mais constância durante o processo.'],
     ],
   },
 ];
 
 const services = ['Avaliação inicial', 'Consulta especializada', 'Atendimento preventivo', 'Procedimentos personalizados', 'Acompanhamento contínuo', 'Orientação pelo WhatsApp'];
-
 const benefits = [
-  { icon: MessageCircle, title: 'Agendamento facilitado', text: 'Fale com a equipe pelo WhatsApp e receba orientação sobre o melhor horário e serviço.' },
-  { icon: HeartHandshake, title: 'Atendimento acolhedor', text: 'Comunicação clara, humana e cuidadosa em todas as etapas do contato.' },
-  { icon: ShieldCheck, title: 'Serviços organizados', text: 'Encontre rapidamente a solução que você procura, sem complicação.' },
-  { icon: CalendarCheck, title: 'Foco em praticidade', text: 'Uma experiência direta, leve e pensada para conversão em poucos cliques.' },
+  [MessageCircle, 'Agendamento facilitado', 'Fale com a equipe pelo WhatsApp e receba orientação sobre o melhor horário e serviço.'],
+  [HeartHandshake, 'Atendimento acolhedor', 'Comunicação clara, humana e cuidadosa em todas as etapas do contato.'],
+  [ShieldCheck, 'Serviços organizados', 'Encontre rapidamente a solução que você procura, sem complicação.'],
+  [CalendarCheck, 'Foco em praticidade', 'Uma experiência direta, leve e pensada para conversão em poucos cliques.'],
 ];
-
 const homeFaqs = [
-  { question: 'Como faço para agendar?', answer: 'Para agendar sua consulta no Centro de Especialidades em Saúde e Bem-estar, você pode entrar em contato diretamente com nossa secretária pelo telefone ou WhatsApp pelo número (35) 3522-8035.' },
-  { question: 'Posso tirar dúvidas antes de marcar?', answer: 'Sim. Iniciar um tratamento nutricional é uma decisão importante e é normal ter dúvidas. Se quiser entender melhor como funciona o tratamento ou como eu posso te ajudar, podemos agendar uma Sessão Clareza antes de iniciarmos os atendimentos. Esse é um espaço rápido e sem compromisso para alinharmos as expectativas.' },
-  { question: 'O atendimento é com horário marcado?', answer: 'Sim. O horário deve ser agendado com nossa secretária. Aqui, a pontualidade é um dos nossos valores, por isso programe-se para chegar uns 5 minutinhos antes. Você não vai ficar esperando horas na recepção.' },
-  { question: 'Vocês atendem por WhatsApp?', answer: 'Sim, por WhatsApp e ligação.' },
-  { question: 'Quais formas de pagamento são aceitas?', answer: 'Aceitamos as seguintes formas de pagamento: Pix, cartões de crédito e débito e dinheiro.' },
+  ['Como faço para agendar?', 'Para agendar sua consulta no Centro de Especialidades em Saúde e Bem-estar, você pode entrar em contato diretamente com nossa secretária pelo telefone ou WhatsApp pelo número (35) 3522-8035.'],
+  ['Posso tirar dúvidas antes de marcar?', 'Sim. Iniciar um tratamento nutricional é uma decisão importante e é normal ter dúvidas. Se quiser entender melhor como funciona o tratamento ou como eu posso te ajudar, podemos agendar uma Sessão Clareza antes de iniciarmos os atendimentos. Esse é um espaço rápido e sem compromisso para alinharmos as expectativas.'],
+  ['O atendimento é com horário marcado?', 'Sim. O horário deve ser agendado com nossa secretária. Aqui, a pontualidade é um dos nossos valores, por isso programe-se para chegar uns 5 minutinhos antes. Você não vai ficar esperando horas na recepção.'],
+  ['Vocês atendem por WhatsApp?', 'Sim, por WhatsApp e ligação.'],
+  ['Quais formas de pagamento são aceitas?', 'Aceitamos as seguintes formas de pagamento: Pix, cartões de crédito e débito e dinheiro.'],
 ];
 
 function Button({ children, variant = 'primary', href = WHATSAPP_URL, className = '' }) {
-  const isExternal = href.startsWith('http');
-  return <a className={`btn btn-${variant} ${className}`} href={href} target={isExternal ? '_blank' : undefined} rel={isExternal ? 'noreferrer' : undefined}>{children}</a>;
+  const external = href.startsWith('http');
+  return <a className={`btn btn-${variant} ${className}`} href={href} target={external ? '_blank' : undefined} rel={external ? 'noreferrer' : undefined}>{children}</a>;
 }
-
 function BrandLogo({ compact = false }) {
-  return (
-    <div className={compact ? 'brand brand-compact' : 'brand'}>
-      <img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src={LOGO_SRC} alt={`Logomarca ${BRAND_NAME}`} />
-      <div>
-        <p className={compact ? 'brand-name brand-name-compact' : 'brand-name'}>{BRAND_NAME}</p>
-        <p className={compact ? 'brand-subtitle brand-subtitle-compact' : 'brand-subtitle'}>Atendimento humanizado</p>
-      </div>
-    </div>
-  );
+  return <div className={compact ? 'brand brand-compact' : 'brand'}><img className={compact ? 'brand-logo brand-logo-compact' : 'brand-logo'} src={LOGO_SRC} alt={`Logomarca ${BRAND_NAME}`} /><div><p className={compact ? 'brand-name brand-name-compact' : 'brand-name'}>{BRAND_NAME}</p><p className={compact ? 'brand-subtitle brand-subtitle-compact' : 'brand-subtitle'}>Atendimento humanizado</p></div></div>;
 }
-
 function Header() {
   const dropdownRef = useRef(null);
-  const [isDropdownOpen, setIsDropdownOpen] = useState(false);
-
+  const [open, setOpen] = useState(false);
   useEffect(() => {
-    function closeDropdown(event) {
-      if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setIsDropdownOpen(false);
-    }
-    document.addEventListener('click', closeDropdown);
-    return () => document.removeEventListener('click', closeDropdown);
+    const close = (event) => { if (dropdownRef.current && !dropdownRef.current.contains(event.target)) setOpen(false); };
+    document.addEventListener('click', close);
+    return () => document.removeEventListener('click', close);
   }, []);
-
-  return (
-    <header className="site-header">
-      <div className="container header-inner">
-        <a href={localPath('#inicio')} aria-label="Ir para o início"><BrandLogo compact /></a>
-        <nav className="nav">
-          <a href={localPath('#inicio')}>Início</a>
-          <details className="nav-dropdown" ref={dropdownRef} open={isDropdownOpen} onToggle={(event) => setIsDropdownOpen(event.currentTarget.open)}>
-            <summary className="nav-dropdown-trigger">Especialidades</summary>
-            <div className="nav-dropdown-menu">
-              <a href={localPath('#especialidades')} onClick={() => setIsDropdownOpen(false)}>Ver todas</a>
-              {specialties.map((specialty) => <a key={specialty.slug} href={localPath(`especialidades/${specialty.slug}`)} onClick={() => setIsDropdownOpen(false)}>{specialty.title}</a>)}
-            </div>
-          </details>
-          <a href={localPath('#servicos')}>Serviços</a>
-          <a href={localPath('#sobre')}>Sobre</a>
-          <a href={localPath('#duvidas')}>Dúvidas</a>
-          <a href={localPath('#contato')}>Contato</a>
-        </nav>
-        <Button>Agendar pelo WhatsApp</Button>
-      </div>
-    </header>
-  );
+  return <header className="site-header"><div className="container header-inner"><a href={localPath('#inicio')} aria-label="Ir para o início"><BrandLogo compact /></a><nav className="nav"><a href={localPath('#inicio')}>Início</a><details className="nav-dropdown" ref={dropdownRef} open={open} onToggle={(e) => setOpen(e.currentTarget.open)}><summary className="nav-dropdown-trigger">Especialidades</summary><div className="nav-dropdown-menu"><a href={localPath('#especialidades')} onClick={() => setOpen(false)}>Ver todas</a>{specialties.map((s) => <a key={s.slug} href={localPath(`especialidades/${s.slug}`)} onClick={() => setOpen(false)}>{s.title}</a>)}</div></details><a href={localPath('#servicos')}>Serviços</a><a href={localPath('#sobre')}>Sobre</a><a href={localPath('#duvidas')}>Dúvidas</a><a href={localPath('#contato')}>Contato</a></nav><Button>Agendar pelo WhatsApp</Button></div></header>;
 }
-
-function HoursList() {
-  return <div className="hours-list">{HOURS.map((item) => <span key={item.day}>{item.day}: {item.time}</span>)}</div>;
-}
-
 function Footer() {
-  return (
-    <footer className="site-footer">
-      <div className="container footer-grid">
-        <div>
-          <BrandLogo compact />
-          <div className="footer-contact-links">
-            <span>Rua Elvira Silveira Coimbra, 430 - Centro - Passos-MG -</span>
-            <span>37.900-042</span>
-            <a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a>
-            <a href={PHONE_URL}>Ligação: {WHATSAPP_DISPLAY}</a>
-            <a href={EMAIL_URL}>E-mail: {EMAIL}</a>
-          </div>
-        </div>
-        <div>
-          <strong>Links</strong>
-          <a href={localPath('#especialidades')}>Especialidades</a>
-          <a href={localPath('#servicos')}>Serviços</a>
-          <a href={localPath('#sobre')}>Sobre</a>
-          <a href={localPath('#contato')}>Contato</a>
-          <a href={localPath('politica-de-privacidade')}>Política de Privacidade</a>
-        </div>
-        <div>
-          <strong>Horários</strong>
-          <HoursList />
-        </div>
-      </div>
-    </footer>
-  );
+  return <footer className="site-footer"><div className="container footer-grid"><div><BrandLogo compact /><div className="footer-contact-links"><a href={MAPS_URL} target="_blank" rel="noreferrer"><span>{ADDRESS_LINE_1}</span><span>{ADDRESS_LINE_2}</span></a><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">WhatsApp: {WHATSAPP_DISPLAY}</a><a href={PHONE_URL}>Ligação: {WHATSAPP_DISPLAY}</a><a href={EMAIL_URL}>E-mail: {EMAIL}</a></div></div><div><strong>Links</strong><a href={localPath('#especialidades')}>Especialidades</a><a href={localPath('#servicos')}>Serviços</a><a href={localPath('#sobre')}>Sobre</a><a href={localPath('#contato')}>Contato</a><a href={localPath('politica-de-privacidade')}>Política de Privacidade</a></div><div><strong>Horários</strong><div className="hours-list">{HOURS.map(([day, time]) => <span key={day}>{day}: {time}</span>)}</div></div></div></footer>;
 }
-
 function PrivacyPolicy() {
-  return (
-    <div className="site-shell">
-      <Header />
-      <main className="privacy-page">
-        <section className="privacy-hero"><div className="container narrow"><p className="section-kicker">LGPD</p><h1>Política de Privacidade</h1><p>Esta Política de Privacidade explica como {BRAND_NAME} coleta, utiliza, armazena e protege dados pessoais fornecidos por visitantes, pacientes e interessados em atendimento, em conformidade com a Lei Geral de Proteção de Dados Pessoais.</p><p className="privacy-updated">Última atualização: 28 de maio de 2026.</p></div></section>
-        <section className="privacy-content"><div className="container narrow privacy-card"><h2>1. Quem somos</h2><p>{BRAND_NAME} é um centro de especialidades em saúde e bem-estar localizado em {ADDRESS}.</p><h2>2. Quais dados podemos coletar</h2><p>Podemos coletar dados fornecidos voluntariamente ao entrar em contato, solicitar informações ou agendar atendimento, como nome, telefone, WhatsApp, mensagens enviadas e informações relacionadas ao atendimento solicitado.</p><h2>3. Para quais finalidades usamos os dados</h2><p>Os dados podem ser utilizados para responder dúvidas, realizar pré-atendimento, agendar consultas, confirmar horários, informar sobre serviços e cumprir obrigações legais.</p><h2>4. Compartilhamento de dados</h2><p>Os dados poderão ser compartilhados apenas quando necessário para viabilizar contato, atendimento, ferramentas tecnológicas, hospedagem do site, análise de métricas ou cumprimento de obrigações legais. Não vendemos dados pessoais.</p><h2>5. Direitos do titular dos dados</h2><p>Nos termos da LGPD, o titular pode solicitar confirmação de tratamento, acesso, correção, anonimização, bloqueio, eliminação, informações sobre compartilhamento e revogação do consentimento, quando aplicável.</p><h2>6. Contato</h2><p>Para dúvidas sobre privacidade, fale conosco pelo WhatsApp {WHATSAPP_DISPLAY} ou pelo e-mail {EMAIL}.</p></div></section>
-      </main>
-      <Footer />
-    </div>
-  );
+  return <div className="site-shell"><Header /><main className="privacy-page"><section className="privacy-hero"><div className="container narrow"><p className="section-kicker">LGPD</p><h1>Política de Privacidade</h1><p>Esta Política de Privacidade explica como {BRAND_NAME} coleta, utiliza, armazena e protege dados pessoais fornecidos por visitantes, pacientes e interessados em atendimento.</p><p className="privacy-updated">Última atualização: 28 de maio de 2026.</p></div></section><section className="privacy-content"><div className="container narrow privacy-card"><h2>1. Quem somos</h2><p>{BRAND_NAME} é um centro de especialidades em saúde e bem-estar localizado em {ADDRESS}.</p><h2>2. Dados e finalidades</h2><p>Podemos usar dados fornecidos voluntariamente para responder dúvidas, realizar pré-atendimento, agendar consultas, confirmar horários e cumprir obrigações legais.</p><h2>3. Compartilhamento</h2><p>Os dados poderão ser compartilhados apenas quando necessário para viabilizar contato, atendimento, ferramentas tecnológicas ou obrigações legais. Não vendemos dados pessoais.</p><h2>4. Contato</h2><p>Para dúvidas sobre privacidade, fale conosco pelo WhatsApp {WHATSAPP_DISPLAY} ou pelo e-mail {EMAIL}.</p></div></section></main><Footer /></div>;
 }
-
 function ProfessionalCard({ specialty }) {
-  const professional = specialty.professional || { ...defaultProfessional, registry: `${specialty.registryLabel || 'CRM'} / registro profissional a definir` };
-  return (
-    <aside className="specialty-professional-card">
-      <div className="specialty-professional-photo">{professional.photoLabel}</div>
-      <div className="specialty-professional-info"><strong>{professional.name}</strong><span>{professional.registry}</span></div>
-      <p className="specialty-professional-note">{professional.note}</p>
-    </aside>
-  );
+  const p = specialty.professional || { ...defaultProfessional, registry: `${specialty.registryLabel || 'CRM'} / registro profissional a definir` };
+  return <aside className="specialty-professional-card"><div className="specialty-professional-photo">{p.photoLabel}</div><div className="specialty-professional-info"><strong>{p.name}</strong><span>{p.registry}</span></div><p className="specialty-professional-note">{p.note}</p></aside>;
 }
-
+function defaultSections(s) {
+  return [{ kicker: 'Quando procurar', title: `Principais motivos para buscar atendimento em ${s.title}`, text: ['Atendimento pensado para orientar o paciente com clareza, acolhimento e direcionamento adequado desde o primeiro contato.'], list: s.indications }, { kicker: 'Diferenciais', title: 'Como o atendimento é conduzido', text: ['A clínica valoriza atendimento humanizado, comunicação simples e organização no processo de agendamento.'], list: s.differentials }];
+}
 function SpecialtyBlock({ section }) {
-  return (
-    <article className="content-block specialty-content-card">
-      <p className="section-kicker">{section.kicker}</p>
-      <h2>{section.title}</h2>
-      {section.text?.map((paragraph) => <p key={paragraph}>{paragraph}</p>)}
-      {section.list && <ul className="info-list">{section.list.map((item) => <li key={item}><CheckCircle2 size={18} /> {item}</li>)}</ul>}
-      {section.note && <p className="nutrition-note">{section.note}</p>}
-    </article>
-  );
+  return <article className="content-block specialty-content-card"><p className="section-kicker">{section.kicker}</p><h2>{section.title}</h2>{section.text?.map((p) => <p key={p}>{p}</p>)}{section.list && <ul className="info-list">{section.list.map((item) => <li key={item}><CheckCircle2 size={18} /> {item}</li>)}</ul>}{section.note && <p className="nutrition-note">{section.note}</p>}</article>;
 }
-
-function defaultSections(specialty) {
-  return [
-    { kicker: 'Quando procurar', title: `Principais motivos para buscar atendimento em ${specialty.title}`, text: ['Atendimento pensado para orientar o paciente com clareza, acolhimento e direcionamento adequado desde o primeiro contato.'], list: specialty.indications },
-    { kicker: 'Diferenciais', title: 'Como o atendimento é conduzido', text: ['A clínica valoriza atendimento humanizado, comunicação simples e organização no processo de agendamento.'], list: specialty.differentials },
-  ];
-}
-
 function SpecialtyFaq({ specialty }) {
-  return (
-    <article className="content-block specialty-content-card">
-      <p className="section-kicker">Dúvidas frequentes</p>
-      <h2>Perguntas sobre {specialty.title}</h2>
-      <div className="faq-list compact-faq">
-        {specialty.faqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}
-      </div>
-    </article>
-  );
+  return <article className="content-block specialty-content-card"><p className="section-kicker">Dúvidas frequentes</p><h2>Perguntas sobre {specialty.title}</h2><div className="faq-list compact-faq">{specialty.faqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></article>;
 }
-
 function SpecialtyPage({ specialty }) {
   const sections = specialty.sections || defaultSections(specialty);
-  return (
-    <div className="site-shell">
-      <Header />
-      <main className="specialty-page">
-        <section className="specialty-hero section-blush"><div className="container specialty-hero-grid"><div><p className="section-kicker">{specialty.kicker}</p><h1>{specialty.headline}</h1><p className="hero-text">{specialty.intro}</p><div className="hero-actions"><Button>Agendar {specialty.title} pelo WhatsApp <ArrowRight size={18} /></Button><Button variant="outline" href={localPath('#especialidades')}>Ver outras especialidades</Button></div></div><ProfessionalCard specialty={specialty} /></div></section>
-        <section className="section white"><div className="container specialty-layout">{sections.slice(0, 2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}</div></section>
-        <section className="section soft-gray"><div className="container specialty-layout">{sections.slice(2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}<SpecialtyFaq specialty={specialty} /></div></section>
-        <section className="section blush center"><div className="container narrow"><h2>Quer agendar atendimento em {specialty.title}?</h2><p>Fale com a equipe pelo WhatsApp para tirar dúvidas, confirmar disponibilidade e receber orientação sobre o melhor horário.</p><Button>Agendar consulta <MessageCircle size={20} /></Button></div></section>
-      </main>
-      <Footer />
-    </div>
-  );
+  return <div className="site-shell"><Header /><main className="specialty-page"><section className="specialty-hero section-blush"><div className="container specialty-hero-grid"><div><p className="section-kicker">{specialty.kicker}</p><h1>{specialty.headline}</h1><p className="hero-text">{specialty.intro}</p><div className="hero-actions"><Button>Agendar {specialty.title} pelo WhatsApp <ArrowRight size={18} /></Button><Button variant="outline" href={localPath('#especialidades')}>Ver outras especialidades</Button></div></div><ProfessionalCard specialty={specialty} /></div></section><section className="section white"><div className="container specialty-layout">{sections.slice(0, 2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}</div></section><section className="section soft-gray"><div className="container specialty-layout">{sections.slice(2).map((section) => <SpecialtyBlock key={section.title} section={section} />)}<SpecialtyFaq specialty={specialty} /></div></section><section className="section blush center"><div className="container narrow"><h2>Quer agendar atendimento em {specialty.title}?</h2><p>Fale com a equipe pelo WhatsApp para tirar dúvidas, confirmar disponibilidade e receber orientação sobre o melhor horário.</p><Button>Agendar consulta <MessageCircle size={20} /></Button></div></section></main><Footer /></div>;
 }
-
 function HomePage() {
-  return (
-    <div className="site-shell">
-      <Header />
-      <main>
-        <section id="inicio" className="hero section-blush"><div className="blob blob-one" /><div className="blob blob-two" /><div className="container hero-grid"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}><a className="eyebrow" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Atendimento pelo WhatsApp</a><h1>Atendimento rápido, humanizado e pensado para facilitar sua escolha</h1><p className="hero-text">Agende seu atendimento de forma simples, tire suas dúvidas pelo WhatsApp e conte com uma equipe preparada para orientar você desde o primeiro contato.</p><div className="hero-actions"><Button>Quero agendar agora <ArrowRight size={18} /></Button><Button variant="outline" href="#especialidades">Conhecer especialidades</Button></div><div className="trust-list"><span><CheckCircle2 size={16} /> Resposta rápida</span><span><CheckCircle2 size={16} /> Atendimento com horário</span></div></motion.div><motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }}><div className="visual-card-outer"><div className="visual-card-inner"><div className="visual-card-content"><BrandLogo /><div className="mini-card-grid"><a className="mini-card" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><Clock /> <strong>Agendamento rápido</strong></a><a className="mini-card" href={MAPS_URL} target="_blank" rel="noreferrer"><MapPin /> <strong>Passos-MG</strong></a></div></div></div></div></motion.div></div></section>
-        <section className="section white"><div className="container"><div className="section-heading center"><p className="section-kicker">Benefícios</p><h2>Uma experiência mais simples do primeiro contato ao atendimento</h2></div><div className="benefit-grid">{benefits.map((item) => { const Icon = item.icon; return <article key={item.title} className="card"><div className="card-icon"><Icon size={26} /></div><h3>{item.title}</h3><p>{item.text}</p></article>; })}</div></div></section>
-        <section id="especialidades" className="section soft-gray"><div className="container"><div className="section-heading center"><h2>Especialidades</h2></div><div className="specialty-grid">{specialties.map((specialty) => <article key={specialty.slug} className="service-card specialty-card"><h3>{specialty.title}</h3><p>{specialty.metaDescription}</p><a href={localPath(`especialidades/${specialty.slug}`)}>Ver página de {specialty.title} <ArrowRight size={16} /></a></article>)}</div></div></section>
-        <section id="servicos" className="section blush"><div className="container"><div className="split-heading"><div><p className="section-kicker">Serviços</p><h2>Escolha o serviço ideal para você</h2><p>Conheça as principais opções de atendimento e fale com nossa equipe para receber orientação personalizada.</p></div><div className="note-card"><strong>Observação</strong><p>Os nomes abaixo são provisórios e devem ser substituídos pelos serviços reais da clínica antes da publicação.</p></div></div><div className="service-grid">{services.map((service, index) => <article key={service} className="service-card"><div className="service-number">{String(index + 1).padStart(2, '0')}</div><h3>{service}</h3><p>Descrição curta do serviço, com foco em clareza, benefício e chamada para agendamento.</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quero saber mais <ArrowRight size={16} /></a></article>)}</div></div></section>
-        <section className="section white compact"><div className="container"><div className="campaign-card"><div><p className="campaign-kicker">Chamada de campanha</p><h2>Precisa de atendimento com praticidade?</h2><p>Nossa equipe pode orientar você agora mesmo pelo WhatsApp. Envie uma mensagem, tire suas dúvidas e veja a melhor opção de agendamento.</p></div><Button>Falar no WhatsApp</Button></div></div></section>
-        <section id="sobre" className="section soft-gray"><div className="container about-grid"><div className="about-card"><div><p className="section-kicker">Sobre a marca</p><h2>Cuidado, clareza e praticidade em cada etapa</h2><p>Nosso atendimento foi pensado para tornar sua experiência mais simples, desde o primeiro contato até o acompanhamento final. Valorizamos uma comunicação clara, acolhedora e objetiva.</p></div></div><div className="check-list">{['Atendimento humanizado', 'Orientação clara antes do agendamento', 'Comunicação rápida pelo WhatsApp', 'Ambiente profissional e acolhedor'].map((item) => <div key={item}><CheckCircle2 /> <strong>{item}</strong></div>)}</div></div></section>
-        <section id="duvidas" className="section white"><div className="container narrow"><div className="section-heading center"><p className="section-kicker">FAQ</p><h2>Dúvidas frequentes</h2></div><div className="faq-list">{homeFaqs.map((faq) => <details key={faq.question}><summary>{faq.question}</summary><p>{faq.answer}</p></details>)}</div></div></section>
-        <section id="contato" className="section blush center"><div className="container narrow"><h2>Vamos facilitar seu atendimento?</h2><p>Clique no botão abaixo e fale com a equipe pelo WhatsApp para receber orientação e agendar seu atendimento.</p><Button>Agendar agora <MessageCircle size={20} /></Button></div></section>
-      </main>
-      <Footer />
-    </div>
-  );
+  return <div className="site-shell"><Header /><main><section id="inicio" className="hero section-blush"><div className="blob blob-one" /><div className="blob blob-two" /><div className="container hero-grid"><motion.div initial={{ opacity: 0, y: 24 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.6 }}><a className="eyebrow" href={WHATSAPP_URL} target="_blank" rel="noreferrer"><MessageCircle size={16} /> Atendimento pelo WhatsApp</a><h1>Atendimento rápido, humanizado e pensado para facilitar sua escolha</h1><p className="hero-text">Agende seu atendimento de forma simples, tire suas dúvidas pelo WhatsApp e conte com uma equipe preparada para orientar você desde o primeiro contato.</p><div className="hero-actions"><Button>Quero agendar agora <ArrowRight size={18} /></Button><Button variant="outline" href="#especialidades">Conhecer especialidades</Button></div><div className="trust-list"><span><CheckCircle2 size={16} /> Resposta rápida</span><span><CheckCircle2 size={16} /> Atendimento com horário</span></div></motion.div><motion.div initial={{ opacity: 0, scale: 0.96 }} animate={{ opacity: 1, scale: 1 }} transition={{ duration: 0.7, delay: 0.15 }}><div className="visual-card-outer"><div className="visual-card-inner"><div className="visual-card-content"><BrandLogo /><div className="mini-card-grid"><a className="mini-card" href={WHATSAPP_URL} target="_blank" rel="noreferrer" aria-label="Abrir WhatsApp para agendamento"><Clock /> <strong>Agendamento rápido</strong></a><a className="mini-card" href={MAPS_URL} target="_blank" rel="noreferrer" aria-label="Abrir rota para a clínica no Google Maps"><MapPin /> <strong>Passos-MG</strong></a></div></div></div></div></motion.div></div></section><section className="section white"><div className="container"><div className="section-heading center"><p className="section-kicker">Benefícios</p><h2>Uma experiência mais simples do primeiro contato ao atendimento</h2></div><div className="benefit-grid">{benefits.map(([Icon, title, text]) => <article key={title} className="card"><div className="card-icon"><Icon size={26} /></div><h3>{title}</h3><p>{text}</p></article>)}</div></div></section><section id="especialidades" className="section soft-gray"><div className="container"><div className="section-heading center"><h2>Especialidades</h2></div><div className="specialty-grid">{specialties.map((s) => <article key={s.slug} className="service-card specialty-card"><h3>{s.title}</h3><p>{s.metaDescription}</p><a href={localPath(`especialidades/${s.slug}`)}>Ver página de {s.title} <ArrowRight size={16} /></a></article>)}</div></div></section><section id="servicos" className="section blush"><div className="container"><div className="split-heading"><div><p className="section-kicker">Serviços</p><h2>Escolha o serviço ideal para você</h2><p>Conheça as principais opções de atendimento e fale com nossa equipe para receber orientação personalizada.</p></div><div className="note-card"><strong>Observação</strong><p>Os nomes abaixo são provisórios e devem ser substituídos pelos serviços reais da clínica antes da publicação.</p></div></div><div className="service-grid">{services.map((service, index) => <article key={service} className="service-card"><div className="service-number">{String(index + 1).padStart(2, '0')}</div><h3>{service}</h3><p>Descrição curta do serviço, com foco em clareza, benefício e chamada para agendamento.</p><a href={WHATSAPP_URL} target="_blank" rel="noreferrer">Quero saber mais <ArrowRight size={16} /></a></article>)}</div></div></section><section className="section white compact"><div className="container"><div className="campaign-card"><div><p className="campaign-kicker">Chamada de campanha</p><h2>Precisa de atendimento com praticidade?</h2><p>Nossa equipe pode orientar você agora mesmo pelo WhatsApp. Envie uma mensagem, tire suas dúvidas e veja a melhor opção de agendamento.</p></div><Button>Falar no WhatsApp</Button></div></div></section><section id="sobre" className="section soft-gray"><div className="container about-grid"><div className="about-card"><div><p className="section-kicker">Sobre a marca</p><h2>Cuidado, clareza e praticidade em cada etapa</h2><p>Nosso atendimento foi pensado para tornar sua experiência mais simples, desde o primeiro contato até o acompanhamento final. Valorizamos uma comunicação clara, acolhedora e objetiva.</p></div></div><div className="check-list">{['Atendimento humanizado', 'Orientação clara antes do agendamento', 'Comunicação rápida pelo WhatsApp', 'Ambiente profissional e acolhedor'].map((item) => <div key={item}><CheckCircle2 /> <strong>{item}</strong></div>)}</div></div></section><section id="duvidas" className="section white"><div className="container narrow"><div className="section-heading center"><p className="section-kicker">FAQ</p><h2>Dúvidas frequentes</h2></div><div className="faq-list">{homeFaqs.map(([q, a]) => <details key={q}><summary>{q}</summary><p>{a}</p></details>)}</div></div></section><section id="contato" className="section blush center"><div className="container narrow"><h2>Vamos facilitar seu atendimento?</h2><p>Clique no botão abaixo e fale com a equipe pelo WhatsApp para receber orientação e agendar seu atendimento.</p><Button>Agendar agora <MessageCircle size={20} /></Button></div></section></main><Footer /></div>;
 }
-
 function getRoute() {
   const basePath = BASE_URL.replace(/\/$/, '');
   const pathname = window.location.pathname;
-  let route = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
+  const route = pathname.startsWith(basePath) ? pathname.slice(basePath.length) : pathname;
   return route.replace(/^\/+/, '').replace(/\/+$/, '');
 }
-
 function App() {
   const [route, setRoute] = useState(getRoute());
   const [hash, setHash] = useState(window.location.hash || '#inicio');
-
   useEffect(() => {
     const redirectPath = sessionStorage.getItem('spa-redirect-path');
     if (redirectPath) {
@@ -411,50 +264,35 @@ function App() {
       setHash(window.location.hash || '#inicio');
     }
   }, []);
-
   useEffect(() => {
-    const syncLocation = () => { setRoute(getRoute()); setHash(window.location.hash || '#inicio'); };
-    const handleClick = (event) => {
-      const link = event.target.closest('a[href]');
-      if (!link) return;
-      const url = new URL(link.href);
-      if (url.origin !== window.location.origin) return;
-      setTimeout(syncLocation, 0);
-    };
-    window.addEventListener('popstate', syncLocation);
-    window.addEventListener('hashchange', syncLocation);
-    document.addEventListener('click', handleClick);
-    return () => { window.removeEventListener('popstate', syncLocation); window.removeEventListener('hashchange', syncLocation); document.removeEventListener('click', handleClick); };
+    const sync = () => { setRoute(getRoute()); setHash(window.location.hash || '#inicio'); };
+    const click = (event) => { const link = event.target.closest('a[href]'); if (!link) return; const url = new URL(link.href); if (url.origin === window.location.origin) setTimeout(sync, 0); };
+    window.addEventListener('popstate', sync);
+    window.addEventListener('hashchange', sync);
+    document.addEventListener('click', click);
+    return () => { window.removeEventListener('popstate', sync); window.removeEventListener('hashchange', sync); document.removeEventListener('click', click); };
   }, []);
-
   useEffect(() => {
     if (route === 'politica-de-privacidade') {
       setPageMeta({ title: `Política de Privacidade | ${BRAND_NAME}`, description: `Política de Privacidade e LGPD de ${BRAND_NAME}.`, path: 'politica-de-privacidade' });
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-
     const specialty = specialties.find((item) => route === `especialidades/${item.slug}`);
     if (specialty) {
       setPageMeta({ title: specialty.seoTitle, description: specialty.metaDescription, path: `especialidades/${specialty.slug}` });
       window.scrollTo({ top: 0, behavior: 'smooth' });
       return;
     }
-
     setPageMeta({ title: `${BRAND_NAME} | Atendimento Humanizado em Passos-MG`, description: 'Especialidades em saúde e bem-estar em Passos-MG. Atendimento humanizado, agendamento pelo WhatsApp e cuidado para você e sua família.' });
     const timer = window.setTimeout(() => {
       if (hash && hash !== '#inicio') {
-        if (hash === '#contato') {
-          window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
-          return;
-        }
-        const target = document.querySelector(hash);
-        if (target) target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+        if (hash === '#contato') window.scrollTo({ top: document.documentElement.scrollHeight, behavior: 'smooth' });
+        else document.querySelector(hash)?.scrollIntoView({ behavior: 'smooth', block: 'start' });
       }
     }, 0);
     return () => window.clearTimeout(timer);
   }, [route, hash]);
-
   if (route === 'politica-de-privacidade') return <PrivacyPolicy />;
   const specialty = specialties.find((item) => route === `especialidades/${item.slug}`);
   if (specialty) return <SpecialtyPage specialty={specialty} />;
