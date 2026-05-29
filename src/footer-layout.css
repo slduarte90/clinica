@@ -87,6 +87,7 @@
 
 .site-footer .brand-logo,
 .site-footer .brand-logo-compact {
+  content: url('/clinica/logo02.png');
   width: 58px;
   height: auto;
   margin: 0 auto 18px;
