@@ -3,6 +3,7 @@ import { createRoot } from 'react-dom/client';
 import { ArrowRight, CalendarCheck, HeartHandshake, MessageCircle, ShieldCheck, MapPin, Clock, CheckCircle2 } from 'lucide-react';
 import { motion } from 'framer-motion';
 import './styles.css';
+import './specialty-modern.css';
 
 const BRAND_NAME = 'Especialidades em Saúde e Bem-Estar';
 const WHATSAPP_NUMBER = '553535228035';
@@ -33,7 +34,7 @@ function slugify(text) {
 }
 
 function localPath(path = '') {
-  const cleanPath = path.replace(/^\/+/, '');
+  const cleanPath = path.replace(/^\/+/,'');
   return `${BASE_URL}${cleanPath}`;
 }
 
