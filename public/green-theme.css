@@ -291,6 +291,32 @@ h3,
   box-shadow: 0 18px 36px rgba(11, 47, 43, 0.1) !important;
 }
 
+.genetic-cta {
+  background: linear-gradient(135deg, #F8FBFA 0%, #E7F1ED 100%) !important;
+  color: #062F2B !important;
+}
+
+.genetic-cta .container.narrow {
+  background: #FFFFFF !important;
+  border-radius: 34px !important;
+  box-shadow: 0 24px 70px rgba(7, 63, 56, 0.11) !important;
+}
+
+.genetic-cta h2 {
+  color: #062F2B !important;
+}
+
+.genetic-cta p {
+  color: #425D57 !important;
+}
+
+.genetic-cta .btn,
+.genetic-cta .btn-primary {
+  background: linear-gradient(135deg, #075249, #0F766E) !important;
+  color: #FFFFFF !important;
+  box-shadow: 0 18px 42px rgba(7, 82, 73, 0.24) !important;
+}
+
 .footer-tagline,
 .site-footer p,
 .site-footer span,
