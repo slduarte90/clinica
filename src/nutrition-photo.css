@@ -1,0 +1,8 @@
+.specialty-page .specialty-professional-photo {
+  overflow: hidden;
+  color: transparent;
+  background-image: url('/clinica/nutricionista.jpg');
+  background-size: cover;
+  background-position: center top;
+  background-repeat: no-repeat;
+}
