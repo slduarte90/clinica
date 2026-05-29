@@ -87,7 +87,6 @@
 
 .site-footer .brand-logo,
 .site-footer .brand-logo-compact {
-  content: url('/clinica/logo02.png');
   width: 58px;
   height: auto;
   margin: 0 auto 18px;
@@ -158,6 +157,23 @@
   font-weight: 400;
   text-align: right;
   white-space: nowrap;
+}
+
+.site-footer .footer-grid > div:nth-child(1) .brand-name,
+.site-footer .footer-grid > div:nth-child(1) .brand-name-compact,
+.site-footer .footer-grid > div:nth-child(2) > strong,
+.site-footer .footer-grid > div:nth-child(3) > strong {
+  font-weight: 900;
+}
+
+.site-footer .footer-grid > div:nth-child(1) .brand-subtitle,
+.site-footer .footer-grid > div:nth-child(1) .brand-subtitle-compact,
+.site-footer .footer-contact-links,
+.site-footer .footer-contact-links a,
+.site-footer .footer-contact-links span,
+.site-footer .footer-grid > div:nth-child(2) a,
+.site-footer .hours-list span {
+  font-weight: 400;
 }
 
 @media (max-width: 980px) {
